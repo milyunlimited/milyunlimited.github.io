@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ups... Nie znaleziono strony</title>
+    <link rel="icon" type="image/x-icon" href="i/images/favicon.ico">
+    <style>
+        :root {
+            --brand-blue: #1d63d3;
+            --brand-blue-hover: #154eb1;
+            --text-primary: #0a0a0a;
+            --text-secondary: #718096;
+            --bg-neutral: #ededed;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --transition-speed: 0.2s;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-neutral);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==========================================================================
+           HEADER / NAVBAR (ZGODNY Z MAKIETĄ)
+           ========================================================================== */
+        .site-header {
+            width: 100%;
+            background-color: transparent; /* Pozostaje jasnoszare tło body */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            min-height: 60px;
+        }
+
+        /* Logo po lewej stronie - czysty img bez wymuszonych wymiarów */
+        .header-logo {
+            display: block;
+            max-height: 40px; /* Bezpiecznik, żeby ogromne logo nie rozwaliło paska */
+            width: auto;
+        }
+
+        /* Wycentrowany tekst placeholderowy na środku navbaru */
+        .navbar-placeholder {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.95rem;
+            color: #b0b0b0; /* Subtelny, szary kolor z makiety */
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        /* ==========================================================================
+           SEKCJA GŁÓWNA (CENTROWANIE TREŚCI 404)
+           ========================================================================== */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+        }
+
+        .error-container {
+            text-align: center;
+            max-width: 650px;
+            width: 100%;
+            margin-top: -60px; /* Delikatne podbicie do góry dla lepszego balansu optycznego */
+        }
+
+        .error-code {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .error-message {
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--brand-blue);
+            color: #ffffff;
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(29, 99, 211, 0.15);
+        }
+
+        .btn-home:hover {
+            background-color: var(--brand-blue-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-home:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <img src="i/images/milyunlogo-whiteback.png" alt="Mily Unlimited" class="header-logo">
+        
+        <div class="navbar-placeholder"></div>
+    </header>
+
+    <main class="main-content">
+        <div class="error-container">
+            
+            <h1 class="error-code">Ups...</h1>
+            
+            <p class="error-message">
+                Wygląda na to że ta strona została przeniesiona lub mogła zostać usunięta
+            </p>
+            
+            <a href="index.html" class="btn-home">Przejdź na stronę główną</a>
+
+        </div>
+    </main>
+
+</body>
+</html>
