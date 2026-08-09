@@ -1,0 +1,188 @@
+/* 
+COOKIE BANNER
+
+*/
+:root {
+    --cb-bg: #ffffff;
+            --cb-border: #e4e6eb;
+            --cb-shadow: 0 -8px 32px rgba(0, 0, 0, 0.08);
+
+            --cb-text-primary: #050505;
+            --cb-text-secondary: #65676b;
+
+            --cb-accent: #0064e0;
+            --cb-accent-hover: #0052b3;
+
+            --cb-btn-reject-bg: #f0f2f5;
+            --cb-btn-reject-bg-hover: #e4e6eb;
+            --cb-btn-reject-text: #050505;
+
+            --cb-font: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --cb-transition: 0.2s ease;
+}
+
+  /* Główny kontener bannera */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            min-height: 140px;
+            background-color: var(--cb-bg);
+            box-shadow: var(--cb-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            padding: 24px 40px;
+            z-index: 9999;
+            border-top: 1px solid var(--cb-border);
+            font-family: var(--cb-font);
+        }
+
+        /* Sekcja z logo i podpisem autora */
+        .cookie-branding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cookie-logo {
+            width: 84px;
+            height: auto;
+            margin-bottom: 8px;
+        }
+
+        .cookie-author {
+            font-size: 11px;
+            color: var(--cb-text-secondary);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Sekcja z tekstem (Nagłówek + Opis) */
+        .cookie-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 100%;
+            overflow-y: auto;
+        }
+
+        .cookie-content h2 {
+            font-size: 1.05rem;
+            color: var(--cb-text-primary);
+            margin-bottom: 6px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .cookie-content p {
+            font-size: 0.88rem;
+            color: var(--cb-text-secondary);
+            line-height: 1.5;
+        }
+
+        .cookie-policy-link {
+            color: var(--cb-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cookie-policy-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Sekcja z przyciskami decyzyjnymi */
+        .cookie-actions {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            transition: background-color var(--cb-transition), transform 0.1s ease;
+            text-align: center;
+            white-space: nowrap;
+            font-family: var(--cb-font);
+        }
+
+        /* Przycisk akceptacji */
+        .btn-accept {
+            background-color: var(--cb-accent);
+            color: #ffffff;
+        }
+
+        .btn-accept:hover {
+            background-color: var(--cb-accent-hover);
+        }
+
+        /* Przycisk odrzucenia */
+        .btn-reject {
+            background-color: var(--cb-btn-reject-bg);
+            color: var(--cb-btn-reject-text);
+        }
+
+        .btn-reject:hover {
+            background-color: var(--cb-btn-reject-bg-hover);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        /* RESPONSYWNOŚĆ (Dla urządzeń mobilnych) */
+        @media (max-width: 768px) {
+            .cookie-banner {
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                padding: 18px;
+                min-height: 0;
+                max-height: 80vh;
+                overflow-y: auto;
+                gap: 12px;
+            }
+
+            .cookie-branding {
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 4px;
+                border-bottom: 1px solid var(--cb-border);
+                padding-bottom: 10px;
+            }
+
+            .cookie-logo {
+                width: 70px;
+                margin-bottom: 0;
+            }
+
+            .cookie-content h2 {
+                font-size: 0.95rem;
+            }
+
+            .cookie-content p {
+                font-size: 0.8rem;
+            }
+
+            .cookie-actions {
+                width: 100%;
+            }
+
+            .btn {
+                flex: 1;
+                padding: 11px 16px;
+                font-size: 0.85rem;
+            }
+        }
+

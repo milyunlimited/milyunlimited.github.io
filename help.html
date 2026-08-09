@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centrum Pomocy / Mily Unlimited</title>
+<!-- Zapobiega mignięciu białego tła przy dark mode -->
+<meta property="og:title" content="Centrum Pomocy / Mily Unlimited" />
+  <meta property="og:description" content="Kompletne centrum pomocy ekosystemu Mily Unlimited" />
+  <meta property="og:image" content="https://milyunlimited.eu/i/images/mu-meta-image-mid2026.jpg" />
+  <meta property="og:url" content="https://milyunlimited.eu/help.html" />
+  <meta property="og:type" content="website" />
+<meta name="description" content="Kompletne centrum pomocy ekosystemu Mily Unlimited">
+<link rel="canonical" href="https://milyunlimited.eu/help.html" />
+<script>
+  (function(){
+    var s = localStorage.getItem('mu-theme');
+    var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (s === 'dark' || (!s && d)) document.documentElement.classList.add('dark');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/x-icon" href="i/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="i/cookies.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0071F5;
+    --blue-light: #3D8EF8;
+    --blue-dark: #0057C2;
+    --blue-muted: #EBF3FF;
+    --fg: #0A0A0A;
+    --fg-2: #3A3A3A;
+    --fg-3: #717171;
+    --fg-4: #A3A3A3;
+    --border: #E5E5E5;
+    --border-2: #F0F0F0;
+    --bg: #FFFFFF;
+    --bg-2: #FAFAFA;
+    --bg-3: #F5F5F5;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
+    --bg-navbar: #ffffff;
+            --bg-navbar-translucent: rgba(255, 255, 255, 0.92);
+            --bg-megamenu: #ffffff; 
+            --border-color: #e4e6eb;
+            
+            --text-primary: #050505;
+            --text-secondary: #050505;
+            --text-muted: #65676b;
+            
+            --color-accent: #0064e0; 
+            --color-accent-hover: #0052b3;
+            --bg-item-hover: #f0f2f5; 
+            --bg-item-hover-strong: #e4e6eb;
+            
+            --font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+            --nav-height: 68px;
+            --transition-speed: 0.2s;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+        /* ==========================================================================
+           2. STRUKTURA PASKA NAWIGACJI (NAVBAR)
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--bg-navbar-translucent, rgba(255, 255, 255, 0.92));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .nav-container {
+            width: 100%;
+            height: var(--nav-height);
+            padding: 0 32px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* LOGO NA MAKS LEWO */
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            padding-right: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1010;
+        }
+
+        /* Główne menu (Desktop) */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-item {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0 18px;
+            height: 42px;
+            margin: 0 2px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Geist', sans-serif;
+        }
+
+        .nav-link:hover, 
+        .nav-item:hover .nav-link {
+            color: var(--text-primary);
+            background-color: var(--bg-item-hover);
+        }
+
+        /* Podkreślenie aktywnej opcji — usunięte na rzecz pill hover w stylu Meta */
+        .nav-link::after {
+            content: none;
+        }
+
+        /* Akcje po prawej (Desktop) */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-left: 24px;
+            z-index: 1010;
+        }
+
+        .action-icon-btn {
+            background: var(--bg-item-hover);
+            border: none;
+            cursor: pointer;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: background-color var(--transition-speed), transform 0.1s ease;
+        }
+
+        .action-icon-btn:hover {
+            background-color: var(--bg-item-hover-strong);
+            transform: scale(1.04);
+        }
+
+        .action-icon-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* PRZYCISK FULL ROUNDED */
+        .btn-cta {
+            background-color: var(--color-accent);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 11px 26px;
+            border-radius: 9999px;
+            transition: background-color var(--transition-speed), transform 0.1s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--color-accent-hover);
+        }
+
+        .btn-cta:active {
+            transform: scale(0.97);
+        }
+
+        /* Sekcja akcji ukryta wewnątrz struktury menu desktopowego (pojawi się tylko na mobile) */
+        .mobile-only-actions {
+            display: none;
+        }
+
+        /* ==========================================================================
+           3. MEGAMENU (DESKTOP)
+           ========================================================================== */
+        .megamenu {
+            position: absolute;
+            top: var(--nav-height);
+            left: 0;
+            position: fixed; 
+            width: 100%; 
+            background-color: var(--bg-megamenu);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4px);
+            transition: opacity var(--transition-speed) ease, 
+                        visibility var(--transition-speed) ease, 
+                        transform var(--transition-speed) ease;
+            z-index: 1001;
+        }
+
+        .megamenu::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            z-index: -1;
+        }
+
+        @media (min-width: 992px) {
+            .nav-item:hover .megamenu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        .megamenu-inner {
+            width: 100%;
+            padding: 40px 32px; 
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .megamenu-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .megamenu-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .megamenu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .megamenu-item-link {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: background-color var(--transition-speed);
+            margin-left: -12px;
+        }
+
+        .megamenu-item-link:hover {
+            background-color: var(--bg-item-hover);
+        }
+
+        .megamenu-item-link:hover .megamenu-link-name {
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .megamenu-text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .megamenu-link-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: font-weight var(--transition-speed);
+        }
+
+        .megamenu-link-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           4. WERSJA RESPONSYWNA (MOBILE)
+           ========================================================================== */
+        .mobile-burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-primary);
+            padding: 8px;
+            z-index: 1015;
+        }
+
+        .mobile-burger svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        .mobile-burger .icon-close {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            /* Ukrywamy domyślne akcje z paska nawigacji na desktopie */
+            .nav-container > .nav-actions {
+                display: none;
+            }
+
+            /* Pokazujemy hamburgera */
+            .mobile-burger {
+                display: block;
+            }
+
+            /* Panel boczny menu */
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-navbar);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: calc(var(--nav-height) + 16px) 24px 40px 24px;
+                gap: 0;
+                overflow-y: auto;
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 1005;
+            }
+
+            .mobile-menu-open .nav-menu {
+                transform: translateX(0);
+            }
+
+            .mobile-menu-open {
+                overflow: hidden;
+            }
+
+            .mobile-menu-open .mobile-burger .icon-open {
+                display: none;
+            }
+
+            .mobile-menu-open .mobile-burger .icon-close {
+                display: block;
+            }
+
+            .nav-item {
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-link {
+                width: 100%;
+                height: 56px;
+                padding: 0;
+                margin: 0;
+                border-radius: 0;
+                font-size: 1.1rem;
+                justify-content: space-between;
+            }
+
+            .nav-link:hover {
+                background-color: transparent;
+            }
+
+            .nav-link::after {
+                display: none;
+            }
+
+            .nav-item:has(.megamenu) .nav-link::after {
+                content: '+';
+                font-size: 1.25rem;
+                font-weight: 300;
+                display: block;
+                color: var(--text-muted);
+            }
+
+            .submenu-open .nav-item:has(.megamenu) .nav-link::after {
+                content: '−';
+            }
+
+            /* Megamenu mobilne */
+            .megamenu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                background-color: var(--bg-item-hover);
+                border-bottom: none;
+                width: 100%;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                padding-bottom: 16px;
+            }
+
+            body.submenu-open .megamenu {
+                display: block;
+            }
+
+            .megamenu-inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 16px 0;
+            }
+
+            .megamenu-column {
+                gap: 8px;
+            }
+
+            .megamenu-item-link {
+                margin-left: 0;
+                padding: 8px 0;
+            }
+            
+            .megamenu-link-desc {
+                display: none;
+            }
+
+            /* AKTYWACJA SEKRECYJNYCH AKCJI POD LINKAMI */
+            .mobile-only-actions {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 32px;
+                gap: 24px;
+                padding-bottom: 20px;
+            }
+
+            .mobile-action-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .mobile-action-row .action-icon-btn {
+                background-color: var(--bg-item-hover);
+                color: var(--text-primary);
+                width: 44px;
+                height: 44px;
+            }
+
+            .mobile-action-label {
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--text-secondary);
+            }
+
+            .mobile-only-actions .btn-cta {
+                width: 100%;
+                height: 48px;
+                font-size: 1rem;
+            }
+        }
+.submenu-open .nav-item:has(#submenuBtn) .megamenu,
+.help-menu-open .nav-item:has(#helpBtn) .megamenu,
+.about-menu-open .nav-item:has(#aboutBtn) .megamenu {
+    display: block;
+}
+/* Opcjonalnie: zmiana plusa na minus dla przycisku Pomoc, gdy jest otwarty */
+.help-menu-open .nav-item:has(#helpBtn) .nav-link::after {
+    content: '−';
+}
+/* Opcjonalnie: zmiana plusa na minus dla "Poznaj nas" na mobile */
+.about-menu-open .nav-item:has(#aboutBtn) .nav-link::after {
+    content: '−';
+}
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Geist', sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Logo: przełączanie wersji light/dark obrazków */
+  .logo-dark  { display: none; }
+  .logo-light { display: block; }
+  html.dark .logo-dark  { display: block; }
+  html.dark .logo-light { display: none; }
+
+  /* Ikona: księżyc w light, słońce w dark */
+  .theme-icon-moon { display: block; }
+  .theme-icon-sun  { display: none;  }
+  html.dark .theme-icon-moon { display: none;  }
+  html.dark .theme-icon-sun  { display: block; }
+
+  /* ══════════════════════════════════════════════════════
+     DARK MODE — zmienne globalne
+  ══════════════════════════════════════════════════════ */
+  html.dark {
+    --fg: #F5F5F5;
+    --fg-2: #D4D4D4;
+    --fg-3: #A3A3A3;
+    --fg-4: #6B6B6B;
+    --border: #2A2A2A;
+    --border-2: #222222;
+    --bg: #0A0A0A;
+    --bg-2: #111111;
+    --bg-3: #1A1A1A;
+    --blue-muted: #0D1F3C;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    --bg-navbar: #0A0A0A;
+    --bg-navbar-translucent: rgba(10, 10, 10, 0.88);
+    --bg-megamenu: #111111;
+    --border-color: #2A2A2A;
+    --text-primary: #F5F5F5;
+    --text-secondary: #D4D4D4;
+    --text-muted: #A3A3A3;
+    --bg-item-hover: #1F1F1F;
+    --bg-item-hover-strong: #2A2A2A;
+    --color-accent: #3D8EF8;
+    --color-accent-hover: #5FA3FA;
+  }
+
+  html.dark .nav-menu { background-color: var(--bg-navbar); }
+
+  body, .site-header, .megamenu, .nav-menu {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  @keyframes navSlideDown {
+    from { opacity: 0; transform: translateY(-100%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .site-header {
+    animation: navSlideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transition: box-shadow 0.3s ease, background-color 0.25s ease !important;
+  }
+  .site-header.scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.08); }
+  html.dark .site-header.scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.4); }
+
+  .megamenu {
+    transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.22s !important;
+  }
+  @media (min-width: 992px) {
+    .nav-item:hover .megamenu { opacity: 1; visibility: visible; transform: translateY(0) !important; }
+    .megamenu { transform: translateY(-8px) !important; }
+  }
+  @media (max-width: 991px) {
+    .megamenu {
+      display: block !important;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 1;
+      visibility: visible;
+      transform: none !important;
+      transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease !important;
+    }
+    .submenu-open .nav-item:has(#submenuBtn) .megamenu,
+    .help-menu-open .nav-item:has(#helpBtn) .megamenu,
+    .about-menu-open .nav-item:has(#aboutBtn) .megamenu { max-height: 600px; }
+  }
+
+  .nav-menu { transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+
+  /* ==========================================================================
+     5. CENTRUM POMOCY — LAYOUT
+     ========================================================================== */
+  .help-center-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: calc(100vh - var(--nav-height));
+  }
+
+  /* ── SIDEBAR ──────────────────────────────────────────── */
+  .help-sidebar {
+    background-color: var(--bg-2);
+    border-right: 1px solid var(--border);
+    padding: 40px 24px;
+    position: sticky;
+    top: var(--nav-height);
+    height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+  }
+
+  .sidebar-home-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin: 0 0 20px -12px;
+    border-radius: var(--radius);
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: background-color 0.15s ease;
+  }
+
+  .sidebar-home-link:hover {
+    background-color: var(--bg-item-hover);
+  }
+
+  .sidebar-home-link svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .sidebar-nav-container {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .sidebar-group-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-group-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--fg-4);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    padding: 0 12px;
+  }
+
+  .sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .sidebar-menu-item a {
+    display: block;
+    padding: 9px 12px;
+    color: var(--fg-2);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+  }
+
+  .sidebar-menu-item a:hover {
+    background-color: var(--bg-item-hover);
+    color: var(--fg);
+  }
+
+  .sidebar-menu-item a.active {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .sidebar-menu-item.has-children > a {
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .sidebar-submenu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid var(--border);
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-submenu .sidebar-menu-item a {
+    font-weight: 400;
+    font-size: 0.87rem;
+    color: var(--fg-3);
+  }
+
+  /* ── WIDOK STARTOWY (WELCOME) ─────────────────────────── */
+  .help-welcome {
+    padding: 90px 64px 100px;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  .help-welcome-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 64px;
+  }
+
+  .help-welcome-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    background: var(--blue-muted);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    margin-bottom: 20px;
+  }
+
+  html.dark .help-welcome-eyebrow {
+    background: rgba(61, 142, 248, 0.12);
+  }
+
+  .help-welcome-header h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--fg);
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .help-welcome-header p {
+    font-size: 1.05rem;
+    color: var(--fg-3);
+    line-height: 1.6;
+  }
+
+  .help-search {
+    max-width: 520px;
+    margin: 32px auto 0;
+    position: relative;
+  }
+
+  .help-search input {
+    width: 100%;
+    height: 52px;
+    padding: 0 20px 0 48px;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 0.95rem;
+    font-family: 'Geist', sans-serif;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .help-search input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--blue-muted);
+  }
+
+  .help-search svg {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--fg-4);
+  }
+
+  .help-tiles-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-4);
+    margin-bottom: 20px;
+  }
+
+  .help-tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .help-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 28px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .help-tile:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .help-tile-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--blue-muted);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  html.dark .help-tile-icon {
+    background: rgba(61, 142, 248, 0.12);
+  }
+
+  .help-tile-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .help-tile h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--fg);
+    letter-spacing: -0.01em;
+  }
+
+  .help-tile p {
+    font-size: 0.88rem;
+    color: var(--fg-3);
+    line-height: 1.55;
+  }
+
+  .help-groups-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .help-group-card {
+    padding: 24px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .help-group-card:hover {
+    background-color: var(--bg-item-hover);
+    border-color: var(--color-accent);
+  }
+
+  .help-group-card span {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .help-group-card svg {
+    width: 16px;
+    height: 16px;
+    color: var(--fg-4);
+    flex-shrink: 0;
+  }
+
+  /* ── TREŚĆ ARTYKUŁÓW (CONTENT) ────────────────────────── */
+  .help-content {
+    padding: 60px 64px;
+    max-width: 880px;
+    width: 100%;
+  }
+
+  .help-section {
+    padding-top: 56px;
+    margin-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 56px;
+  }
+
+  .help-section:first-of-type {
+    padding-top: 0;
+  }
+
+  .help-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 120px;
+  }
+
+  .help-section h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--fg);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .help-section h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .help-section p {
+    font-size: 1rem;
+    color: var(--fg-2);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .help-section ul {
+    margin: 0 0 16px 0;
+    padding-left: 22px;
+    color: var(--fg-2);
+  }
+
+  .help-section li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  .help-section code {
+    background: var(--bg-3);
+    color: var(--fg);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.9em;
+  }
+
+  .help-section a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .help-section a:hover {
+    text-decoration: underline;
+  }
+
+  .placeholder-note {
+    background: var(--blue-muted);
+    color: var(--blue-dark);
+    border: 1px solid rgba(0, 113, 245, 0.2);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  html.dark .placeholder-note {
+    background: rgba(61, 142, 248, 0.1);
+    color: var(--blue-light);
+    border-color: rgba(61, 142, 248, 0.25);
+  }
+
+  /* ==========================================================================
+     6. MOBILNA RESPONSYWNOŚĆ — CENTRUM POMOCY
+     ========================================================================== */
+  @media (max-width: 991px) {
+    .help-center-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .help-sidebar {
+      position: relative;
+      height: auto;
+      top: 0;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .help-welcome {
+      padding: 48px 24px 64px;
+    }
+
+    .help-tiles-grid,
+    .help-groups-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .help-content {
+      padding: 40px 24px;
+    }
+  }
+  /* ── FOOTER ─────────────────────────────────────────── */
+  .footer { background: var(--bg-2); border-top: 1px solid var(--border); padding: 72px 24px 36px; transition: background-color 0.25s ease, border-color 0.25s ease; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 52px; border-bottom: 1px solid var(--border); transition: border-color 0.25s ease; }
+  .footer-brand-logo { font-size: 18px; font-weight: 800; color: var(--fg); letter-spacing: -0.03em; margin-bottom: 12px; }
+  .footer-tagline { font-size: 13.5px; line-height: 1.65; color: var(--fg-3); margin-bottom: 24px; max-width: 260px; }
+  .footer-social { display: flex; gap: 8px; }
+  .social-btn { width: 34px; height: 34px; border-radius: 8px; background: var(--bg-3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--fg-3); transition: background 0.15s, color 0.15s, border-color 0.15s; }
+  .social-btn:hover { background: var(--bg-item-hover); color: var(--fg); border-color: var(--fg-4); }
+  .footer-col h5 { font-size: 12px; font-weight: 700; color: var(--fg); margin-bottom: 16px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 13.5px; color: var(--fg-3); text-decoration: none; transition: color 0.15s ease; display: flex; align-items: center; gap: 6px; }
+  .footer-links a:hover { color: var(--color-accent); }
+  .footer-link-badge { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px; background: var(--blue-muted); color: var(--color-accent); }
+  html.dark .footer-link-badge { background: rgba(61,142,248,0.12); color: var(--blue-light); }
+  .footer-bottom { padding-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer-copy { font-size: 13px; color: var(--fg-4); }
+  .footer-bottom-links { display: flex; gap: 20px; list-style: none; }
+  .footer-bottom-links a { font-size: 13px; color: var(--fg-4); text-decoration: none; transition: color 0.15s; }
+  .footer-bottom-links a:hover { color: var(--fg-2); }
+  .status-dot { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--fg-4); }
+  .status-dot::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #22C55E; display: inline-block; animation: statusPulse 2.5s ease-in-out infinite; }
+  @keyframes statusPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  @media (max-width: 1024px) {
+    .footer-top { grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+    .footer-top > div:first-child { grid-column: span 3; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+  @media (max-width: 768px) {
+    .footer { padding: 56px 16px 32px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+    .footer-top > div:first-child { grid-column: span 2; }
+    .footer-bottom-links { flex-wrap: wrap; gap: 12px; }
+  }
+  @media (max-width: 480px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-top > div:first-child { grid-column: span 1; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Centrum Pomocy / Mily Unlimited",
+  "url": "https://milyunlimited.eu/help.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Mily Unlimited",
+    "url": "https://milyunlimited.eu"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Mily Unlimited",
+    "url": "https://milyunlimited.eu"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ── NAVBAR ─────────────────────────────────────────── -->
+<header class="site-header">
+        <nav class="nav-container">
+            
+            <a href="index.html" class="nav-logo">
+                  <img src="i/images/milyunlogo-whiteback.png" class="logo-light" alt="Mily Unlimited" width="100px">
+                  <img src="i/images/milyunlimited-logo.png"  class="logo-dark"  alt="Mily Unlimited" width="100px">
+            </a>
+
+            <ul class="nav-menu" id="navMenu">                
+                <li class="nav-item">
+                    <button class="nav-link" id="submenuBtn">Projekty</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Cyfrowe</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="about-mbsp-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">MB&SP</span>
+                                                <span class="megamenu-link-desc">Platforma i sklep dla makerów i elektroników.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="about-czatai-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">CzatAI</span>
+                                                <span class="megamenu-link-desc">Eksperymentalny asystent AI dla MB&SP</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="projects.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Maker Tools</span>
+                                                <span class="megamenu-link-desc">Kalkulatory i narzędzia dla makerów.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="projects.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">MB Designer</span>
+                                                <span class="megamenu-link-desc">Lekki i prosty projektant schematów elektronicznych.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" id="helpBtn">Pomoc</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">MB&SP</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Centrum pomocy MB&SP</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">FAQ</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help-store-rules.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Regulamin sklepu</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help-returns.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Zwroty</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/contact_sales.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Poproś o wycenę</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/contact.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Kontakt ze wsparciem MB&SP</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Wsparcie</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Centrum pomocy ogólne</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="status.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Status</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                </li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Journal</a></li>
+                <li class="nav-item">
+                    <button class="nav-link" id="aboutBtn">Poznaj Mily Unlimited</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Poznaj Mily Unlimited</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="mission-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Misja</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutme.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">O mnie</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mission-pl.html#roadmap" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Roadmap</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="research.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Badania</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://business.milyunlimited.eu" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Dla biznesu</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Kontakt</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+
+                <li class="mobile-only-actions">
+                    <div class="mobile-action-row">
+                        <button class="action-icon-btn" id="themeToggleMobile" title="Motyw" aria-label="Zmień motyw">
+                            <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        </button>
+                        <span class="mobile-action-label">Zmień motyw</span>
+                    </div>
+                    <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP.com</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="action-icon-btn" id="themeToggleDesktop" title="Zmień motyw" aria-label="Zmień motyw">
+                    <!-- Księżyc (light mode) -->
+                    <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <!-- Słońce (dark mode) -->
+                    <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP.com</a>
+            </div>
+
+            <button class="mobile-burger" id="burgerBtn" aria-label="Otwórz menu">
+                <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+        </nav>
+    </header>
+
+<!-- ── CENTRUM POMOCY ───────────────────────────────────── -->
+<div class="help-center-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="help-sidebar">
+
+        <a href="#" class="sidebar-home-link" id="helpHomeLink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+            Centrum pomocy
+        </a>
+
+        <nav class="sidebar-nav-container">
+
+            <!-- WPROWADZENIE -->
+            <div class="sidebar-group-box">
+                <h3 class="sidebar-group-title">Wprowadzenie</h3>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item"><a href="#wstep" data-section="wstep">Wstęp do ekosystemu Mily Unlimited</a></li>
+                </ul>
+            </div>
+
+            <!-- MB&SP -->
+            <div class="sidebar-group-box">
+                <h3 class="sidebar-group-title">MB&SP</h3>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item"><a href="#mb-centrum" data-section="mb-centrum">Centrum pomocy MB&SP</a></li>
+                </ul>
+            </div>
+
+            <!-- CZATAI -->
+            <div class="sidebar-group-box">
+                <h3 class="sidebar-group-title">CzatAI</h3>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item"><a href="#czatai-wstep" data-section="czatai-wstep">Czym jest CzatAI</a></li>
+                    <li class="sidebar-menu-item"><a href="#czatai-limity" data-section="czatai-limity">Limity i dostępność</a></li>
+                </ul>
+            </div>
+
+            <!-- MB DESIGNER -->
+            <div class="sidebar-group-box">
+                <h3 class="sidebar-group-title">MB Designer</h3>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item"><a href="#designer-wstep" data-section="designer-wstep">Wprowadzenie do MB Designer</a></li>
+                </ul>
+            </div>
+
+            <!-- ZASOBY -->
+            <div class="sidebar-group-box">
+                <h3 class="sidebar-group-title">Zasoby</h3>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item"><a href="#zasoby-status" data-section="zasoby-status">Status systemów</a></li>
+                </ul>
+            </div>
+
+            <!-- REGULAMINY PLATFORM -->
+            <div class="sidebar-group-box">
+                <h3 class="sidebar-group-title">Regulaminy platform</h3>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item"><a href="#regulamin-mb" data-section="regulamin-mb">Regulamin MB&SP</a></li>
+                    <li class="sidebar-menu-item"><a href="#regulamin-czatai" data-section="regulamin-czatai">Regulamin CzatAI</a></li>
+                    <li class="sidebar-menu-item"><a href="#regulamin-designer" data-section="regulamin-designer">Regulamin MB Designer</a></li>
+
+                    <li class="sidebar-menu-item has-children">
+                        <a href="#prywatnosc" data-section="prywatnosc">Prywatność</a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item"><a href="#polityka-prywatnosci" data-section="polityka-prywatnosci">Polityka prywatności</a></li>
+                            <li class="sidebar-menu-item"><a href="#polityka-cookies" data-section="polityka-cookies">Polityka cookies</a></li>
+                            <li class="sidebar-menu-item"><a href="#rodo" data-section="rodo">RODO</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </aside>
+
+    <!-- WIDOK STARTOWY (WELCOME) -->
+    <main class="help-welcome" id="helpWelcome">
+
+        <div class="help-welcome-header">
+            <span class="help-welcome-eyebrow">Centrum pomocy</span>
+            <h1>Witaj w centrum pomocy<br>Mily Unlimited</h1>
+            <p>Znajdź odpowiedzi na pytania dotyczące MB&SP, CzatAI, MB Designer oraz całego ekosystemu Mily Unlimited.</p>
+
+            <div class="help-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" placeholder="Szukaj w centrum pomocy...">
+            </div>
+        </div>
+
+        <p class="help-tiles-label">Najważniejsze artykuły</p>
+        <div class="help-tiles-grid">
+
+            <a href="#mb-zamowienia" class="help-tile" data-section="mb-zamowienia">
+                <div class="help-tile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                </div>
+                <h3>Jak złożyć zamówienie w MB&SP?</h3>
+                <p>Krok po kroku przez proces zakupowy na platformie MB&SP.</p>
+            </a>
+
+            <a href="#czatai-wstep" class="help-tile" data-section="czatai-wstep">
+                <div class="help-tile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="9" r="1.5"/><path d="M8 15h8"/></svg>
+                </div>
+                <h3>Czym jest CzatAI?</h3>
+                <p>Wprowadzenie do eksperymentalnego asystenta AI wspierającego platformę MB&SP.</p>
+            </a>
+
+            <a href="#mb-wysylka" class="help-tile" data-section="mb-wysylka">
+                <div class="help-tile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <h3>Wysyłka i zwroty</h3>
+                <p>Wszystko, co musisz wiedzieć o czasie dostawy i procesie zwrotu zamówienia.</p>
+            </a>
+
+            <a href="#designer-wstep" class="help-tile" data-section="designer-wstep">
+                <div class="help-tile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.9V17L12 22l-9-4.9V7z"/><path d="M3 7l9 5 9-5"/><path d="M12 22V12"/></svg>
+                </div>
+                <h3>Pierwsze kroki w MB Designer</h3>
+                <p>Jak zacząć projektować schematy elektroniczne w naszym narzędziu.</p>
+            </a>
+
+            <a href="#polityka-prywatnosci" class="help-tile" data-section="polityka-prywatnosci">
+                <div class="help-tile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                </div>
+                <h3>Polityka prywatności i RODO</h3>
+                <p>Jak przetwarzamy dane osobowe w ramach platform Mily Unlimited.</p>
+            </a>
+
+            <a href="contact.html" class="help-tile">
+                <div class="help-tile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                </div>
+                <h3>Kontakt ze wsparciem</h3>
+                <p>Nie znalazłeś odpowiedzi? Skontaktuj się z nami bezpośrednio.</p>
+            </a>
+
+        </div>
+
+        <p class="help-tiles-label">Przeglądaj według kategorii</p>
+        <div class="help-groups-grid">
+            <a href="#mb-konto" class="help-group-card" data-section="mb-konto">
+                <span>MB&SP</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="#czatai-wstep" class="help-group-card" data-section="czatai-wstep">
+                <span>CzatAI</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="#designer-wstep" class="help-group-card" data-section="designer-wstep">
+                <span>MB Designer</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- TREŚĆ ARTYKUŁÓW -->
+    <main class="help-content" id="helpContent" style="display:none;">
+
+        <section id="wstep" class="help-section">
+            <h2>Wstęp do ekosystemu Mily Unlimited</h2>
+            <p><strong>Mily Unlimited</strong> to projekt jednej osoby — rozwijany z pasji do elektroniki, programowania i budowania rzeczy od zera. Ekosystem obejmuje kilka powiązanych platform i narzędzi, które razem tworzą środowisko dla twórców projektów elektronicznych.</p>
+
+            <h3>Co wchodzi w skład ekosystemu?</h3>
+            <ul>
+                <li><strong>MB&SP (Miły's Buy &amp; Sell Parts)</strong> — flagowa platforma z katalogiem komponentów elektronicznych, koszyk zakupowy, wyceny i obsługa zamówień. Dostępna pod adresem <a href="https://mbsp.com.pl" target="_blank" rel="noopener">mbsp.com.pl</a></li>
+                <li><strong>CzatAI</strong> — eksperymentalny asystent konwersacyjny zintegrowany z MB&SP. Pomaga w nawigacji po katalogu i odpowiada na pytania techniczne. Aktualnie w wersji Beta 1.0.</li>
+                <li><strong>MB Designer</strong> — lekki edytor schematów elektronicznych działający w przeglądarce. Narzędzie dla tych, którzy projektują układy i chcą szybko udokumentować schemat bez instalowania oprogramowania.</li>
+                <li><strong>Maker Tools</strong> — zestaw kalkulatorów i narzędzi przydatnych przy projektach elektronicznych.</li>
+            </ul>
+
+            <h3>Strony ekosystemu</h3>
+            <ul>
+                <li><strong><a href="https://milyunlimited.eu" target="_blank" rel="noopener">milyunlimited.eu</a></strong> — Strona główna Mily Unlimited</li>
+                <li><strong><a href="https://business.milyunlimited.eu" target="_blank" rel="noopener">business.milyunlimited.eu</a></strong> — Mily Unlimited: For Business - strona prezentująca kompetencje techniczne, usługi oraz możliwości współpracy ze mną</li>
+            </ul>
+
+            <h3>Jak korzystać z centrum pomocy?</h3>
+            <p>Centrum pomocy Mily Unlimited jest podzielone na sekcje odpowiadające poszczególnym platformom. Wybierz interesujący Cię temat z menu po lewej stronie. Jeśli nie znajdziesz odpowiedzi na swoje pytanie — skontaktuj się z nami przez <a href="contact.html">stronę kontaktową</a>.</p>
+
+            <h3>Wersje i etap rozwoju</h3>
+            <p>Wszystkie platformy ekosystemu są aktywnie rozwijane. Część funkcji jest w fazie Beta lub planowana na kolejne aktualizacje. Szczegółowy stan rozwoju znajdziesz w <a href="changelog.html">changelogu projektu</a>. Projekt jest prowadzony transparentnie — zmiany, błędy i plany są dokumentowane publicznie.</p>
+        </section>
+
+        <section id="mb-centrum" class="help-section">
+            <h2>Centrum pomocy MB&amp;SP</h2>
+            <p>Pełne centrum pomocy platformy Miły's Buy &amp; Sell Parts — zamówienia, konto, wysyłka, zwroty, regulaminy i FAQ — znajduje się bezpośrednio na stronie MB&amp;SP:</p>
+            <p>
+                <a href="https://mbsp.com.pl/help.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:1rem;font-weight:600;">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    mbsp.com.pl/help.html
+                </a>
+            </p>
+        </section>
+
+        <section id="czatai-wstep" class="help-section">
+            <h2>Czym jest CzatAI</h2>
+            <p>CzatAI to wbudowany asystent konwersacyjny dostępny na platformie MB&SP.com.pl. Jego zadaniem jest wsparcie zakupowe — pomaga w nawigacji po katalogu, odpowiada na pytania o produkty i dostępność, a także pełni funkcję informacyjno-edukacyjną dla makerów i elektroników.</p>
+            <p>Aktualna wersja <strong>CzatAI 1.0 Beta</strong> działa w oparciu o lokalne algorytmy przetwarzania słów kluczowych i zamkniętą bazę danych intencji — nie jest to generatywny model językowy (LLM). Oznacza to, że bot rozumie konkretne zapytania i frazy z jego bazy, ale nie prowadzi swobodnej rozmowy jak np. ChatGPT.</p>
+            <p>CzatAI jest projektem aktywnie rozwijanym. W przyszłości planowane jest wdrożenie zaawansowanych modeli językowych, które znacznie rozszerzą możliwości asystenta.</p>
+            <h3>Do czego służy CzatAI?</h3>
+            <ul>
+                <li>Wyszukiwanie produktów i komponentów w katalogu MB&SP</li>
+                <li>Odpowiedzi na pytania o zamówienia, wysyłkę i zwroty</li>
+                <li>Porady techniczne i edukacyjne dot. elektroniki i projektów maker</li>
+                <li>Pomoc w doborze komponentów (rezystory, kondensatory, układy scalone)</li>
+                <li>Generowanie przykładowych fragmentów kodu dla platform mikrokontrolerów</li>
+            </ul>
+            <p><strong>Ważne:</strong> Wszystkie odpowiedzi techniczne mają charakter wyłącznie poglądowy i edukacyjny. Zawsze weryfikuj informacje z oficjalną dokumentacją producenta (Datasheet) przed zastosowaniem w projekcie.</p>
+        </section>
+
+        <section id="czatai-limity" class="help-section">
+            <h2>Limity i dostępność</h2>
+            <p>CzatAI jest dostępny bezpośrednio na stronie MB&SP.com.pl bez konieczności logowania ani zakładania konta. Nie obowiązuje żaden sztywny limit liczby wiadomości na sesję — możesz zadawać pytania swobodnie.</p>
+            <h3>Ograniczenia bazy wiedzy</h3>
+            <p>Ponieważ aktualna wersja Beta działa na zamkniętej bazie intencji (nie jest to model generatywny), bot ma ograniczony zakres wiedzy i rozumie tylko zapytania zbliżone do tych, na które został wcześniej przygotowany. Jeśli pytanie wykracza poza jego bazę, CzatAI poinformuje Cię o braku odpowiedzi i zaproponuje kontakt ze wsparciem.</p>
+            <h3>Czego CzatAI nie obsługuje (wersja Beta)</h3>
+            <ul>
+                <li>Swobodnej rozmowy i pytań niezwiązanych z elektroniką lub platformą MB&SP</li>
+                <li>Zapytań w językach innych niż polski</li>
+                <li>Dostępu do danych Twojego konta lub historii zamówień</li>
+                <li>Realizacji zamówień ani płatności</li>
+                <li>Złożonych wieloetapowych analiz technicznych</li>
+            </ul>
+            <h3>Dane i prywatność w sesji</h3>
+            <p>W wersji Beta 1.0 zapytania są przetwarzane wyłącznie lokalnie w pamięci sesji przeglądarki i nie są trwale zapisywane na serwerach MB&SP.com.pl. Po zamknięciu okna historia czatu jest usuwana. Nie wprowadzaj do okna czatu danych osobowych, haseł ani poufnych informacji.</p>
+        </section>
+
+        <section id="designer-wstep" class="help-section">
+            <h2>Wprowadzenie do MB Designer</h2>
+            <p>MB Designer to proste, przeglądarkowe narzędzie do rysowania schematów ideowych układów elektronicznych. Działa bez instalacji — wystarczy otworzyć stronę i zacząć rysować.</p>
+            <p>Narzędzie jest zaprojektowane do szybkiego szkicowania koncepcji i prostych schematów poglądowych — nie zastępuje profesjonalnych programów EDA (jak KiCad czy Eagle) i nie obsługuje zaawansowanych funkcji takich jak symulacja, analiza elektryczna czy projektowanie PCB.</p>
+            <h3>Co możesz zrobić w MB Designer</h3>
+            <ul>
+                <li>Rysować proste schematy ideowe układów elektronicznych</li>
+                <li>Eksportować schemat do formatu <strong>PNG</strong> lub <strong>PDF</strong></li>
+                <li>Zapisywać i wczytywać projekty w formacie <strong>JSON</strong> (lokalny plik na Twoim urządzeniu)</li>
+            </ul>
+            <h3>Czego MB Designer nie obsługuje</h3>
+            <ul>
+                <li>Zaawansowanych funkcji EDA (symulacja, DRC, projektowanie PCB)</li>
+                <li>Importu zewnętrznych formatów schematów (np. KiCad, Eagle)</li>
+                <li>Zapisywania projektów na serwerze — wszystko pozostaje lokalnie w Twojej przeglądarce</li>
+            </ul>
+        </section>
+
+        <section id="zasoby-status" class="help-section">
+            <h2>Status systemów</h2>
+            <p>Aktualny status wszystkich platform i usług ekosystemu Mily Unlimited — w tym MB&SP, CzatAI i MB Designer — możesz monitorować pod adresem:</p>
+            <p>
+                <a href="https://milyunlimited.eu/status.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:1rem;font-weight:600;">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    milyunlimited.eu/status.html
+                </a>
+            </p>
+        </section>
+
+        <section id="regulamin-mb" class="help-section">
+            <h2>Regulamin MB&amp;SP</h2>
+            <p>Aktualny regulamin platformy Miły's Buy &amp; Sell Parts jest zawsze dostępny pod adresem:</p>
+            <p>
+                <a href="https://mbsp.com.pl/help-store-rules.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:1rem;font-weight:600;">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    mbsp.com.pl/help-store-rules.html
+                </a>
+            </p>
+        </section>
+
+        <section id="regulamin-czatai" class="help-section">
+            <h2>Regulamin CzatAI</h2>
+            <h3>§1. Postanowienia Ogólne</h3>
+            <p>Usługa CzatAI dostępna na platformie MBSP.com.pl jest automatycznym asystentem konwersacyjnym, służącym do wsparcia zakupowego, nawigacji po katalogu oraz celów informacyjno-edukacyjnych.</p>
+            <p>Korzystanie z asystenta oznacza pełną akceptację postanowień niniejszego regulaminu.</p>
+            <h3>§2. Rozwój Usługi i Modele Sztucznej Inteligencji (SI)</h3>
+            <p>Aktualna wersja (CzatAI 1.0 Beta) działa w oparciu o lokalne algorytmy przetwarzania słów kluczowych i zamkniętą bazę danych intencji.</p>
+            <p>Usługodawca zastrzega sobie prawo do wdrażania w przyszłości zaawansowanych, generatywnych modeli językowych (LLM) podmiotów trzecich (np. OpenAI, Anthropic) oraz autorskich bez konieczności zmiany struktury tego regulaminu.</p>
+            <h3>§3. Wyłączenie Odpowiedzialności (Ważne dla projektów inżynieryjnych)</h3>
+            <p>Wszelkie odpowiedzi generowane przez CzatAI – w tym porady techniczne, dobory komponentów (rezystorów, kondensatorów, układów scalonych), schematy oraz generowane kody źródłowe (np. dla platform mikrokontrolerów) – mają charakter wyłącznie poglądowy i edukacyjny.</p>
+            <p>Usługodawca nie ponosi odpowiedzialności za jakiekolwiek szkody materialne, uszkodzenia sprzętu elektronicznego, błędy w projektach płytek drukowanych (PCB) czy awarie systemów wynikające z zastosowania się do informacji podanych przez bota.</p>
+            <p>Użytkownik zobowiązany jest do samodzielnej weryfikacji danych z oficjalną dokumentacją techniczną producenta (Datasheet).</p>
+            <h3>§4. Prywatność i Przetwarzanie Danych (RODO / AI Act)</h3>
+            <p>W wersji Beta 1.0 zapytania użytkownika są przetwarzane wyłącznie lokalnie w pamięci sesji przeglądarki i nie są trwale zapisywane na serwerach MBSP.com.pl.</p>
+            <p>W przypadku wdrożenia modeli zaawansowanych, zapytania mogą być przesyłane za pośrednictwem bezpiecznego protokołu API do zewnętrznych dostawców chmury obliczeniowej w celu wygenerowania odpowiedzi.</p>
+            <p>Zabrania się wprowadzania do okna czatu danych osobowych wrażliwych, haseł oraz poufnych informacji firmowych.</p>
+            <h3>§5. Prawa Autorskie i Nadużycia</h3>
+            <p>Kody i skrypty wygenerowane przez bota mogą być swobodnie wykorzystywane przez użytkownika w celach prywatnych oraz komercyjnych.</p>
+            <p>Zabrania się masowego scrapowania danych, celowego przeciążania interfejsu (DDoS) oraz prób inżynierii wstecznej w celu przejęcia kodu źródłowego silnika CzatAI.</p>
+        </section>
+
+        <section id="regulamin-designer" class="help-section">
+            <h2>Regulamin MB Designer</h2>
+            <h3>§1. Charakter usługi</h3>
+            <p>MB Designer jest darmowym narzędziem do rysowania schematów elektronicznych, udostępnianym przez Mily Unlimited. Korzystanie z narzędzia nie wymaga zakładania konta ani posiadania konta MB&amp;SP.</p>
+
+            <h3>§2. Przechowywanie danych i projektów</h3>
+            <p>MB Designer nie zapisuje żadnych schematów ani projektów na serwerach Mily Unlimited. Wszystkie dane projektu istnieją wyłącznie lokalnie — w pamięci sesji przeglądarki lub w plikach zapisanych przez użytkownika na jego urządzeniu. Zamknięcie karty przeglądarki bez zapisania projektu do pliku JSON skutkuje trwałą utratą danych.</p>
+
+            <h3>§3. Format pliku</h3>
+            <p>Jedynym obsługiwanym formatem zapisu i wczytywania projektów jest <strong>JSON</strong>. MB Designer nie obsługuje importu ani eksportu do zewnętrznych formatów schematów (np. KiCad, Eagle, Altium). Schematy można eksportować wyłącznie jako obraz PNG lub dokument PDF — wyłącznie do celów poglądowych.</p>
+
+            <h3>§4. Zakres funkcji</h3>
+            <p>MB Designer jest narzędziem do tworzenia prostych schematów ideowych. Nie posiada funkcji analizy elektrycznej, symulacji układów, projektowania PCB ani weryfikacji poprawności schematów. Wyniki pracy narzędzia mają charakter wyłącznie poglądowy.</p>
+
+            <h3>§5. Odpowiedzialność</h3>
+            <p>Mily Unlimited nie ponosi odpowiedzialności za błędy w schematach stworzonych przy użyciu MB Designer ani za szkody wynikające z zastosowania tych schematów w projektach elektronicznych. Użytkownik zobowiązany jest do samodzielnej weryfikacji poprawności schematów przed ich wykorzystaniem.</p>
+
+            <h3>§6. Zmiany narzędzia</h3>
+            <p>Usługodawca zastrzega sobie prawo do modyfikacji, ograniczenia lub zaprzestania udostępniania MB Designer w dowolnym czasie, bez wcześniejszego powiadomienia.</p>
+        </section>
+
+        <section id="prywatnosc" class="help-section">
+            <h2>Prywatność</h2>
+            <p>Ochrona Twojej prywatności jest dla nas ważna. Ekosystem Mily Unlimited jest projektowany z myślą o minimalnym zbieraniu danych — nie mamy systemu kont na stronie głównej, nie sprzedajemy danych i nie wyświetlamy reklam.</p>
+            <h3>Skrót najważniejszych zasad</h3>
+            <ul>
+                <li><strong>Strona główna Mily Unlimited</strong> — zbiera tylko anonimowe dane analityczne GA4 (wyłącznie po Twojej zgodzie). Preferencje wyświetlania (tryb jasny/ciemny) zapisywane są lokalnie w Twojej przeglądarce.</li>
+                <li><strong>MB&SP</strong> — platforma zakupowa przetwarza dane niezbędne do realizacji zamówień (imię, adres, e-mail). Szczegóły w <a href="https://mbsp.com.pl/help-store-rules.html" target="_blank" rel="noopener">regulaminie MB&SP</a>.</li>
+                <li><strong>CzatAI</strong> — zapytania przetwarzane są lokalnie w sesji przeglądarki i nie są zapisywane na serwerze.</li>
+                <li><strong>MB Designer</strong> — schematy nie są nigdy wysyłane na serwer. Wszystko pozostaje lokalnie na Twoim urządzeniu.</li>
+            </ul>
+            <p>Pełne informacje znajdziesz w <a href="#polityka-prywatnosci" data-section="polityka-prywatnosci">Polityce prywatności</a> i <a href="#polityka-cookies" data-section="polityka-cookies">Polityce cookies</a>.</p>
+        </section>
+
+        <section id="polityka-prywatnosci" class="help-section">
+            <h2>Polityka prywatności</h2>
+            <p><strong>Data ostatniej aktualizacji:</strong> 29 czerwca 2026</p>
+
+            <p>Niniejsza polityka prywatności dotyczy strony głównej Mily Unlimited (milyunlimited.eu) wraz z jej podstronami informacyjnymi, takimi jak strony o projektach, blog, centrum pomocy oraz strona kontaktowa. Nie dotyczy ona platform działających pod własnymi domenami i regulaminami, takich jak MB&SP (Miły's Buy & Sell Parts) — zasady przetwarzania danych dla tych platform znajdziesz w ich własnych dokumentach, dostępnych w odpowiednich sekcjach tego centrum pomocy.</p>
+
+            <h3>Administrator danych</h3>
+            <p>Administratorem danych osobowych przetwarzanych w związku z korzystaniem ze strony jest Miłosz [Nazwisko], prowadzący projekt Mily Unlimited. Kontakt w sprawach związanych z ochroną danych: <a href="mailto:hello@milyunlimited.eu">hello@milyunlimited.eu</a>.</p>
+
+            <h3>Jakie dane przetwarzamy</h3>
+            <p>Strona główna Mily Unlimited nie posiada formularzy kontaktowych ani systemu rejestracji kont. Dane są przetwarzane wyłącznie w następujących przypadkach:</p>
+            <ul>
+                <li><strong>Korzystanie ze strony kontaktowej</strong> — adresy e-mail na stronie kontaktowej są udostępniane w formie klikalnych linków (po ich odsłonięciu). Kliknięcie takiego linku otwiera Twój własny program pocztowy; treść wiadomości i Twój adres e-mail nie są w żaden sposób przechwytywane przez naszą stronę — wiadomość trafia bezpośrednio na nasz adres tak, jak przy każdym standardowym mailto.</li>
+                <li><strong>Preferencja wyświetlania (tryb jasny/ciemny)</strong> — wybór trybu jasnego lub ciemnego zapisywany jest lokalnie w Twojej przeglądarce (mechanizm localStorage, klucz „mu-theme”). Ta informacja nigdy nie jest wysyłana na żaden serwer — pozostaje wyłącznie na Twoim urządzeniu i służy jedynie do zapamiętania wybranego motywu przy kolejnej wizycie.</li>
+                <li><strong>Dane analityczne</strong> — korzystamy z Google Analytics 4 (GA4), opisanego szczegółowo w sekcji „Pliki cookies i analityka” poniżej.</li>
+            </ul>
+
+            <h3>Pliki cookies i analityka</h3>
+            <p>Strona korzysta z Google Analytics 4 — usługi analitycznej dostarczanej przez Google Ireland Limited, która pomaga nam zrozumieć, jak odwiedzający korzystają ze strony (np. które podstrony są najpopularniejsze, z jakich urządzeń korzystają użytkownicy). Google Analytics może zapisywać na Twoim urządzeniu pliki cookies oraz przetwarzać dane takie jak adres IP, typ urządzenia i przeglądarki, czy orientacyjna lokalizacja.</p>
+            <p>Dane zbierane przez Google Analytics mogą być przekazywane do Google LLC w Stanach Zjednoczonych. Google deklaruje stosowanie odpowiednich mechanizmów zgodności z RODO przy takim transferze (np. standardowe klauzule umowne). Szczegóły dotyczące przetwarzania danych przez Google znajdziesz w <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">polityce prywatności Google</a>.</p>
+            <p>Pełny wykaz wykorzystywanych cookies i ich celów znajdziesz w sekcji <a href="#polityka-cookies" data-section="polityka-cookies">Polityka cookies</a>.</p>
+
+            <h3>Podstawa prawna przetwarzania</h3>
+            <p>Dane analityczne przetwarzane są na podstawie Twojej zgody (art. 6 ust. 1 lit. a RODO), wyrażonej poprzez interakcję z banerem cookies wyświetlanym przy pierwszej wizycie na stronie. Możesz w każdej chwili zmienić swoją decyzję, czyszcząc dane przeglądarki dla tej strony — baner zostanie wyświetlony ponownie przy kolejnej wizycie.</p>
+
+            <h3>Twoje prawa</h3>
+            <p>Zgodnie z RODO masz prawo do: dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych oraz wniesienia sprzeciwu wobec przetwarzania. Masz również prawo wniesienia skargi do organu nadzorczego — w Polsce jest to Prezes Urzędu Ochrony Danych Osobowych (UODO). W celu realizacji powyższych praw skontaktuj się z nami pod adresem podanym w sekcji „Administrator danych”.</p>
+            <p>Ponieważ strona nie posiada systemu kont użytkowników, większość danych osobowych (takich jak adres IP w ramach Google Analytics) jest przetwarzana w sposób zanonimizowany lub pseudonimizowany przez samo Google Analytics i nie jest przez nas bezpośrednio kojarzona z konkretną, zidentyfikowaną osobą.</p>
+
+            <h3>Okres przechowywania danych</h3>
+            <p>Dane analityczne w Google Analytics 4 są przechowywane przez okres zgodny z konfiguracją usługi (standardowo do 14 miesięcy), po czym są automatycznie usuwane lub anonimizowane przez Google. Wybór trybu jasny/ciemny zapisany w Twojej przeglądarce pozostaje tam do momentu, gdy go zmienisz lub wyczyścisz dane przeglądania.</p>
+
+            <h3>Zmiany w polityce prywatności</h3>
+            <p>Ta polityka prywatności może być aktualizowana wraz z rozwojem strony i wprowadzanych funkcji. O istotnych zmianach poinformujemy poprzez aktualizację daty na początku tego dokumentu.</p>
+
+            <h3>Kontakt</h3>
+            <p>W przypadku pytań dotyczących tej polityki prywatności, napisz do nas: <a href="mailto:hello@milyunlimited.eu">hello@milyunlimited.eu</a>.</p>
+        </section>
+
+        <section id="polityka-cookies" class="help-section">
+            <h2>Polityka cookies</h2>
+            <p>Niniejsza polityka opisuje, w jaki sposób strony ekosystemu Mily Unlimited (milyunlimited.pl, mbsp.com.pl) wykorzystują pliki cookies i podobne technologie przechowywania danych w przeglądarce.</p>
+
+            <h3>Czym są cookies?</h3>
+            <p>Cookies to małe pliki tekstowe zapisywane w Twojej przeglądarce podczas odwiedzania strony. Pozwalają stronom zapamiętywać Twoje preferencje i zachowanie między sesjami — np. wybrany motyw kolorystyczny czy fakt, że zaakceptowałeś baner cookie.</p>
+
+            <h3>Jakich cookies używamy?</h3>
+            <h3>Niezbędne (techniczne)</h3>
+            <p>Przechowywane wyłącznie w <code>localStorage</code> przeglądarki. Nie wymagają zgody.</p>
+            <ul>
+                <li><code>mu-theme</code> — zapamiętuje wybrany motyw (jasny / ciemny)</li>
+                <li><code>mu-cookie-consent</code> — zapamiętuje, że zaakceptowałeś baner cookie, by nie pokazywał się przy każdej wizycie</li>
+                <li><code>mbsp-cart</code> — zawartość koszyka zakupowego w MB&SP (dane lokalne, nie wysyłane na serwer)</li>
+            </ul>
+
+            <h3>Analityczne (opcjonalne)</h3>
+            <p>Używamy <strong>Google Analytics 4 (GA4)</strong> do anonimowej analizy ruchu — liczby odwiedzin, popularności podstron i przybliżonej lokalizacji geograficznej. GA4 jest ładowany <strong>wyłącznie po wyrażeniu zgody</strong> przez baner cookie. Dane są przetwarzane przez Google LLC zgodnie z ich polityką prywatności.</p>
+            <ul>
+                <li>Identyfikatory sesji GA4 są anonimizowane — nie identyfikują Cię osobiście</li>
+                <li>Dane analityczne nie są sprzedawane ani udostępniane podmiotom trzecim</li>
+                <li>Możesz zrezygnować z analityki w dowolnym momencie (patrz niżej)</li>
+            </ul>
+
+            <h3>Jak zarządzać cookies?</h3>
+            <p>Możesz w każdej chwili wycofać zgodę lub zarządzać cookies na kilka sposobów:</p>
+            <ul>
+                <li><strong>Wyczyść dane witryny</strong> w ustawieniach przeglądarki — baner cookie pojawi się ponownie przy następnej wizycie, dając możliwość ponownego wyboru</li>
+                <li><strong>Wtyczka Google Analytics Opt-out</strong> — <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">tools.google.com/dlpage/gaoptout</a> — blokuje śledzenie GA4 we wszystkich witrynach</li>
+                <li><strong>Tryb incognito / prywatny</strong> — dane localStorage nie są zapisywane trwale</li>
+            </ul>
+
+            <h3>Zmiany polityki</h3>
+            <p>Polityka cookies może być aktualizowana wraz z rozwojem platformy. O istotnych zmianach poinformujemy przez baner na stronie. Data ostatniej aktualizacji: <strong>lipiec 2026</strong>.</p>
+        </section>
+
+        <section id="rodo" class="help-section">
+            <h2>RODO — Twoje prawa</h2>
+
+            <p>Na podstawie Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO) przysługują Ci następujące prawa w związku z przetwarzaniem Twoich danych osobowych przez Mily Unlimited.</p>
+
+            <h3>Administrator danych</h3>
+            <p>Administratorem Twoich danych osobowych jest Miłosz [Nazwisko], prowadzący projekt Mily Unlimited. Kontakt: <a href="mailto:hello@milyunlimited.eu">hello@milyunlimited.eu</a>. Szczegółowe informacje o tym, jakie dane przetwarzamy i w jakim celu, znajdziesz w <a href="#polityka-prywatnosci" data-section="polityka-prywatnosci">Polityce prywatności</a>.</p>
+
+            <h3>Twoje prawa</h3>
+
+            <h3>Prawo dostępu (art. 15 RODO)</h3>
+            <p>Masz prawo uzyskać od nas potwierdzenie, czy przetwarzamy Twoje dane osobowe, a jeśli tak — dostęp do tych danych oraz informacje o celach przetwarzania, kategoriach danych, odbiorcach i planowanym czasie przechowywania.</p>
+
+            <h3>Prawo do sprostowania (art. 16 RODO)</h3>
+            <p>Masz prawo żądać niezwłocznego sprostowania nieprawidłowych danych osobowych Cię dotyczących lub uzupełnienia danych niekompletnych.</p>
+
+            <h3>Prawo do usunięcia danych (art. 17 RODO)</h3>
+            <p>Masz prawo żądać usunięcia swoich danych osobowych (tzw. „prawo do bycia zapomnianym"), jeśli dane nie są już niezbędne do celów, dla których zostały zebrane, wycofałeś zgodę lub wniosłeś skuteczny sprzeciw wobec przetwarzania.</p>
+            <p>Pamiętaj, że dane analityczne w Google Analytics są przetwarzane przez Google — usunięcie ich wymaga skontaktowania się bezpośrednio z Google lub skorzystania z <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">wtyczki blokującej Google Analytics</a>. Dane zapisane lokalnie w Twojej przeglądarce (wybór motywu, zgoda na cookies) możesz usunąć samodzielnie czyszcząc dane witryny w ustawieniach przeglądarki.</p>
+
+            <h3>Prawo do ograniczenia przetwarzania (art. 18 RODO)</h3>
+            <p>Masz prawo żądać ograniczenia przetwarzania Twoich danych w przypadkach określonych w RODO, np. gdy kwestionujesz prawidłowość danych lub wniosłeś sprzeciw wobec przetwarzania.</p>
+
+            <h3>Prawo do przenoszenia danych (art. 20 RODO)</h3>
+            <p>Masz prawo otrzymać swoje dane osobowe, które nam przekazałeś, w ustrukturyzowanym, powszechnie używanym formacie nadającym się do odczytu maszynowego.</p>
+
+            <h3>Prawo do sprzeciwu (art. 21 RODO)</h3>
+            <p>Masz prawo w dowolnym momencie wnieść sprzeciw wobec przetwarzania Twoich danych osobowych opartego na uzasadnionym interesie administratora. Po wniesieniu sprzeciwu nie będziemy przetwarzać Twoich danych, chyba że wykażemy istnienie ważnych prawnie uzasadnionych podstaw.</p>
+
+            <h3>Prawo do wycofania zgody (art. 7 ust. 3 RODO)</h3>
+            <p>Jeśli przetwarzanie odbywa się na podstawie Twojej zgody (np. zgoda na cookies analityczne), masz prawo wycofać ją w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania dokonanego przed wycofaniem. Aby wycofać zgodę na cookies, wyczyść dane witryny w ustawieniach przeglądarki — baner cookie pojawi się ponownie przy następnej wizycie.</p>
+
+            <h3>Prawo do skargi do organu nadzorczego (art. 77 RODO)</h3>
+            <p>Jeśli uważasz, że przetwarzanie Twoich danych osobowych narusza przepisy RODO, masz prawo wnieść skargę do organu nadzorczego. W Polsce jest to <strong>Prezes Urzędu Ochrony Danych Osobowych (UODO)</strong>:</p>
+            <ul>
+                <li>Adres: ul. Stawki 2, 00-193 Warszawa</li>
+                <li>Strona: <a href="https://uodo.gov.pl" target="_blank" rel="noopener">uodo.gov.pl</a></li>
+                <li>E-mail: kancelaria@uodo.gov.pl</li>
+            </ul>
+
+            <h3>Jak skorzystać ze swoich praw</h3>
+            <p>W celu realizacji powyższych praw skontaktuj się z nami pod adresem: <a href="mailto:hello@milyunlimited.eu">hello@milyunlimited.eu</a>. Postaramy się odpowiedzieć bez zbędnej zwłoki, nie później niż w ciągu 30 dni od otrzymania żądania. W razie potrzeby termin ten może zostać przedłużony o kolejne dwa miesiące — poinformujemy Cię o tym z wyprzedzeniem.</p>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+const burgerBtn = document.getElementById('burgerBtn');
+const submenuBtn = document.getElementById('submenuBtn'); // Projekty
+const helpBtn = document.getElementById('helpBtn');       // Pomoc
+const aboutBtn = document.getElementById('aboutBtn');     // Poznaj nas
+const body = document.body;
+
+// Otwieranie / zamykanie głównego menu mobilnego
+burgerBtn.addEventListener('click', () => {
+    body.classList.toggle('mobile-menu-open');
+    if(!body.classList.contains('mobile-menu-open')) {
+        body.classList.remove('submenu-open');
+        body.classList.remove('help-menu-open');
+        body.classList.remove('about-menu-open');
+    }
+});
+
+// Dotykowe rozwijanie "Projekty"
+submenuBtn.addEventListener('click', (e) => {
+    if (window.innerWidth <= 991) {
+        e.preventDefault();
+        body.classList.toggle('submenu-open');
+        body.classList.remove('help-menu-open');
+        body.classList.remove('about-menu-open');
+    }
+});
+
+// Dotykowe rozwijanie "Pomoc"
+helpBtn.addEventListener('click', (e) => {
+    if (window.innerWidth <= 991) {
+        e.preventDefault();
+        body.classList.toggle('help-menu-open');
+        body.classList.remove('submenu-open');
+        body.classList.remove('about-menu-open');
+    }
+});
+
+// Dotykowe rozwijanie "Poznaj nas"
+aboutBtn.addEventListener('click', (e) => {
+    if (window.innerWidth <= 991) {
+        e.preventDefault();
+        body.classList.toggle('about-menu-open');
+        body.classList.remove('submenu-open');
+        body.classList.remove('help-menu-open');
+    }
+});
+
+// ── DARK / LIGHT THEME ───────────────────────────────────
+(function() {
+  const html = document.documentElement;
+  const STORAGE_KEY = 'mu-theme';
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) html.classList.add('dark');
+
+  function toggleTheme() {
+    const isDark = html.classList.toggle('dark');
+    localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light');
+  }
+  document.getElementById('themeToggleDesktop').addEventListener('click', toggleTheme);
+  document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
+})();
+
+// ── NAVBAR SHADOW ON SCROLL ───────────────────────────────
+(function() {
+  const header = document.querySelector('.site-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 12);
+    }, { passive: true });
+  }
+})();
+
+// ── CENTRUM POMOCY: PRZEŁĄCZANIE WIDOK STARTOWY <-> ARTYKUŁ ──
+(function() {
+  const welcomeView = document.getElementById('helpWelcome');
+  const contentView = document.getElementById('helpContent');
+  const homeLink = document.getElementById('helpHomeLink');
+  const sectionLinks = document.querySelectorAll('[data-section]');
+  const navLinks = document.querySelectorAll('.sidebar-menu-item a');
+
+  function showSection(id, push) {
+    welcomeView.style.display = 'none';
+    contentView.style.display = 'block';
+
+    const target = document.getElementById(id);
+    if (target) {
+      window.scrollTo({ top: target.offsetTop + 0, behavior: 'instant' in window ? 'auto' : 'auto' });
+      target.scrollIntoView({ block: 'start' });
+    }
+
+    navLinks.forEach(link => link.classList.remove('active'));
+    document.querySelectorAll('[data-section="' + id + '"]').forEach(link => {
+      if (link.closest('.sidebar-menu')) link.classList.add('active');
+    });
+
+    if (push) history.pushState({ section: id }, '', '#' + id);
+  }
+
+  function showWelcome(push) {
+    contentView.style.display = 'none';
+    welcomeView.style.display = 'block';
+    window.scrollTo({ top: 0 });
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (push) history.pushState({ section: null }, '', 'help.html');
+  }
+
+  sectionLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSection(link.getAttribute('data-section'), true);
+    });
+  });
+
+  homeLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    showWelcome(true);
+  });
+
+  window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.section) {
+      showSection(e.state.section, false);
+    } else {
+      showWelcome(false);
+    }
+  });
+
+  // Wejście z głębokim linkiem (#kotwica) — np. z megamenu innej strony
+  const initialHash = window.location.hash.replace('#', '');
+  if (initialHash && document.getElementById(initialHash)) {
+    showSection(initialHash, false);
+  }
+})();
+</script>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="nav-logo footer-brand-logo">
+          <img src="i/images/milyunlogo-whiteback.png" class="logo-light" alt="Mily Unlimited" width="120px">
+          <img src="i/images/milyunlimited-logo.png"  class="logo-dark"  alt="Mily Unlimited" width="120px">
+        </div>
+        <p class="footer-tagline">Ekosystem dla makerów. Komponenty i narzędzia w jednym miejscu.</p>
+        <div class="footer-social">
+          <a href="https://github.com/milyunlimited" class="social-btn" title="GitHub">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="https://x.com/milyunlimited" class="social-btn" title="Twitter/X">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/milyunlimited/" class="social-btn" title="Instagram">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Platformy</h5>
+        <ul class="footer-links">
+          <li><a href="about-mbsp-pl.html">MB&SP</a></li>
+          <li><a href="about-czatai-pl.html">CzatAI <span class="footer-link-badge">Beta</span></a></li>
+          <li><a href="https://mbsp.com.pl/designer">MB Designer <span class="footer-link-badge">Beta</span></a></li>
+          <li><a href="https://mbsp.com.pl/tools">Maker Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Poznaj Mily Unlimited</h5>
+        <ul class="footer-links">
+          <li><a href="mission-pl.html">Misja</a></li>
+          <li><a href="aboutme.html">O mnie</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <!---<li><a href="#">Dla partnerów</a></li>--->
+          <li><a href="https://business.milyunlimited.eu">Dla biznesu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Pomoc</h5>
+        <ul class="footer-links">
+          <li><a href="help.html">Centrum pomocy</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="status.html">Status systemów</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Zasoby</h5>
+        <ul class="footer-links">
+          <li><a href="projects.html">Dla programistów</a></li>
+          <li><a href="changelog.html">Development Log</a></li>
+          <li><a href="research.html">AI Experiments</a></li>
+          <li><a href="research.html">Hardware notes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Prawne</h5>
+        <ul class="footer-links">
+          <li><a href="help.html#polityka-prywatnosci">Prywatność</a></li>
+          <li><a href="help.html#polityka-prywatnosci">Cookies</a></li>
+          <li><a href="help.html#rodo">RODO</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Mily Unlimited - Miłosz Boguniewicz. Wszelkie prawa zastrzeżone.</span>
+      <span class="status-dot">Wszystkie systemy działają</span>
+      <ul class="footer-bottom-links">
+        <li><p class="footer-copy">Made with ❤️ in Szczecin</p></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- KOD COOKIE BANNERA - komponent przenośny, gotowy do wklejenia na każdą platformę MU -->
+    <div class="cookie-banner" id="cookieBanner">
+        <!-- Treść -->
+        <div class="cookie-content">
+            <h2>Prywatność użytkowników jest dla nas najważniejsza</h2>
+            <p>
+                W celu zapewnienia najwyższej jakości usług, optymalnego działania naszych platform oraz analizy ruchu,
+                korzystamy z plików cookies i podobnych technologii. Szczegółowe informacje o celach przetwarzania, zarządzaniu zgodami oraz
+                możliwości ich wycofania w dowolnym momencie znajdziesz w naszej
+                <a href="help.html#polityka-prywatnosci" class="cookie-policy-link">Polityce Prywatności</a> i <a href="help.html#rodo" class="cookie-policy-link">RODO</a>. Inne przydatne linki: <a href="https://milyunlimited.eu/projects.html" class="cookie-policy-link">Platformy i serwisy Mily Unlimited</a>.
+            </p>
+        </div>
+        <!-- Przyciski -->
+        <div class="cookie-actions">
+            <button class="btn btn-reject" onclick="handleCookie(false)">Nie zgadzam się</button>
+            <button class="btn btn-accept" onclick="handleCookie(true)">Akceptuję</button>
+        </div>
+    </div>
+<script src="i/cookies.js"></script>
+</body>
+</html>

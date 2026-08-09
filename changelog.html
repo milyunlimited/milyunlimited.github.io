@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog / Mily Unlimited</title>
+<meta name="description" content="Zobacz techniczne informacje o aktualizacjach projektów Mily Unlimited">
+<meta property="og:title" content="Changelog / Mily Unlimited" />
+  <meta property="og:description" content="Zobacz techniczne informacje o aktualizacjach projektów Mily Unlimited" />
+  <meta property="og:image" content="https://milyunlimited.eu/i/images/mu-meta-image-mid2026.jpg" />
+  <meta property="og:url" content="https://milyunlimited.eu/changelog.html" />
+  <meta property="og:type" content="website" />
+<link rel="canonical" href="https://milyunlimited.eu/changelog.html" />
+<script>
+  (function(){
+    var s = localStorage.getItem('mu-theme');
+    var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (s === 'dark' || (!s && d)) document.documentElement.classList.add('dark');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/x-icon" href="i/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="i/cookies.css">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── ZMIENNE ──────────────────────────────────────────── */
+  :root {
+    --blue: #0071F5;
+    --blue-light: #3D8EF8;
+    --blue-dark: #0057C2;
+    --blue-muted: #EBF3FF;
+    --fg: #0A0A0A;
+    --fg-2: #3A3A3A;
+    --fg-3: #717171;
+    --fg-4: #A3A3A3;
+    --border: #E5E5E5;
+    --border-2: #F0F0F0;
+    --bg: #FFFFFF;
+    --bg-2: #FAFAFA;
+    --bg-3: #F5F5F5;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
+    --nav-height: 64px;
+    --bg-navbar: #ffffff;
+    --bg-megamenu: #f4f6f8;
+    --border-color: #e2e8f0;
+    --text-primary: #0a0a0a;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --color-accent: #0066cc;
+    --color-accent-hover: #0052a3;
+    --bg-item-hover: #edf2f7;
+    --transition-speed: 0.2s;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Geist', sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── DARK THEME ───────────────────────────────────────── */
+  html.dark {
+    --fg: #F5F5F5; --fg-2: #D4D4D4; --fg-3: #A3A3A3; --fg-4: #6B6B6B;
+    --border: #2A2A2A; --border-2: #222222;
+    --bg: #0A0A0A; --bg-2: #111111; --bg-3: #1A1A1A;
+    --blue-muted: #0D1F3C;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3); --shadow: 0 4px 16px rgba(0,0,0,0.4); --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    --bg-navbar: #0A0A0A; --bg-megamenu: #111111; --border-color: #2A2A2A;
+    --text-primary: #F5F5F5; --text-secondary: #A3A3A3; --text-muted: #6B6B6B;
+    --bg-item-hover: #1A1A1A;
+  }
+
+  /* ── NAVBAR (identyczny z index.html) ─────────────────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 1000;
+    background-color: var(--bg-navbar);
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+  }
+  .site-header.scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.08); }
+  html.dark .site-header.scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.4); }
+
+  .nav-container {
+    width: 100%; height: var(--nav-height);
+    padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 1.25rem; font-weight: 700; color: var(--text-primary);
+    text-decoration: none; letter-spacing: -0.02em; padding-right: 24px;
+    display: flex; align-items: center; z-index: 1010;
+  }
+  .nav-menu {
+    display: flex; list-style: none; height: 100%;
+    align-items: center; gap: 8px;
+  }
+  .nav-item { height: 100%; display: flex; align-items: center; position: relative; }
+  .nav-link {
+    color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;
+    font-weight: 500; padding: 0 16px; height: 100%;
+    display: flex; align-items: center; transition: color var(--transition-speed);
+    cursor: pointer; background: none; border: none; font-family: inherit;
+    position: relative;
+  }
+  .nav-link:hover, .nav-item:hover .nav-link { color: var(--text-primary); font-weight: 600; }
+  .nav-link::after {
+    content: ''; position: absolute; bottom: -1px; left: 16px; right: 16px;
+    height: 2px; background-color: var(--text-primary);
+    transform: scaleX(0); transition: transform var(--transition-speed) ease; z-index: 1002;
+  }
+  .nav-item:hover .nav-link::after { transform: scaleX(1); }
+  /* Active page indicator */
+  .nav-link.active-page { color: var(--text-primary); font-weight: 600; }
+  .nav-link.active-page::after { transform: scaleX(1); }
+
+  .nav-actions {
+    display: flex; align-items: center; gap: 16px; padding-left: 24px; z-index: 1010;
+  }
+  .action-icon-btn {
+    background: none; border: none; cursor: pointer; color: var(--text-secondary);
+    display: flex; align-items: center; justify-content: center;
+    padding: 8px; border-radius: 50%;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+  }
+  .action-icon-btn:hover { background-color: var(--bg-item-hover); color: var(--text-primary); }
+  .action-icon-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .btn-cta {
+    background-color: var(--color-accent); color: #fff; text-decoration: none;
+    font-size: 0.9rem; font-weight: 500; padding: 10px 24px; border-radius: 9999px;
+    transition: background-color var(--transition-speed), transform 0.1s;
+    white-space: nowrap; display: inline-flex; align-items: center; justify-content: center;
+    font-family: inherit;
+  }
+  .btn-cta:hover { background-color: var(--color-accent-hover); }
+  .btn-cta:active { transform: scale(0.97); }
+  .mobile-only-actions { display: none; }
+
+  /* Megamenu */
+  .megamenu {
+    position: fixed; top: var(--nav-height); left: 0; width: 100%;
+    background-color: var(--bg-megamenu); border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.05);
+    opacity: 0; visibility: hidden; transform: translateY(-4px);
+    transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease, transform var(--transition-speed) ease;
+    z-index: 1001;
+  }
+  @media (min-width: 992px) {
+    .nav-item:hover .megamenu { opacity: 1; visibility: visible; transform: translateY(0); }
+  }
+  .megamenu-inner {
+    width: 100%; padding: 40px 32px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+  }
+  .megamenu-column { display: flex; flex-direction: column; gap: 16px; }
+  .megamenu-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--text-muted); }
+  .megamenu-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .megamenu-item-link {
+    display: flex; align-items: flex-start; gap: 12px; padding: 12px;
+    text-decoration: none; border-radius: 8px;
+    transition: background-color var(--transition-speed); margin-left: -12px;
+  }
+  .megamenu-item-link:hover { background-color: var(--bg-item-hover); }
+  .megamenu-text-content { display: flex; flex-direction: column; gap: 4px; }
+  .megamenu-link-name { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
+  .megamenu-link-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+
+  /* Mobile burger */
+  .mobile-burger {
+    display: none; background: none; border: none; cursor: pointer;
+    color: var(--text-primary); padding: 8px; z-index: 1015;
+  }
+  .mobile-burger svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+  .mobile-burger .icon-close { display: none; }
+
+  @media (max-width: 991px) {
+    .nav-container { padding: 0 20px; }
+    .nav-container > .nav-actions { display: none; }
+    .mobile-burger { display: block; }
+    .nav-menu {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+      background-color: var(--bg-navbar); flex-direction: column;
+      align-items: flex-start; justify-content: flex-start;
+      padding: calc(var(--nav-height) + 16px) 24px 40px; gap: 0;
+      overflow-y: auto; transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1005;
+    }
+    .mobile-menu-open .nav-menu { transform: translateX(0); }
+    .mobile-menu-open { overflow: hidden; }
+    .mobile-menu-open .mobile-burger .icon-open { display: none; }
+    .mobile-menu-open .mobile-burger .icon-close { display: block; }
+    .nav-item { width: 100%; height: auto; flex-direction: column; align-items: flex-start; border-bottom: 1px solid var(--border-color); }
+    .nav-link { width: 100%; height: 56px; padding: 0; font-size: 1.1rem; justify-content: space-between; }
+    .nav-link::after { display: none; }
+    .nav-item:has(.megamenu) .nav-link::after { content: '+'; font-size: 1.25rem; font-weight: 300; display: block; color: var(--text-muted); }
+    .submenu-open .nav-item:has(#submenuBtn) .nav-link::after,
+    .help-menu-open .nav-item:has(#helpBtn) .nav-link::after,
+    .about-menu-open .nav-item:has(#aboutBtn) .nav-link::after { content: '−'; }
+    .megamenu { position: relative; top: 0; box-shadow: none; background-color: var(--bg-2); border-bottom: none; width: 100%; display: none; opacity: 1; visibility: visible; transform: none; padding-bottom: 16px; }
+    body.submenu-open .megamenu,
+    .submenu-open .nav-item:has(#submenuBtn) .megamenu,
+    .help-menu-open .nav-item:has(#helpBtn) .megamenu,
+    .about-menu-open .nav-item:has(#aboutBtn) .megamenu { display: block; }
+    .megamenu-inner { grid-template-columns: 1fr; gap: 24px; padding: 16px 0; }
+    .megamenu-column { gap: 8px; }
+    .megamenu-item-link { margin-left: 0; padding: 8px 0; }
+    .megamenu-link-desc { display: none; }
+    .mobile-only-actions { display: flex; flex-direction: column; width: 100%; margin-top: 32px; gap: 24px; padding-bottom: 20px; }
+    .mobile-action-row { display: flex; align-items: center; gap: 12px; }
+    .mobile-action-row .action-icon-btn { background-color: var(--bg-item-hover); color: var(--text-primary); width: 44px; height: 44px; }
+    .mobile-action-label { font-size: 1rem; font-weight: 500; color: var(--text-secondary); }
+    .mobile-only-actions .btn-cta { width: 100%; height: 48px; font-size: 1rem; }
+  }
+
+  .theme-icon-moon { display: block; }
+  .theme-icon-sun  { display: none; }
+  html.dark .theme-icon-moon { display: none; }
+  html.dark .theme-icon-sun  { display: block; }
+  .logo-dark  { display: none; }
+  .logo-light { display: block; }
+  html.dark .logo-dark  { display: block; }
+  html.dark .logo-light { display: none; }
+
+  /* ── CHANGELOG PAGE ───────────────────────────────────── */
+  .cl-hero {
+    padding: 80px 24px 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .cl-hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .cl-eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .cl-eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--blue);
+    animation: clPulse 2s ease-in-out infinite;
+  }
+  @keyframes clPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+
+  .cl-title {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800; letter-spacing: -0.04em; line-height: 1.05;
+    color: var(--fg); margin-bottom: 16px;
+  }
+  .cl-subtitle {
+    font-size: 17px; color: var(--fg-3); max-width: 520px; line-height: 1.65;
+  }
+
+  /* ── FILTERS ──────────────────────────────────────────── */
+  .cl-filters {
+    position: sticky;
+    top: var(--nav-height);
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  .cl-filters-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 52px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .cl-filters-inner::-webkit-scrollbar { display: none; }
+
+  .cl-filter-label {
+    font-size: 12px; font-weight: 600; color: var(--fg-4);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    white-space: nowrap; margin-right: 4px; flex-shrink: 0;
+  }
+
+  .cl-filter-sep {
+    width: 1px; height: 20px; background: var(--border); flex-shrink: 0; margin: 0 8px;
+  }
+
+  .cl-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px; border-radius: 100px;
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    border: 1px solid var(--border); background: var(--bg);
+    color: var(--fg-2); white-space: nowrap; flex-shrink: 0;
+    transition: all 0.15s ease;
+    font-family: 'Geist', sans-serif;
+  }
+  .cl-chip:hover { border-color: var(--blue); color: var(--blue); }
+  .cl-chip.active {
+    background: var(--blue); border-color: var(--blue);
+    color: #fff; font-weight: 600;
+  }
+  .cl-chip-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ── MAIN LAYOUT ──────────────────────────────────────── */
+  .cl-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR ──────────────────────────────────────────── */
+  .cl-sidebar {
+    position: sticky;
+    top: calc(var(--nav-height) + 52px + 24px);
+  }
+  .cl-sidebar-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--fg-4); margin-bottom: 16px;
+  }
+  .cl-toc { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .cl-toc-item a {
+    display: block; padding: 6px 10px; border-radius: 7px;
+    font-size: 13.5px; color: var(--fg-3); text-decoration: none;
+    transition: background 0.12s, color 0.12s;
+    border-left: 2px solid transparent;
+  }
+  .cl-toc-item a:hover { background: var(--bg-3); color: var(--fg); }
+  .cl-toc-item a.active { color: var(--blue); border-left-color: var(--blue); background: var(--blue-muted); }
+
+  /* ── FEED ─────────────────────────────────────────────── */
+  .cl-feed { min-width: 0; }
+
+  .cl-empty {
+    text-align: center; padding: 80px 24px;
+    color: var(--fg-4); font-size: 15px;
+  }
+  .cl-empty-icon { font-size: 40px; margin-bottom: 16px; }
+
+  /* ── MONTH GROUP ──────────────────────────────────────── */
+  .cl-month {
+    margin-bottom: 56px;
+  }
+  .cl-month-heading {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--fg-4);
+    padding-bottom: 12px; margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── ENTRY CARD ───────────────────────────────────────── */
+  .cl-entry {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 0 20px;
+    margin-bottom: 24px;
+    animation: clFadeIn 0.35s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  @keyframes clFadeIn {
+    from { opacity:0; transform: translateY(12px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* Timeline dot & line */
+  .cl-entry-timeline {
+    display: flex; flex-direction: column; align-items: center;
+    padding-top: 4px;
+  }
+  .cl-entry-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    border: 2px solid var(--bg); outline: 2px solid;
+  }
+  .cl-entry-line {
+    width: 1px; flex: 1; background: var(--border); margin-top: 6px; min-height: 24px;
+  }
+  .cl-entry:last-child .cl-entry-line { display: none; }
+
+  /* Card */
+  .cl-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    margin-bottom: 4px;
+  }
+  .cl-card:hover {
+    box-shadow: var(--shadow);
+    border-color: #D0E4FF;
+  }
+  html.dark .cl-card:hover { border-color: rgba(0,113,245,0.3); }
+
+  .cl-card-top {
+    display: flex; align-items: center; gap: 10px;
+    flex-wrap: wrap; margin-bottom: 12px;
+  }
+
+  .cl-project-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 9px; border-radius: 6px;
+    font-size: 12px; font-weight: 600;
+    background: var(--bg-3); color: var(--fg-2);
+  }
+  .cl-project-badge .badge-icon { font-size: 12px; }
+
+  .cl-type-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 9px; border-radius: 6px;
+    font-size: 11.5px; font-weight: 700;
+  }
+
+  .cl-date {
+    font-size: 12px; color: var(--fg-4);
+    margin-left: auto; font-variant-numeric: tabular-nums;
+    font-family: 'Geist Mono', monospace;
+  }
+
+  .cl-card-title {
+    font-size: 17px; font-weight: 700; letter-spacing: -0.02em;
+    color: var(--fg); margin-bottom: 8px; line-height: 1.3;
+  }
+
+  .cl-card-body {
+    font-size: 14px; color: var(--fg-3); line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .cl-card-changes {
+    margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid var(--border-2);
+    list-style: none; display: flex; flex-direction: column; gap: 6px;
+  }
+  .cl-card-changes li {
+    font-size: 13.5px; color: var(--fg-2); line-height: 1.5;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .cl-change-bullet {
+    color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+
+  .cl-version {
+    font-size: 11.5px; font-weight: 600; color: var(--fg-4);
+    font-family: 'Geist Mono', monospace;
+    margin-top: 14px; display: block;
+  }
+
+  /* Type badge colors */
+  .type-major  { background: #EFF6FF; color: #1D4ED8; }
+  .type-minor  { background: #F0FDF4; color: #15803D; }
+  .type-fix    { background: #FFF7ED; color: #C2410C; }
+  .type-feature{ background: #FAF5FF; color: #7C3AED; }
+
+  html.dark .type-major   { background: #0D1F3C; color: #60A5FA; }
+  html.dark .type-minor   { background: #0D2818; color: #4ADE80; }
+  html.dark .type-fix     { background: #2A1500; color: #FB923C; }
+  html.dark .type-feature { background: #1A0A2E; color: #C084FC; }
+
+  /* Dot colors by type */
+  .dot-major   { outline-color: #3B82F6; background: #3B82F6; }
+  .dot-minor   { outline-color: #22C55E; background: #22C55E; }
+  .dot-fix     { outline-color: #F97316; background: #F97316; }
+  .dot-feature { outline-color: #A855F7; background: #A855F7; }
+
+  /* ── FOOTER (identyczny z index.html) ─────────────────── */
+  .footer {
+    background: #0A0A0A; padding: 80px 24px 40px; color: rgba(255,255,255,0.7);
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 48px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand-logo { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 12px; }
+  .footer-brand-logo span { color: var(--blue-light); }
+  .footer-tagline { font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,0.45); margin-bottom: 24px; max-width: 260px; }
+  .footer-social { display: flex; gap: 8px; }
+  .social-btn {
+    width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+    font-size: 15px; text-decoration: none; color: rgba(255,255,255,0.6);
+    transition: background 0.15s, color 0.15s;
+  }
+  .social-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  .footer-col h5 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 13.5px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.15s, transform 0.18s; display: inline-flex; align-items: center; gap: 6px; }
+  .footer-links a:hover { color: rgba(255,255,255,0.9); transform: translateX(4px); }
+  .footer-link-badge { font-size: 10px; font-weight: 600; padding: 1px 5px; border-radius: 3px; background: rgba(0,113,245,0.25); color: var(--blue-light); }
+  .footer-bottom { padding-top: 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+  .footer-bottom-links { display: flex; gap: 20px; list-style: none; }
+  .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.15s; }
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+  .status-dot { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.4); }
+  .status-dot::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #22C55E; display: inline-block; animation: sPulse 2.5s ease-in-out infinite; }
+  @keyframes sPulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  /* ── RESPONSIVE ───────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .cl-layout { grid-template-columns: 1fr; gap: 32px; }
+    .cl-sidebar { position: static; }
+    .cl-toc { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+    .cl-toc-item a { border-left: none; border-bottom: 2px solid transparent; border-radius: 0; padding: 4px 8px; }
+    .cl-toc-item a.active { border-bottom-color: var(--blue); border-left: none; background: transparent; }
+    .cl-sidebar-title { display: none; }
+  }
+  @media (max-width: 600px) {
+    .cl-hero { padding: 56px 16px 40px; }
+    .cl-layout { padding: 40px 16px 64px; }
+    .cl-filters { padding: 0 16px; }
+    .cl-card { padding: 18px 20px; }
+    .cl-card-title { font-size: 15px; }
+    .cl-date { margin-left: 0; width: 100%; }
+    .cl-card-top { gap: 6px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-top > div:first-child { grid-column: span 2; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 400px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-top > div:first-child { grid-column: span 1; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Changelog / Mily Unlimited",
+  "url": "https://milyunlimited.eu/changelog.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Mily Unlimited",
+    "url": "https://milyunlimited.eu"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Mily Unlimited",
+    "url": "https://milyunlimited.eu"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════ -->
+<header class="site-header">
+        <nav class="nav-container">
+            
+            <a href="index.html" class="nav-logo">
+                  <img src="i/images/milyunlogo-whiteback.png" class="logo-light" alt="Mily Unlimited" width="100px">
+                  <img src="i/images/milyunlimited-logo.png"  class="logo-dark"  alt="Mily Unlimited" width="100px">
+            </a>
+
+            <ul class="nav-menu" id="navMenu">                
+                <li class="nav-item">
+                    <button class="nav-link" id="submenuBtn">Projekty</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Cyfrowe</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="about-mbsp-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">MB&SP</span>
+                                                <span class="megamenu-link-desc">Platforma i sklep dla makerów i elektroników.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="about-czatai-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">CzatAI</span>
+                                                <span class="megamenu-link-desc">Eksperymentalny czatbot</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/tools" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Maker Tools</span>
+                                                <span class="megamenu-link-desc">Kalkulatory i narzędzia dla makerów.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="https://mbsp.com.pl/designer" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">MB Designer</span>
+                                                <span class="megamenu-link-desc">Lekki i prosty projektant schematów elektronicznych.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+<!--
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Hardware</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="#" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">P</span>
+                                                <span class="megamenu-link-desc">Płytka mikrokontrolera.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+-->
+
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" id="helpBtn">Pomoc</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">MB&SP</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Centrum pomocy MB&SP</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">FAQ</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help-store-rules.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Regulamin sklepu</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help-returns.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Zwroty</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/contact_sales.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Poproś o wycenę</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/contact.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Kontakt ze wsparciem MB&SP</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Wsparcie</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Centrum pomocy ogólne</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="status.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Status</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                </li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Journal</a></li>
+                <li class="nav-item">
+                    <button class="nav-link" id="aboutBtn">Poznaj Mily Unlimited</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Poznaj Mily Unlimited</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="mission-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Misja</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutme.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">O mnie</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mission-pl.html#roadmap" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Roadmap</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="research.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Badania</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://business.milyunlimited.eu" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Dla biznesu</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Kontakt</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+
+                <li class="mobile-only-actions">
+                    <div class="mobile-action-row">
+                        <button class="action-icon-btn" id="themeToggleMobile" title="Motyw" aria-label="Zmień motyw">
+                            <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        </button>
+                        <span class="mobile-action-label">Zmień motyw</span>
+                    </div>
+                    <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP.com</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="action-icon-btn" id="themeToggleDesktop" title="Zmień motyw" aria-label="Zmień motyw">
+                    <!-- Księżyc (light mode) -->
+                    <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <!-- Słońce (dark mode) -->
+                    <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP.com</a>
+            </div>
+
+            <button class="mobile-burger" id="burgerBtn" aria-label="Otwórz menu">
+                <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+        </nav>
+    </header>
+
+
+<!-- ══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<div class="cl-hero">
+  <div class="cl-hero-inner">
+    <div class="cl-eyebrow">
+      <span class="cl-eyebrow-dot"></span>
+      Aktywnie rozwijane
+    </div>
+    <h1 class="cl-title">Changelog</h1>
+    <p class="cl-subtitle">Wszystkie zmiany, poprawki i nowe funkcje w jednym miejscu — posortowane, opisane i z datą.</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FILTRY
+══════════════════════════════════════════════════════ -->
+<div class="cl-filters">
+  <div class="cl-filters-inner" id="filtersRow">
+    <!-- generowane przez JS -->
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     GŁÓWNY LAYOUT
+══════════════════════════════════════════════════════ -->
+<div class="cl-layout">
+
+  <!-- Sidebar z TOC -->
+  <aside class="cl-sidebar" id="clSidebar">
+    <div class="cl-sidebar-title">Miesiące</div>
+    <ul class="cl-toc" id="clToc"></ul>
+  </aside>
+
+  <!-- Feed wpisów -->
+  <main class="cl-feed" id="clFeed"></main>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="nav-logo footer-brand-logo">
+          <img src="i/images/milyunlogo-whiteback.png" class="logo-light" alt="Mily Unlimited" width="120px">
+          <img src="i/images/milyunlimited-logo.png"  class="logo-dark"  alt="Mily Unlimited" width="120px">
+        </div>
+        <p class="footer-tagline">Ekosystem dla makerów. Komponenty i narzędzia w jednym miejscu.</p>
+        <div class="footer-social">
+          <a href="https://github.com/milyunlimited" class="social-btn" title="GitHub">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="https://x.com/milyunlimited" class="social-btn" title="Twitter/X">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/milyunlimited/" class="social-btn" title="Instagram">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Platformy</h5>
+        <ul class="footer-links">
+          <li><a href="about-mbsp-pl.html">MB&SP</a></li>
+          <li><a href="about-czatai-pl.html">CzatAI <span class="footer-link-badge">Beta</span></a></li>
+          <li><a href="https://mbsp.com.pl/designer">MB Designer <span class="footer-link-badge">Beta</span></a></li>
+          <li><a href="https://mbsp.com.pl/tools">Maker Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Poznaj Mily Unlimited</h5>
+        <ul class="footer-links">
+          <li><a href="mission-pl.html">Misja</a></li>
+          <li><a href="aboutme.html">O mnie</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <!---<li><a href="#">Dla partnerów</a></li>--->
+          <li><a href="https://business.milyunlimited.eu">Dla biznesu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Pomoc</h5>
+        <ul class="footer-links">
+          <li><a href="help.html">Centrum pomocy</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="status.html">Status systemów</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Zasoby</h5>
+        <ul class="footer-links">
+          <li><a href="projects.html">Dla programistów</a></li>
+          <li><a href="changelog.html">Development Log</a></li>
+          <li><a href="research.html">AI Experiments</a></li>
+          <li><a href="research.html">Hardware notes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Prawne</h5>
+        <ul class="footer-links">
+          <li><a href="help.html#polityka-prywatnosci">Prywatność</a></li>
+          <li><a href="help.html#polityka-prywatnosci">Cookies</a></li>
+          <li><a href="help.html#rodo">RODO</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Mily Unlimited - Miłosz Boguniewicz. Wszelkie prawa zastrzeżone.</span>
+      <span class="status-dot">Wszystkie systemy działają</span>
+      <ul class="footer-bottom-links">
+        <li><p class="footer-copy">Made with ❤️ in Szczecin</p></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   ████  DANE CHANGELOGU  ████
+   Aby dodać wpis, skopiuj obiekt poniżej i uzupełnij pola.
+   ══════════════════════════════════════════════════════════
+
+   Schemat pojedynczego wpisu:
+   {
+     date:    'YYYY-MM-DD',           // data wpisu (wymagane)
+     project: 'mbsp' | 'czatai' | 'designer' | 'tools',  // projekt (wymagane)
+     type:    'major' | 'minor' | 'fix' | 'feature',      // typ zmiany (wymagane)
+     title:   'Tytuł wpisu',          // krótki tytuł (wymagane)
+     body:    'Opis zmian...',         // opis (opcjonalne)
+     version: 'v1.2.3',               // numer wersji (opcjonalne)
+     changes: [                        // lista szczegółowych zmian (opcjonalne)
+       'Pierwsza zmiana',
+       'Druga zmiana',
+     ]
+   }
+══════════════════════════════════════════════════════════ */
+
+const CHANGELOG_ENTRIES = [
+
+  // ── Czerwiec 2025 ────────────────────────────────────────
+  /* 
+  {
+    date:    '2025-06-05',
+    project: 'mbsp',
+    type:    'major',
+    title:   'Aktualizacja MB&SP 4.0',
+    version: 'v4.0.0',
+    body:    'Kompletny redesign strony i inne podejście naszej wizji dla platformy MB&SP',
+    changes: [
+      'Kompletenie nowa strona',
+    ]
+  },
+  */
+];
+
+/* ══════════════════════════════════════════════════════════
+   KONFIGURACJA PROJEKTÓW I TYPÓW
+══════════════════════════════════════════════════════════ */
+const PROJECTS = {
+  mbsp:     { label: 'MB&SP',       icon: '', color: '#0071F5' },
+  czatai:   { label: 'CzatAI',      icon: '', color: '#7C3AED' },
+  designer: { label: 'MB Designer', icon: '', color: '#059669' },
+  tools:    { label: 'Maker Tools', icon: '', color: '#D97706' },
+};
+
+const TYPES = {
+  major:   { label: 'Duża aktualizacja', cls: 'type-major',   dot: 'dot-major',   chip: '#3B82F6' },
+  minor:   { label: 'Mała aktualizacja', cls: 'type-minor',   dot: 'dot-minor',   chip: '#22C55E' },
+  fix:     { label: 'Naprawa błędu',     cls: 'type-fix',     dot: 'dot-fix',     chip: '#F97316' },
+  feature: { label: 'Nowa funkcja',      cls: 'type-feature', dot: 'dot-feature', chip: '#A855F7' },
+};
+
+/* ══════════════════════════════════════════════════════════
+   STAN FILTRÓW
+══════════════════════════════════════════════════════════ */
+let activeProject = 'all';
+let activeType    = 'all';
+
+/* ══════════════════════════════════════════════════════════
+   BUDOWANIE FILTRÓW
+══════════════════════════════════════════════════════════ */
+function buildFilters() {
+  const row = document.getElementById('filtersRow');
+  row.innerHTML = '';
+
+  const addLabel = (text) => {
+    const el = document.createElement('span');
+    el.className = 'cl-filter-label';
+    el.textContent = text;
+    row.appendChild(el);
+  };
+
+  const addSep = () => {
+    const el = document.createElement('div');
+    el.className = 'cl-filter-sep';
+    row.appendChild(el);
+  };
+
+  const addChip = (key, label, icon, isActive, onClick) => {
+    const btn = document.createElement('button');
+    btn.className = 'cl-chip' + (isActive ? ' active' : '');
+    btn.innerHTML = icon ? `<span>${icon}</span> ${label}` : label;
+    btn.addEventListener('click', () => { onClick(key); renderFeed(); buildFilters(); });
+    row.appendChild(btn);
+  };
+
+  // Projekt
+  addLabel('Projekt');
+  addChip('all', 'Wszystkie', null, activeProject === 'all', (k) => { activeProject = k; });
+  Object.entries(PROJECTS).forEach(([key, p]) => {
+    addChip(key, p.label, p.icon, activeProject === key, (k) => { activeProject = k; });
+  });
+
+  addSep();
+
+  // Typ
+  addLabel('Typ');
+  addChip('all', 'Wszystkie', null, activeType === 'all', (k) => { activeType = k; });
+  Object.entries(TYPES).forEach(([key, t]) => {
+    addChip(key, t.label, null, activeType === key, (k) => { activeType = k; });
+  });
+}
+
+/* ══════════════════════════════════════════════════════════
+   RENDEROWANIE FEEDU
+══════════════════════════════════════════════════════════ */
+function renderFeed() {
+  const feed = document.getElementById('clFeed');
+  const toc  = document.getElementById('clToc');
+  feed.innerHTML = '';
+  toc.innerHTML  = '';
+
+  // Filtrowanie
+  const filtered = CHANGELOG_ENTRIES.filter(e => {
+    const okProject = activeProject === 'all' || e.project === activeProject;
+    const okType    = activeType    === 'all' || e.type    === activeType;
+    return okProject && okType;
+  });
+
+  // Sortowanie malejąco po dacie
+  filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  if (filtered.length === 0) {
+    feed.innerHTML = `
+      <div class="cl-empty">
+        <div class="cl-empty-icon">🔍</div>
+        Brak wpisów dla wybranych filtrów.
+      </div>`;
+    return;
+  }
+
+  // Grupowanie po miesiącu
+  const groups = {};
+  filtered.forEach(entry => {
+    const d = new Date(entry.date);
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(entry);
+  });
+
+  const monthNames = ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
+
+  Object.entries(groups).forEach(([key, entries], gi) => {
+    const [year, month] = key.split('-');
+    const monthLabel = `${monthNames[parseInt(month)-1]} ${year}`;
+    const sectionId  = `month-${key}`;
+
+    // TOC item
+    const tocLi = document.createElement('li');
+    tocLi.className = 'cl-toc-item';
+    tocLi.innerHTML = `<a href="#${sectionId}">${monthLabel}</a>`;
+    toc.appendChild(tocLi);
+
+    // Month section
+    const section = document.createElement('div');
+    section.className = 'cl-month';
+    section.id = sectionId;
+    section.innerHTML = `<div class="cl-month-heading">${monthLabel}</div>`;
+
+    entries.forEach((entry, ei) => {
+      const proj  = PROJECTS[entry.project] || { label: entry.project, icon: '📦' };
+      const type  = TYPES[entry.type]       || { label: entry.type, cls: 'type-minor', dot: 'dot-minor' };
+      const d     = new Date(entry.date);
+      const dateStr = `${d.getDate()} ${monthNames[d.getMonth()].slice(0,3)} ${d.getFullYear()}`;
+
+      const changesHtml = entry.changes?.length
+        ? `<ul class="cl-card-changes">${entry.changes.map(c => `<li><span class="cl-change-bullet">→</span> ${c}</li>`).join('')}</ul>`
+        : '';
+
+      const versionHtml = entry.version
+        ? `<span class="cl-version">${entry.version}</span>`
+        : '';
+
+      const bodyHtml = entry.body
+        ? `<p class="cl-card-body">${entry.body}</p>`
+        : '';
+
+      const delay = ei * 60;
+
+      section.innerHTML += `
+        <div class="cl-entry" style="animation-delay:${delay}ms">
+          <div class="cl-entry-timeline">
+            <div class="cl-entry-dot ${type.dot}"></div>
+            <div class="cl-entry-line"></div>
+          </div>
+          <div>
+            <div class="cl-card">
+              <div class="cl-card-top">
+                <span class="cl-project-badge">
+                  <span class="badge-icon">${proj.icon}</span>
+                  ${proj.label}
+                </span>
+                <span class="cl-type-badge ${type.cls}">${type.label}</span>
+                <span class="cl-date">${dateStr}</span>
+              </div>
+              <div class="cl-card-title">${entry.title}</div>
+              ${bodyHtml}
+              ${changesHtml}
+              ${versionHtml}
+            </div>
+          </div>
+        </div>`;
+    });
+
+    feed.appendChild(section);
+  });
+
+  // TOC active state on scroll
+  updateTocActive();
+}
+
+/* ══════════════════════════════════════════════════════════
+   TOC ACTIVE STATE
+══════════════════════════════════════════════════════════ */
+function updateTocActive() {
+  const sections = document.querySelectorAll('.cl-month');
+  const tocLinks = document.querySelectorAll('.cl-toc-item a');
+  if (!sections.length) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.cl-toc-item a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => obs.observe(s));
+}
+
+/* ══════════════════════════════════════════════════════════
+   NAVBAR LOGIC (identyczna z index.html)
+══════════════════════════════════════════════════════════ */
+const burgerBtn  = document.getElementById('burgerBtn');
+const submenuBtn = document.getElementById('submenuBtn');
+const helpBtn    = document.getElementById('helpBtn');
+const aboutBtn   = document.getElementById('aboutBtn');
+const body       = document.body;
+
+burgerBtn.addEventListener('click', () => {
+  body.classList.toggle('mobile-menu-open');
+  if (!body.classList.contains('mobile-menu-open')) {
+    body.classList.remove('submenu-open', 'help-menu-open', 'about-menu-open');
+  }
+});
+submenuBtn.addEventListener('click', (e) => {
+  if (window.innerWidth <= 991) { e.preventDefault(); body.classList.toggle('submenu-open'); body.classList.remove('help-menu-open','about-menu-open'); }
+});
+helpBtn.addEventListener('click', (e) => {
+  if (window.innerWidth <= 991) { e.preventDefault(); body.classList.toggle('help-menu-open'); body.classList.remove('submenu-open','about-menu-open'); }
+});
+aboutBtn.addEventListener('click', (e) => {
+  if (window.innerWidth <= 991) { e.preventDefault(); body.classList.toggle('about-menu-open'); body.classList.remove('submenu-open','help-menu-open'); }
+});
+
+/* Navbar scroll shadow */
+window.addEventListener('scroll', () => {
+  document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 12);
+}, { passive: true });
+
+/* ══════════════════════════════════════════════════════════
+   DARK / LIGHT THEME
+══════════════════════════════════════════════════════════ */
+(function() {
+  const html = document.documentElement;
+  const KEY  = 'mu-theme';
+  function toggle() {
+    html.classList.toggle('dark');
+    localStorage.setItem(KEY, html.classList.contains('dark') ? 'dark' : 'light');
+  }
+  document.getElementById('themeToggleDesktop').addEventListener('click', toggle);
+  document.getElementById('themeToggleMobile').addEventListener('click', toggle);
+})();
+
+/* ══════════════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════════════ */
+buildFilters();
+renderFeed();
+</script>
+
+
+<!-- KOD COOKIE BANNERA - komponent przenośny, gotowy do wklejenia na każdą platformę MU -->
+    <div class="cookie-banner" id="cookieBanner">
+        <!-- Treść -->
+        <div class="cookie-content">
+            <h2>Prywatność użytkowników jest dla nas najważniejsza</h2>
+            <p>
+                W celu zapewnienia najwyższej jakości usług, optymalnego działania naszych platform oraz analizy ruchu,
+                korzystamy z plików cookies i podobnych technologii. Szczegółowe informacje o celach przetwarzania, zarządzaniu zgodami oraz
+                możliwości ich wycofania w dowolnym momencie znajdziesz w naszej
+                <a href="help.html#polityka-prywatnosci" class="cookie-policy-link">Polityce Prywatności</a> i <a href="help.html#rodo" class="cookie-policy-link">RODO</a>. Inne przydatne linki: <a href="https://milyunlimited.eu/projects.html" class="cookie-policy-link">Platformy i serwisy Mily Unlimited</a>.
+            </p>
+        </div>
+        <!-- Przyciski -->
+        <div class="cookie-actions">
+            <button class="btn btn-reject" onclick="handleCookie(false)">Nie zgadzam się</button>
+            <button class="btn btn-accept" onclick="handleCookie(true)">Akceptuję</button>
+        </div>
+    </div>
+<script src="i/cookies.js"></script>
+</body>
+</html>

@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Informacje o Miły's Buy & Sell Parts - Platforma dla makerów, elektroników i ludzi, którzy budują własne projekty.">
+<meta property="og:title" content="Poznaj MB&SP od Mily Unlimited" />
+  <meta property="og:description" content="Informacje o Miły's Buy & Sell Parts - Platforma dla makerów, elektroników i ludzi, którzy budują własne projekty." />
+  <meta property="og:image" content="https://milyunlimited.eu/i/images/mb-meta-image-mid2026.jpg" />
+  <meta property="og:url" content="https://milyunlimited.eu/about-mbsp-pl.html" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://milyunlimited.eu/about-mbsp-pl.html" />
+<title>Poznaj MB&SP od Mily Unlimited</title>
+<!-- Zapobiega mignięciu białego tła przy dark mode -->
+<script>
+  (function(){
+    var s = localStorage.getItem('mu-theme');
+    var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (s === 'dark' || (!s && d)) document.documentElement.classList.add('dark');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/x-icon" href="i/images/favicon.ico">
+<script src="i/cookies.js"></script>
+<link rel="stylesheet" href="i/cookies.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0071F5;
+    --blue-light: #3D8EF8;
+    --blue-dark: #0057C2;
+    --blue-muted: #EBF3FF;
+    --fg: #0A0A0A;
+    --fg-2: #3A3A3A;
+    --fg-3: #717171;
+    --fg-4: #A3A3A3;
+    --border: #E5E5E5;
+    --border-2: #F0F0F0;
+    --bg: #FFFFFF;
+    --bg-2: #FAFAFA;
+    --bg-3: #F5F5F5;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
+    --bg-navbar: #ffffff;
+            --bg-navbar-translucent: rgba(255, 255, 255, 0.92);
+            --bg-megamenu: #ffffff; 
+            --border-color: #e4e6eb;
+            
+            --text-primary: #050505;
+            --text-secondary: #050505;
+            --text-muted: #65676b;
+            
+            --color-accent: #0064e0; 
+            --color-accent-hover: #0052b3;
+            --bg-item-hover: #f0f2f5; 
+            --bg-item-hover-strong: #e4e6eb;
+            
+            --font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+            --nav-height: 68px;
+            --transition-speed: 0.2s;
+
+            /* Stały brand MB&SP - niezależny od dark mode (jak kosmos w aboutme.html) */
+            --mbsp-navy: #0b2559;
+            --mbsp-navy-dark: #071a40;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+        /* ==========================================================================
+           2. STRUKTURA PASKA NAWIGACJI (GŁÓWNY NAVBAR MILY UNLIMITED)
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--bg-navbar-translucent, rgba(255, 255, 255, 0.92));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .nav-container {
+            width: 100%;
+            height: var(--nav-height);
+            padding: 0 32px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* LOGO NA MAKS LEWO */
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            padding-right: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1010;
+        }
+
+        /* Główne menu (Desktop) */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-item {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0 18px;
+            height: 42px;
+            margin: 0 2px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Geist', sans-serif;
+        }
+
+        .nav-link:hover, 
+        .nav-item:hover .nav-link {
+            color: var(--text-primary);
+            background-color: var(--bg-item-hover);
+        }
+
+        .nav-link::after {
+            content: none;
+        }
+
+        /* Akcje po prawej (Desktop) */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-left: 24px;
+            z-index: 1010;
+        }
+
+        .action-icon-btn {
+            background: var(--bg-item-hover);
+            border: none;
+            cursor: pointer;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: background-color var(--transition-speed), transform 0.1s ease;
+        }
+
+        .action-icon-btn:hover {
+            background-color: var(--bg-item-hover-strong);
+            transform: scale(1.04);
+        }
+
+        .action-icon-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* PRZYCISK FULL ROUNDED */
+        .btn-cta {
+            background-color: var(--color-accent);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 11px 26px;
+            border-radius: 9999px;
+            transition: background-color var(--transition-speed), transform 0.1s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--color-accent-hover);
+        }
+
+        .btn-cta:active {
+            transform: scale(0.97);
+        }
+
+        .mobile-only-actions {
+            display: none;
+        }
+
+        /* ==========================================================================
+           3. MEGAMENU (DESKTOP)
+           ========================================================================== */
+        .megamenu {
+            position: absolute;
+            top: var(--nav-height);
+            left: 0;
+            position: fixed; 
+            width: 100%; 
+            background-color: var(--bg-megamenu);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4px);
+            transition: opacity var(--transition-speed) ease, 
+                        visibility var(--transition-speed) ease, 
+                        transform var(--transition-speed) ease;
+            z-index: 1001;
+        }
+
+        .megamenu::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            z-index: -1;
+        }
+
+        @media (min-width: 992px) {
+            .nav-item:hover .megamenu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        .megamenu-inner {
+            width: 100%;
+            padding: 40px 32px; 
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .megamenu-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .megamenu-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .megamenu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .megamenu-item-link {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: background-color var(--transition-speed);
+            margin-left: -12px;
+        }
+
+        .megamenu-item-link:hover {
+            background-color: var(--bg-item-hover);
+        }
+
+        .megamenu-item-link:hover .megamenu-link-name {
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .megamenu-text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .megamenu-link-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: font-weight var(--transition-speed);
+        }
+
+        .megamenu-link-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           4. WERSJA RESPONSYWNA (MOBILE) - GŁÓWNY NAVBAR
+           ========================================================================== */
+        .mobile-burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-primary);
+            padding: 8px;
+            z-index: 1015;
+        }
+
+        .mobile-burger svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        .mobile-burger .icon-close {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-container > .nav-actions {
+                display: none;
+            }
+
+            .mobile-burger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-navbar);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: calc(var(--nav-height) + 16px) 24px 40px 24px;
+                gap: 0;
+                overflow-y: auto;
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 1005;
+            }
+
+            .mobile-menu-open .nav-menu {
+                transform: translateX(0);
+            }
+
+            .mobile-menu-open {
+                overflow: hidden;
+            }
+
+            .mobile-menu-open .mobile-burger .icon-open {
+                display: none;
+            }
+
+            .mobile-menu-open .mobile-burger .icon-close {
+                display: block;
+            }
+
+            .nav-item {
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-link {
+                width: 100%;
+                height: 56px;
+                padding: 0;
+                margin: 0;
+                border-radius: 0;
+                font-size: 1.1rem;
+                justify-content: space-between;
+            }
+
+            .nav-link:hover {
+                background-color: transparent;
+            }
+
+            .nav-link::after {
+                display: none;
+            }
+
+            .nav-item:has(.megamenu) .nav-link::after {
+                content: '+';
+                font-size: 1.25rem;
+                font-weight: 300;
+                display: block;
+                color: var(--text-muted);
+            }
+
+            .submenu-open .nav-item:has(.megamenu) .nav-link::after {
+                content: '−';
+            }
+
+            .megamenu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                background-color: var(--bg-item-hover);
+                border-bottom: none;
+                width: 100%;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                padding-bottom: 16px;
+            }
+
+            body.submenu-open .megamenu {
+                display: block;
+            }
+
+            .megamenu-inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 16px 0;
+            }
+
+            .megamenu-column {
+                gap: 8px;
+            }
+
+            .megamenu-item-link {
+                margin-left: 0;
+                padding: 8px 0;
+            }
+            
+            .megamenu-link-desc {
+                display: none;
+            }
+
+            .mobile-only-actions {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 32px;
+                gap: 24px;
+                padding-bottom: 20px;
+            }
+
+            .mobile-action-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .mobile-action-row .action-icon-btn {
+                background-color: var(--bg-item-hover);
+                color: var(--text-primary);
+                width: 44px;
+                height: 44px;
+            }
+
+            .mobile-action-label {
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--text-secondary);
+            }
+
+            .mobile-only-actions .btn-cta {
+                width: 100%;
+                height: 48px;
+                font-size: 1rem;
+            }
+        }
+.submenu-open .nav-item:has(#submenuBtn) .megamenu,
+.help-menu-open .nav-item:has(#helpBtn) .megamenu,
+.about-menu-open .nav-item:has(#aboutBtn) .megamenu {
+    display: block;
+}
+.help-menu-open .nav-item:has(#helpBtn) .nav-link::after {
+    content: '−';
+}
+.about-menu-open .nav-item:has(#aboutBtn) .nav-link::after {
+    content: '−';
+}
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Geist', sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; }
+
+  /* Logo: przełączanie wersji light/dark obrazków */
+  .logo-dark  { display: none; }
+  .logo-light { display: block; }
+  html.dark .logo-dark  { display: block; }
+  html.dark .logo-light { display: none; }
+
+  /* Ikona: księżyc w light, słońce w dark */
+  .theme-icon-moon { display: block; }
+  .theme-icon-sun  { display: none;  }
+  html.dark .theme-icon-moon { display: none;  }
+  html.dark .theme-icon-sun  { display: block; }
+
+  /* ══════════════════════════════════════════════════════
+     DARK MODE — zmienne globalne
+  ══════════════════════════════════════════════════════ */
+  html.dark {
+    --fg: #F5F5F5;
+    --fg-2: #D4D4D4;
+    --fg-3: #A3A3A3;
+    --fg-4: #6B6B6B;
+    --border: #2A2A2A;
+    --border-2: #222222;
+    --bg: #0A0A0A;
+    --bg-2: #111111;
+    --bg-3: #1A1A1A;
+    --blue-muted: #0D1F3C;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    --bg-navbar: #0A0A0A;
+    --bg-navbar-translucent: rgba(10, 10, 10, 0.88);
+    --bg-megamenu: #111111;
+    --border-color: #2A2A2A;
+    --text-primary: #F5F5F5;
+    --text-secondary: #D4D4D4;
+    --text-muted: #A3A3A3;
+    --bg-item-hover: #1F1F1F;
+    --bg-item-hover-strong: #2A2A2A;
+    --color-accent: #3D8EF8;
+    --color-accent-hover: #5FA3FA;
+  }
+
+  html.dark .nav-menu { background-color: var(--bg-navbar); }
+
+  body, .site-header, .megamenu, .nav-menu {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  @keyframes navSlideDown {
+    from { opacity: 0; transform: translateY(-100%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .site-header {
+    animation: navSlideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transition: box-shadow 0.3s ease, background-color 0.25s ease !important;
+  }
+  .site-header.scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.08); }
+  html.dark .site-header.scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.4); }
+
+  .megamenu {
+    transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.22s !important;
+  }
+  @media (min-width: 992px) {
+    .nav-item:hover .megamenu { opacity: 1; visibility: visible; transform: translateY(0) !important; }
+    .megamenu { transform: translateY(-8px) !important; }
+  }
+  @media (max-width: 991px) {
+    .megamenu {
+      display: block !important;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 1;
+      visibility: visible;
+      transform: none !important;
+      transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease !important;
+    }
+    .submenu-open .nav-item:has(#submenuBtn) .megamenu,
+    .help-menu-open .nav-item:has(#helpBtn) .megamenu,
+    .about-menu-open .nav-item:has(#aboutBtn) .megamenu { max-height: 600px; }
+  }
+
+  .nav-menu { transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+
+        /* ==========================================================================
+           5. LOKALNY HEADER MB&SP (DEDYKOWANY, CIEMNY, ZAWSZE STAŁY)
+           ========================================================================== */
+        .product-header {
+            position: relative;
+            background-color: var(--bg-2);
+            border-bottom: 1px solid var(--border);
+            width: 100%;
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .product-nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 72px;
+            padding: 0 40px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--fg);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .product-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Przycisk Pomoc - outline */
+        .btn-nav-outline {
+            background: none;
+            border: 1.5px solid var(--fg);
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 26px;
+            border-radius: 9999px;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+        }
+
+        .btn-nav-outline:hover {
+            background-color: var(--fg);
+            color: var(--bg);
+        }
+
+        /* Przycisk czarny/ciemny z dolnych sekcji */
+        .btn-outline-dark {
+            background: none;
+            border: 1.5px solid var(--fg);
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 10px 28px;
+            border-radius: 9999px;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-outline-dark:hover {
+            background-color: var(--fg);
+            color: var(--bg);
+        }
+
+        /* ==========================================================================
+           6. SEKCJA HERO (GRANAT MB&SP - STAŁY, NIEZALEŻNY OD DARK MODE)
+           ========================================================================== */
+        .hero-section {
+            background-color: var(--mbsp-navy);
+            color: #ffffff;
+            padding: 60px 40px 40px 40px;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .hero-logo-text {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-images-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .img-desktop-imac {
+            width: 85%;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+        }
+
+        /* ==========================================================================
+           7. ŚRODKOWA SEKCJA Z TELEFONEM
+           ========================================================================== */
+        .middle-mobile-section {
+            background-color: var(--bg);
+            padding: 80px 40px;
+            transition: background-color 0.25s ease;
+        }
+
+        .middle-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .middle-image-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-mobile-phone {
+            width: 55%;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15));
+        }
+
+        .middle-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .middle-content h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--fg);
+            letter-spacing: -0.02em;
+        }
+
+        .middle-content p {
+            font-size: 1.1rem;
+            color: var(--fg-3);
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           8. SEKCJA DOLNA: WIĘCEJ PROJEKTÓW / AKTUALNOŚCI
+           ========================================================================== */
+        .features-section {
+            padding: 80px 40px;
+            background-color: var(--bg);
+            transition: background-color 0.25s ease;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 48px;
+            align-items: stretch;
+        }
+
+        .card-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .card-left h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--fg);
+        }
+
+        .card-right-box {
+            background-color: var(--bg-2); 
+            border: 1px solid var(--border);
+            border-radius: 28px; 
+            padding: 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 32px;
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .card-right-box h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--fg);
+        }
+
+        .card-right-box p {
+            color: var(--fg-3);
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-top: 8px;
+        }
+
+        /* ==========================================================================
+           9. LOKALNY FOOTER MB&SP (GRANAT - STAŁY, NIEZALEŻNY OD DARK MODE)
+           ========================================================================== */
+        .site-footer {
+            background-color: var(--mbsp-navy);
+            color: #ffffff;
+            padding: 80px 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-brand-column h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-links a:hover { color: #ffffff; }
+
+        /* ==========================================================================
+           10. MOBILNA RESPONSYWNOŚĆ (RWD OVERRIDES - SEKCJE MB&SP)
+           ========================================================================== */
+        @media (max-width: 991px) {
+            .product-nav-container { padding: 0 20px; }
+
+            .hero-container, .middle-container, .features-container, .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 32px;
+            }
+            .hero-section { padding: 40px 20px; }
+            .hero-images-container, .middle-image-box { justify-content: center; }
+            .img-desktop-imac { width: 100%; }
+            .img-mobile-phone { width: 70%; }
+            .middle-content { align-items: center; }
+            .card-left { align-items: center; }
+            .card-right-box { padding: 32px; text-align: left; }
+        }
+
+        @media (max-width: 600px) {
+            .product-nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 20px;
+                gap: 16px;
+            }
+        }
+  /* ── HERO: tagline + CTA ─────────────────────────────── */
+  .hero-tagline {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.55;
+      max-width: 440px;
+  }
+  .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+  }
+  .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: var(--mbsp-navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+  }
+  .btn-hero-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-hero-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 12px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      transition: color 0.15s, border-color 0.15s;
+  }
+  .btn-hero-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.6); }
+
+  /* ── ABOUT SECTION ───────────────────────────────────── */
+  .about-section {
+      background: var(--bg);
+      padding: 96px 40px;
+      transition: background-color 0.25s ease;
+  }
+  .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+  }
+  .about-image-box {
+      display: flex;
+      justify-content: center;
+  }
+  .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  }
+  .about-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mbsp-navy);
+      background: rgba(11,37,89,0.07);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      width: fit-content;
+  }
+  html.dark .about-label { background: rgba(61,142,248,0.12); color: var(--blue-light); }
+  .about-content h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--fg);
+      line-height: 1.2;
+  }
+  .about-content p {
+      font-size: 1.05rem;
+      color: var(--fg-3);
+      line-height: 1.6;
+  }
+
+  /* ── FEATURES 3-CARD SECTION ─────────────────────────── */
+  .features3-section {
+      background: var(--bg-2);
+      padding: 80px 40px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+  .features3-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+  }
+  .f3-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background-color 0.25s;
+  }
+  .f3-card:hover {
+      border-color: var(--blue-light);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+  }
+  .f3-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(11,37,89,0.07);
+      color: var(--mbsp-navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  html.dark .f3-icon { background: rgba(61,142,248,0.12); color: var(--blue-light); }
+  .f3-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--fg);
+      letter-spacing: -0.01em;
+  }
+  .f3-card p {
+      font-size: 0.95rem;
+      color: var(--fg-3);
+      line-height: 1.6;
+  }
+
+  /* ── BOTTOM CTA SECTION ──────────────────────────────── */
+  .bottom-cta-section {
+      background: var(--bg);
+      padding: 80px 40px;
+      transition: background-color 0.25s ease;
+  }
+  .bottom-cta-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+  }
+  .bottom-cta-card {
+      background: var(--mbsp-navy);
+      color: #fff;
+      border-radius: 24px;
+      padding: 52px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+  }
+  .bottom-cta-card--secondary {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+  .bottom-cta-card h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+  }
+  .bottom-cta-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: inherit;
+  }
+  .bottom-cta-card p {
+      font-size: 1rem;
+      opacity: 0.75;
+      line-height: 1.55;
+  }
+  .bottom-cta-card--secondary p { color: var(--fg-3); opacity: 1; }
+  .bottom-cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+  }
+
+  .mbspabout-summary {
+            background-color: var(--bg-2);
+            padding: 64px 40px;
+            text-align: center;
+            transition: background-color 0.25s ease;
+        }
+
+        .mbspabout-summary p {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fg);
+            letter-spacing: -0.01em;
+            line-height: 1.4;
+        }
+
+  /* ── REVEAL ANIMATION ────────────────────────────────── */
+  .reveal-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal-up.visible { opacity: 1; transform: none; }
+
+  /* ── RWD NOWE SEKCJE ─────────────────────────────────── */
+  @media (max-width: 991px) {
+      .about-container,
+      .bottom-cta-container { grid-template-columns: 1fr; }
+      .about-section { padding: 64px 20px; }
+      .features3-section { padding: 64px 20px; }
+      .bottom-cta-section { padding: 64px 20px; }
+      .bottom-cta-card { padding: 40px 32px; }
+      .features3-container { grid-template-columns: 1fr; gap: 16px; }
+      .about-content h2 { font-size: 1.7rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 600px) {
+      .hero-tagline { font-size: 1rem; }
+      .bottom-cta-card { padding: 32px 24px; }
+      .bottom-cta-card h2 { font-size: 1.6rem; }
+  }
+
+
+  /* 
+COOKIE BANNER
+
+*/
+  /* Główny kontener bannera */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            min-height: 140px;
+            background-color: var(--cb-bg);
+            box-shadow: var(--cb-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            padding: 24px 40px;
+            z-index: 9999;
+            border-top: 1px solid var(--cb-border);
+            font-family: var(--cb-font);
+        }
+
+        /* Sekcja z logo i podpisem autora */
+        .cookie-branding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cookie-logo {
+            width: 84px;
+            height: auto;
+            margin-bottom: 8px;
+        }
+
+        .cookie-author {
+            font-size: 11px;
+            color: var(--cb-text-secondary);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Sekcja z tekstem (Nagłówek + Opis) */
+        .cookie-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 100%;
+            overflow-y: auto;
+        }
+
+        .cookie-content h2 {
+            font-size: 1.05rem;
+            color: var(--cb-text-primary);
+            margin-bottom: 6px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .cookie-content p {
+            font-size: 0.88rem;
+            color: var(--cb-text-secondary);
+            line-height: 1.5;
+        }
+
+        .cookie-policy-link {
+            color: var(--cb-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cookie-policy-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Sekcja z przyciskami decyzyjnymi */
+        .cookie-actions {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            transition: background-color var(--cb-transition), transform 0.1s ease;
+            text-align: center;
+            white-space: nowrap;
+            font-family: var(--cb-font);
+        }
+
+        /* Przycisk akceptacji */
+        .btn-accept {
+            background-color: var(--cb-accent);
+            color: #ffffff;
+        }
+
+        .btn-accept:hover {
+            background-color: var(--cb-accent-hover);
+        }
+
+        /* Przycisk odrzucenia */
+        .btn-reject {
+            background-color: var(--cb-btn-reject-bg);
+            color: var(--cb-btn-reject-text);
+        }
+
+        .btn-reject:hover {
+            background-color: var(--cb-btn-reject-bg-hover);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        /* RESPONSYWNOŚĆ (Dla urządzeń mobilnych) */
+        @media (max-width: 768px) {
+            .cookie-banner {
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                padding: 18px;
+                min-height: 0;
+                max-height: 80vh;
+                overflow-y: auto;
+                gap: 12px;
+            }
+
+            .cookie-branding {
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 4px;
+                border-bottom: 1px solid var(--cb-border);
+                padding-bottom: 10px;
+            }
+
+            .cookie-logo {
+                width: 70px;
+                margin-bottom: 0;
+            }
+
+            .cookie-content h2 {
+                font-size: 0.95rem;
+            }
+
+            .cookie-content p {
+                font-size: 0.8rem;
+            }
+
+            .cookie-actions {
+                width: 100%;
+            }
+
+            .btn {
+                flex: 1;
+                padding: 11px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "name": "MB&SP",
+  "url": "https://mbsp.com.pl",
+  "description": "Sklep internetowy z komponentami elektronicznymi dla makerów, elektroników i hobbystów.",
+  "brand": {
+    "@type": "Organization",
+    "name": "Mily Unlimited",
+    "url": "https://milyunlimited.eu"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Miłosz Boguniewicz"
+  }
+}
+</script>
+</head>
+<body>
+<!-- ── GŁÓWNY NAVBAR MILY UNLIMITED ──────────────────────── -->
+<header class="site-header">
+        <nav class="nav-container">
+            
+            <a href="index.html" class="nav-logo">
+                  <img src="i/images/milyunlogo-whiteback.png" class="logo-light" alt="Mily Unlimited" width="100px">
+                  <img src="i/images/milyunlimited-logo.png"  class="logo-dark"  alt="Mily Unlimited" width="100px">
+            </a>
+
+            <ul class="nav-menu" id="navMenu">                
+                <li class="nav-item">
+                    <button class="nav-link" id="submenuBtn">Projekty</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Cyfrowe</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="about-mbsp-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">MB&SP</span>
+                                                <span class="megamenu-link-desc">Platforma i sklep dla makerów i elektroników.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="about-czatai-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">CzatAI</span>
+                                                <span class="megamenu-link-desc">Eksperymentalny czatbot</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="projects.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Maker Tools</span>
+                                                <span class="megamenu-link-desc">Kalkulatory i narzędzia dla makerów.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="projects.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">MB Designer</span>
+                                                <span class="megamenu-link-desc">Lekki i prosty projektant schematów elektronicznych.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" id="helpBtn">Pomoc</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">MB&SP</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Centrum pomocy MB&SP</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">FAQ</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help-store-rules.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Regulamin sklepu</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/help-returns.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Zwroty</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/contact_sales.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Poproś o wycenę</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://mbsp.com.pl/contact.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Kontakt ze wsparciem MB&SP</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Wsparcie</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="help.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Centrum pomocy ogólne</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="status.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Status</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                </li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Journal</a></li>
+                <li class="nav-item">
+                    <button class="nav-link" id="aboutBtn">Poznaj Mily Unlimited</button>
+                    
+                    <div class="megamenu">
+                        <div class="megamenu-inner">
+                            <div class="megamenu-column">
+                                <h3 class="megamenu-title">Poznaj Mily Unlimited</h3>
+                                <ul class="megamenu-list">
+                                    <li>
+                                        <a href="mission-pl.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Misja</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutme.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">O mnie</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mission-pl.html#roadmap" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Roadmap</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="research.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Badania</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://business.milyunlimited.eu" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Dla biznesu</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html" class="megamenu-item-link">
+                                            <div class="megamenu-text-content">
+                                                <span class="megamenu-link-name">Kontakt</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+
+                <li class="mobile-only-actions">
+                    <div class="mobile-action-row">
+                        <button class="action-icon-btn" id="themeToggleMobile" title="Motyw" aria-label="Zmień motyw">
+                            <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        </button>
+                        <span class="mobile-action-label">Zmień motyw</span>
+                    </div>
+                    <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP.com</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="action-icon-btn" id="themeToggleDesktop" title="Zmień motyw" aria-label="Zmień motyw">
+                    <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP.com</a>
+            </div>
+
+            <button class="mobile-burger" id="burgerBtn" aria-label="Otwórz menu">
+                <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+        </nav>
+    </header>
+
+    <!-- ── LOKALNY HEADER MB&SP (DEDYKOWANY) ─────────────── -->
+    <header class="product-header">
+        <nav class="product-nav-container">
+            <a href="https://mbsp.com.pl" class="product-logo">MB&SP</a>
+            <div class="product-nav-actions">
+                <a href="help.html#mbsp" class="btn-nav-outline">Pomoc</a>
+                <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SEKCJA HERO (GRANAT) -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-logo-text"><img src="i/images/mblogo-light.png" alt="MB&SP"></div>
+                <p class="hero-tagline">Platforma dla makerów, elektroników i ludzi, którzy budują własne projekty.</p>
+                <div class="hero-actions">
+                    <a href="https://mbsp.com.pl" class="btn-hero-primary">Wypróbuj MB&SP.com</a>
+                    <a href="#co-to" class="btn-hero-ghost">Dowiedz się więcej ↓</a>
+                </div>
+            </div>
+            <div class="hero-images-container">
+                <img src="i/images/pc-mbsp.png" alt="Desktop Application" class="img-desktop-imac">
+            </div>
+        </div>
+    </section>
+    <section class="mbspabout-summary">
+        <p>Komponenty, narzędzia i zasoby dla makerów, uczniów i inżynierów.</p>
+    </section>
+
+    <!-- SEKCJA: CO TO JEST -->
+    <section class="about-section" id="co-to">
+        <div class="about-container">
+            <div class="about-image-box">
+                <img src="i/images/mobile-mbsp.png" alt="Mobile Application" class="img-mobile-phone">
+            </div>
+            <div class="about-content">
+                <span class="about-label">Czym jest MB&SP?</span>
+                <h2>Od pierwszego projektu do gotowego urządzenia.</h2>
+                <p>MB&SP (MB&SP) łączy katalog komponentów elektronicznych, wiedzę techniczną i narzędzia pomagające szybciej realizować projekty. Wszystko w jednym miejscu — dla makerów, hobbystów i profesjonalistów.</p>
+                <a href="https://mbsp.com.pl" class="btn-cta">Otwórz platformę</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCJA: 3 KARTY FEATURES -->
+    <section class="features3-section">
+        <div class="features3-container">
+            <div class="f3-card reveal-up">
+                <div class="f3-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Katalog komponentów</h3>
+                <p>Ponad 900 pozycji — rezystory, kondensatory, mikrokontrolery, moduły i więcej. Przeszukaj według kategorii lub parametrów.</p>
+            </div>
+            <div class="f3-card reveal-up" style="animation-delay: 0.1s">
+                <div class="f3-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                </div>
+                <h3>Narzędzia dla twórców</h3>
+                <p>MB Designer, Maker Tools i CzatAI — zestaw narzędzi stworzonych z myślą o projektach elektronicznych.</p>
+            </div>
+            <div class="f3-card reveal-up" style="animation-delay: 0.2s">
+                <div class="f3-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Uczciwy projekt</h3>
+                <p>Rozwijany przez jedną osobę, bez venture capital. Przejrzysty changelog, otwarta roadmapa i bezpośredni kontakt z twórcą.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCJA: DOLNA CTA -->
+    <section class="bottom-cta-section">
+        <div class="bottom-cta-container">
+            <div class="bottom-cta-card">
+                <h2>Gotowy na projekt?</h2>
+                <p>Przeglądaj katalog, korzystaj z narzędzi i buduj szybciej.</p>
+                <div class="bottom-cta-actions">
+                    <a href="https://mbsp.com.pl" class="btn-cta">Otwórz MB&SP.com</a>
+                    <a href="changelog.html" class="btn-outline-dark">Zobacz changelog</a>
+                </div>
+            </div>
+            <div class="bottom-cta-card bottom-cta-card--secondary">
+                <h3>Więcej projektów Mily Unlimited</h3>
+                <p>CzatAI, MB Designer, Maker Tools i inne narzędzia dla elektroników.</p>
+                <a href="index.html" class="btn-outline-dark">Odkryj ekosystem</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOKALNY FOOTER MB&SP -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand-column">
+                <h2>Przydatne linki</h2>
+                
+            </div>
+            <div class="footer-column">
+                <h4>Platforma</h4>
+                <ul class="footer-links">
+                    <li><a href="https://mbsp.com.pl/help.html">FAQ</a></li>
+                    <li><a href="https://mbsp.com.pl/catalog.html">Katalog</a></li>
+                    <li><a href="https://mbsp.com.pl/contact_sales.html">Wyślij wycenę</a></li>
+                    <li><a href="https://mbsp.com.pl/help.html">Centrum pomocy</a></li>
+                    <li><a href="https://mbsp.com.pl/help-feedback.html">Zgłoś błąd</a></li>
+                    <li><a href="https://mbsp.com.pl/help-feedback.html">Podziel się opinią</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Informacje</h4>
+                <ul class="footer-links">
+                    <li><a href="https://mbsp.com.pl/help-privacy-policy.html">Prywatność</a></li>
+                    <li><a href="https://mbsp.com.pl/help-store-rules.html">Regulamin</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Media</h4>
+                <ul class="footer-links">
+                    <li><a href="https://x.com/mbspcom_pl">X/Twitter</a></li>
+                    <li><a href="https://www.instagram.com/mbspcompl/">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<script>
+const burgerBtn = document.getElementById('burgerBtn');
+const submenuBtn = document.getElementById('submenuBtn'); // Projekty
+const helpBtn = document.getElementById('helpBtn');       // Pomoc
+const aboutBtn = document.getElementById('aboutBtn');     // Poznaj nas
+const body = document.body;
+
+burgerBtn.addEventListener('click', () => {
+    body.classList.toggle('mobile-menu-open');
+    if(!body.classList.contains('mobile-menu-open')) {
+        body.classList.remove('submenu-open');
+        body.classList.remove('help-menu-open');
+        body.classList.remove('about-menu-open');
+    }
+});
+
+submenuBtn.addEventListener('click', (e) => {
+    if (window.innerWidth <= 991) {
+        e.preventDefault();
+        body.classList.toggle('submenu-open');
+        body.classList.remove('help-menu-open');
+        body.classList.remove('about-menu-open');
+    }
+});
+
+helpBtn.addEventListener('click', (e) => {
+    if (window.innerWidth <= 991) {
+        e.preventDefault();
+        body.classList.toggle('help-menu-open');
+        body.classList.remove('submenu-open');
+        body.classList.remove('about-menu-open');
+    }
+});
+
+aboutBtn.addEventListener('click', (e) => {
+    if (window.innerWidth <= 991) {
+        e.preventDefault();
+        body.classList.toggle('about-menu-open');
+        body.classList.remove('submenu-open');
+        body.classList.remove('help-menu-open');
+    }
+});
+
+// ── DARK / LIGHT THEME ───────────────────────────────────
+(function() {
+  const html = document.documentElement;
+  const STORAGE_KEY = 'mu-theme';
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) html.classList.add('dark');
+
+  function toggleTheme() {
+    const isDark = html.classList.toggle('dark');
+    localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light');
+  }
+  document.getElementById('themeToggleDesktop').addEventListener('click', toggleTheme);
+  document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
+})();
+
+// ── NAVBAR SHADOW ON SCROLL ───────────────────────────────
+(function() {
+  const header = document.querySelector('.site-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 12);
+    }, { passive: true });
+  }
+})();
+
+// ── REVEAL ANIMATION ─────────────────────────────────────
+(function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+})();
+</script>
+<!-- KOD COOKIE BANNERA - komponent przenośny, gotowy do wklejenia na każdą platformę MU -->
+    <div class="cookie-banner" id="cookieBanner">
+        
+        <!-- Treść -->
+        <div class="cookie-content">
+            <h2>Prywatność użytkowników jest dla nas najważniejsza</h2>
+            <p>
+                W celu zapewnienia najwyższej jakości usług, optymalnego działania naszych platform oraz analizy ruchu,
+                korzystamy z plików cookies i podobnych technologii. Szczegółowe informacje o celach przetwarzania, zarządzaniu zgodami oraz
+                możliwości ich wycofania w dowolnym momencie znajdziesz w naszej
+                <a href="help.html#polityka-prywatnosci" class="cookie-policy-link">Polityce Prywatności</a> i <a href="help.html#rodo" class="cookie-policy-link">RODO</a>. Inne przydatne linki: <a href="https://milyunlimited.eu/projects.html" class="cookie-policy-link">Platformy i serwisy Mily Unlimited</a>.
+            </p>
+        </div>
+        <!-- Przyciski -->
+        <div class="cookie-actions">
+            <button class="btn btn-reject" onclick="handleCookie(false)">Nie zgadzam się</button>
+            <button class="btn btn-accept" onclick="handleCookie(true)">Akceptuję</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /status.html
+Disallow: /i/
+
+Sitemap: https://milyunlimited.eu/sitemap.xml
