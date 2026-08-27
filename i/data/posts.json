@@ -10,9 +10,17 @@
   {
     "slug": "mbsp-early-access-reveal",
     "title": "MBSP.com.pl 4.0 Early Access – nowy rozdział",
-    "excerpt": "Kilka lat temu rozpocząłem pracę nad projektem, który z czasem przerodził się w Miły’s Buy & Sell Parts, z prostym celem...",
+    "excerpt": "Kilka lat temu rozpocząłem pracę nad projektem, który z czasem przerodził się w Miły's Buy & Sell Parts, z prostym celem...",
     "category": "Technologia",
     "date": "2026-06-28",
+    "image": "i/images/posts/architektura-mbsp.jpg"
+  },
+  {
+    "slug": "behind-mbsp-40",
+    "title": "Behind MB&SP 4.0 — jak powstawała nowa wersja MB&SP",
+    "excerpt": "26 września 2026 roku MB&SP 4.0 wejdzie w Early Access. Zanim pokażę nową wersję użytkownikom, chcę cofnąć się w czasie i opowiedzieć, ile pracy zajęło mi stworzenie tego projektu.",
+    "category": "Technologia",
+    "date": "2026-08-27",
     "image": "i/images/posts/architektura-mbsp.jpg"
   }
 ]
