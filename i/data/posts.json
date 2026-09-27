@@ -22,5 +22,13 @@
     "category": "Technologia",
     "date": "2026-08-27",
     "image": "i/images/posts/architektura-mbsp.jpg"
+  },
+  {
+    "slug": "wiecej-niz-sklep-z-elektronika",
+    "title": "MB&SP 4.0 — więcej niż sklep z elektroniką",
+    "excerpt": "Dzisiaj MB&SP 4.0 trafia do Early Access. To moment, na który pracowałem przez długi czas. Ale premiera nowej wersji to nie tylko nowa strona, nowy wygląd czy kolejne funkcje.",
+    "category": "Technologia",
+    "date": "2026-09-26",
+    "image": "i/images/posts/mbsp-4_0.jpg"
   }
 ]
