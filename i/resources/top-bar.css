@@ -1,0 +1,68 @@
+
+
+        /* Górny pasek oparty na Gridzie (2D) */
+        .top-bar {
+            width: 100%;
+            height: 40px;
+            background-color: #031838;
+            color: #ffffff;
+            display: grid;
+            grid-template-columns: 40px 1fr 40px; /* Lewa pusta, środek tekst, prawa przycisk */
+            align-items: center;
+            padding: 0 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            
+            /* Animacja płynnego znikania */
+            max-height: 40px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+        }
+
+        /* Stan ukryty */
+        .top-bar.is-hidden {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Zawartość wycentrowana w środkowej kolumnie */
+        .top-bar-content {
+            grid-column: 2;
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .top-bar-link {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .top-bar-link:hover {
+            opacity: 0.85;
+        }
+
+        /* Przycisk w prawej kolumnie */
+        .top-bar-close {
+            grid-column: 3;
+            justify-self: end;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .top-bar-close:hover {
+            opacity: 1;
+        }

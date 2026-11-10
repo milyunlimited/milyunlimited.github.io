@@ -10,6 +10,9 @@
   <meta property="og:url" content="https://milyunlimited.eu/about-mbsp-pl.html" />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://milyunlimited.eu/about-mbsp-pl.html" />
+<link rel="alternate" hreflang="pl" href="https://milyunlimited.eu/about-mbsp-pl.html" />
+<link rel="alternate" hreflang="en" href="https://milyunlimited.eu/en/about-mbsp-pl.html" />
+<link rel="alternate" hreflang="x-default" href="https://milyunlimited.eu/about-mbsp-pl.html" />
 <title>Poznaj MB&SP od Mily Unlimited</title>
 <!-- Zapobiega mignięciu białego tła przy dark mode -->
 <script>
@@ -353,160 +356,10 @@
         }
 
         @media (max-width: 991px) {
-            .nav-container {
-                padding: 0 20px;
-            }
-
-            .nav-container > .nav-actions {
-                display: none;
-            }
-
-            .mobile-burger {
-                display: block;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background-color: var(--bg-navbar);
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                padding: calc(var(--nav-height) + 16px) 24px 40px 24px;
-                gap: 0;
-                overflow-y: auto;
-                transform: translateX(100%);
-                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-                z-index: 1005;
-            }
-
-            .mobile-menu-open .nav-menu {
-                transform: translateX(0);
-            }
-
-            .mobile-menu-open {
-                overflow: hidden;
-            }
-
-            .mobile-menu-open .mobile-burger .icon-open {
-                display: none;
-            }
-
-            .mobile-menu-open .mobile-burger .icon-close {
-                display: block;
-            }
-
-            .nav-item {
-                width: 100%;
-                height: auto;
-                flex-direction: column;
-                align-items: flex-start;
-                border-bottom: 1px solid var(--border-color);
-            }
-
-            .nav-link {
-                width: 100%;
-                height: 56px;
-                padding: 0;
-                margin: 0;
-                border-radius: 0;
-                font-size: 1.1rem;
-                justify-content: space-between;
-            }
-
-            .nav-link:hover {
-                background-color: transparent;
-            }
-
-            .nav-link::after {
-                display: none;
-            }
-
-            .nav-item:has(.megamenu) .nav-link::after {
-                content: '+';
-                font-size: 1.25rem;
-                font-weight: 300;
-                display: block;
-                color: var(--text-muted);
-            }
-
-            .submenu-open .nav-item:has(.megamenu) .nav-link::after {
-                content: '−';
-            }
-
-            .megamenu {
-                position: relative;
-                top: 0;
-                box-shadow: none;
-                background-color: var(--bg-item-hover);
-                border-bottom: none;
-                width: 100%;
-                display: none;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                padding-bottom: 16px;
-            }
-
-            body.submenu-open .megamenu {
-                display: block;
-            }
-
-            .megamenu-inner {
-                grid-template-columns: 1fr;
-                gap: 24px;
-                padding: 16px 0;
-            }
-
-            .megamenu-column {
-                gap: 8px;
-            }
-
-            .megamenu-item-link {
-                margin-left: 0;
-                padding: 8px 0;
-            }
-            
-            .megamenu-link-desc {
-                display: none;
-            }
-
-            .mobile-only-actions {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                margin-top: 32px;
-                gap: 24px;
-                padding-bottom: 20px;
-            }
-
-            .mobile-action-row {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .mobile-action-row .action-icon-btn {
-                background-color: var(--bg-item-hover);
-                color: var(--text-primary);
-                width: 44px;
-                height: 44px;
-            }
-
-            .mobile-action-label {
-                font-size: 1rem;
-                font-weight: 500;
-                color: var(--text-secondary);
-            }
-
-            .mobile-only-actions .btn-cta {
-                width: 100%;
-                height: 48px;
-                font-size: 1rem;
-            }
+            .nav-container { padding: 0 20px; }
+            .nav-container > .nav-actions { display: none; }  /* na mobile: tylko burger */
+            .mobile-burger { display: block; }
+            .nav-menu { display: none; }                      /* zastąpione menu fullscreen (fs-menu.css) */
         }
 .submenu-open .nav-item:has(#submenuBtn) .megamenu,
 .help-menu-open .nav-item:has(#helpBtn) .megamenu,
@@ -1326,7 +1179,27 @@ COOKIE BANNER
             }
         }
 
-</style>
+
+        /* ── LIGHTBOX: ZMIANA JĘZYKA ────────────────────────── */
+        .lang-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 9000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; }
+        .lang-modal-overlay.open { opacity: 1; visibility: visible; }
+        .lang-modal { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 36px 40px; max-width: 400px; width: calc(100% - 48px); box-shadow: 0 24px 64px rgba(0,0,0,0.15); position: relative; transform: translateY(8px) scale(0.97); transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); }
+        .lang-modal-overlay.open .lang-modal { transform: translateY(0) scale(1); }
+        .lang-modal-close { position: absolute; top: 16px; right: 16px; background: var(--bg-item-hover); border: none; cursor: pointer; color: var(--fg-3); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.15s, color 0.15s; }
+        .lang-modal-close:hover { background: var(--bg-item-hover-strong, var(--bg-item-hover)); color: var(--fg); }
+        .lang-modal-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--blue-muted); color: var(--color-accent); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        html.dark .lang-modal-icon { background: rgba(61,142,248,0.12); }
+        .lang-modal h3 { font-size: 1.15rem; font-weight: 700; color: var(--fg); margin-bottom: 10px; letter-spacing: -0.01em; }
+        .lang-modal p { font-size: 0.95rem; color: var(--fg-3); line-height: 1.55; margin-bottom: 24px; }
+        .lang-modal-langs { display: flex; gap: 10px; flex-wrap: wrap; }
+        .lang-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 9999px; font-size: 0.88rem; font-weight: 600; border: 1.5px solid var(--border); background: none; cursor: default; }
+        .lang-chip.active { border-color: var(--color-accent); color: var(--color-accent); background: var(--blue-muted); }
+        html.dark .lang-chip.active { background: rgba(61,142,248,0.10); }
+
+        /* Chip jako link (aktywny przełącznik języka) */
+        a.lang-chip { cursor: pointer; color: var(--fg); text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+        a.lang-chip:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1345,6 +1218,8 @@ COOKIE BANNER
   }
 }
 </script>
+<link rel="stylesheet" href="i/resources/cta-button-main.css">
+<link rel="stylesheet" href="i/resources/fs-menu.css">
 </head>
 <body>
 <!-- ── GŁÓWNY NAVBAR MILY UNLIMITED ──────────────────────── -->
@@ -1352,8 +1227,8 @@ COOKIE BANNER
         <nav class="nav-container">
             
             <a href="index.html" class="nav-logo">
-                  <img src="i/images/milyunlogo-whiteback.png" class="logo-light" alt="Mily Unlimited" width="100px">
-                  <img src="i/images/milyunlimited-logo.png"  class="logo-dark"  alt="Mily Unlimited" width="100px">
+                  <img src="i/images/milyunlogo-whiteback.png" class="logo-light" alt="Mily Unlimited" width="150px">
+                  <img src="i/images/milyunlimited-logo.png"  class="logo-dark"  alt="Mily Unlimited" width="150px">
             </a>
 
             <ul class="nav-menu" id="navMenu">                
@@ -1539,17 +1414,6 @@ COOKIE BANNER
                         </div>
                     </div>
                 </li>
-
-                <li class="mobile-only-actions">
-                    <div class="mobile-action-row">
-                        <button class="action-icon-btn" id="themeToggleMobile" title="Motyw" aria-label="Zmień motyw">
-                            <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                            <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                        </button>
-                        <span class="mobile-action-label">Zmień motyw</span>
-                    </div>
-                    <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP.com</a>
-                </li>
             </ul>
 
             <div class="nav-actions">
@@ -1557,16 +1421,124 @@ COOKIE BANNER
                     <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                     <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
                 </button>
-                <a href="https://mbsp.com.pl" class="btn-cta">Wypróbuj MB&SP.com</a>
+                <button class="action-icon-btn" id="langBtnDesktop" title="Język">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </button>
+                <div class="dropdown-container" id="ctaDropdown">
+                  <div class="btn-cta-group">
+                      <a href="https://mbsp.com.pl" class="btn-cta-action">Wypróbuj MB&SP</a>
+                      <button class="btn-cta-toggle" id="dropdownToggle" aria-label="Rozwiń menu">
+                          <span class="arrow-icon"></span>
+                      </button>
+                  </div>
+
+                  <div class="dropdown-menu">
+                      <a href="https://mbsp.com.pl" class="dropdown-item" target="_blank" rel="noopener">
+                          Wypróbuj MB&SP
+                          <svg class="external-icon" viewBox="0 0 24 24">
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                              <polyline points="15 3 21 3 21 9"></polyline>
+                              <line x1="10" y1="14" x2="21" y2="3"></line>
+                          </svg>
+                      </a>
+                      <a href="https://mbsp.com.pl/ai.html" class="dropdown-item" target="_blank" rel="noopener">
+                          Wypróbuj CzatAI
+                          <svg class="external-icon" viewBox="0 0 24 24">
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                              <polyline points="15 3 21 3 21 9"></polyline>
+                              <line x1="10" y1="14" x2="21" y2="3"></line>
+                          </svg>
+                      </a>
+                      <a href="https://business.milyunlimited.eu" class="dropdown-item" target="_blank" rel="noopener">
+                          Mily Unlimited: For Business
+                          <svg class="external-icon" viewBox="0 0 24 24">
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                              <polyline points="15 3 21 3 21 9"></polyline>
+                              <line x1="10" y1="14" x2="21" y2="3"></line>
+                          </svg>
+                      </a>
+                  </div>
+              </div>
+
+              <script>
+                  const dropdown = document.getElementById('ctaDropdown');
+                  const toggleBtn = document.getElementById('dropdownToggle');
+
+                  // Przełączanie widoczności menu
+                  toggleBtn.addEventListener('click', (e) => {
+                      e.stopPropagation();
+                      dropdown.classList.toggle('active');
+                  });
+
+                  // Zamykanie menu przy kliknięciu poza komponentem
+                  document.addEventListener('click', (e) => {
+                      if (!dropdown.contains(e.target)) {
+                          dropdown.classList.remove('active');
+                      }
+                  });
+              </script>
+
+                <button class="action-icon-btn" id="burgerDesktop" title="Menu" aria-label="Otwórz menu" aria-haspopup="dialog" aria-controls="fsMenu" aria-expanded="false">
+                    <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
             </div>
 
-            <button class="mobile-burger" id="burgerBtn" aria-label="Otwórz menu">
+            <button class="mobile-burger" id="burgerBtn" aria-label="Otwórz menu" aria-haspopup="dialog" aria-controls="fsMenu" aria-expanded="false">
                 <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
 
         </nav>
     </header>
+
+<!-- ── MENU FULLSCREEN (mobile + desktop) ──────────────────── -->
+<div class="fs-menu" id="fsMenu" role="dialog" aria-modal="true" aria-label="Menu główne" aria-hidden="true" inert>
+    <div class="fs-menu__top">
+        <a href="index.html" class="fs-menu__logo" aria-label="Mily Unlimited – strona główna"><img src="i/images/milyunlimited-mono-gray-logo.png" alt="Mily Unlimited"></a>
+        <button class="fs-menu__close" id="fsMenuClose" type="button" aria-label="Zamknij menu"><svg viewBox="0 0 24 24"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg></button>
+    </div>
+    <div class="fs-menu__scroll">
+        <div class="fs-menu__inner">
+            <ul class="fs-nav">
+                <li class="fs-reveal" style="--i:0"><a class="fs-nav__link" href="index.html">Główna</a></li>
+                <li class="fs-acc fs-reveal" style="--i:1"><button class="fs-nav__link fs-acc__btn" type="button" aria-expanded="false" aria-controls="fsAccProjects">Projekty<span class="fs-plus" aria-hidden="true"></span></button><div class="fs-acc__panel" id="fsAccProjects"><div class="fs-acc__inner"><div class="fs-acc__body"><div class="fs-group"><h3>Cyfrowe</h3><a href="about-mbsp-pl.html" class="fs-sub">MB&amp;SP</a><a href="about-czatai-pl.html" class="fs-sub">CzatAI</a><a href="projects.html" class="fs-sub">Maker Tools</a><a href="projects.html" class="fs-sub">MB Designer</a></div><!-- <div class="fs-group"><h3>Hardware</h3><a href="about-core.html" class="fs-sub">Mily Core 1</a></div> --></div></div></div></li>
+                <li class="fs-reveal" style="--i:2"><a class="fs-nav__link" href="blog.html">Journal</a></li>
+                <li class="fs-acc fs-reveal" style="--i:3"><button class="fs-nav__link fs-acc__btn" type="button" aria-expanded="false" aria-controls="fsAccHelp">Pomoc<span class="fs-plus" aria-hidden="true"></span></button><div class="fs-acc__panel" id="fsAccHelp"><div class="fs-acc__inner"><div class="fs-acc__body"><div class="fs-group"><h3>MB&amp;SP</h3><a href="https://mbsp.com.pl/help.html" class="fs-sub">Centrum pomocy MB&amp;SP</a><a href="https://mbsp.com.pl/help.html" class="fs-sub">FAQ</a><a href="https://mbsp.com.pl/help-store-rules.html" class="fs-sub">Regulamin sklepu</a><a href="https://mbsp.com.pl/help-returns.html" class="fs-sub">Zwroty</a><a href="https://mbsp.com.pl/contact_sales.html" class="fs-sub">Poproś o wycenę</a><a href="https://mbsp.com.pl/contact.html" class="fs-sub">Kontakt ze wsparciem MB&amp;SP</a></div><div class="fs-group"><h3>Wsparcie</h3><a href="help.html" class="fs-sub">Centrum pomocy ogólne</a><a href="status.html" class="fs-sub">Status</a></div></div></div></div></li>
+                <li class="fs-acc fs-reveal" style="--i:4"><button class="fs-nav__link fs-acc__btn" type="button" aria-expanded="false" aria-controls="fsAccAbout">Poznaj Mily Unlimited<span class="fs-plus" aria-hidden="true"></span></button><div class="fs-acc__panel" id="fsAccAbout"><div class="fs-acc__inner"><div class="fs-acc__body"><div class="fs-group"><h3>Mily Unlimited</h3><a href="mission-pl.html" class="fs-sub">Misja</a><a href="aboutme.html" class="fs-sub">O mnie</a><a href="mission-pl.html#roadmap" class="fs-sub">Roadmap</a><a href="research.html" class="fs-sub">Badania</a><a href="https://business.milyunlimited.eu" class="fs-sub">Dla biznesu</a><a href="contact.html" class="fs-sub">Kontakt</a></div></div></div></div></li>
+            </ul>
+            <div class="fs-aside">
+                <a class="fs-ext-link fs-reveal" style="--i:5" href="https://business.milyunlimited.eu" target="_blank" rel="noopener">Dla biznesu <svg class="fs-ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                <div class="fs-reveal" style="--i:6">
+                    <p class="fs-label">Projekty</p>
+                    <a class="fs-ext-link" href="https://mbsp.com.pl" target="_blank" rel="noopener">MB&amp;SP <svg class="fs-ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                    <a class="fs-ext-link" href="https://mbsp.com.pl/ai.html" target="_blank" rel="noopener">CzatAI <svg class="fs-ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                </div>
+                <div class="fs-reveal" style="--i:7">
+                    <p class="fs-label">Przydatne linki</p>
+                    <div class="fs-links">
+                        <a href="press.html">Prasa</a><a href="contact.html">Kontakt</a><a href="letters.html">Listy Założyciela</a><a href="changelog.html">Changelog</a><a href="status.html">Status usług</a>
+                    </div>
+                </div>
+            </div>
+            <div class="fs-tools fs-reveal" style="--i:8">
+                <div class="mobile-action-row">
+                    <button class="action-icon-btn" id="themeToggleMobile" title="Motyw" aria-label="Zmień motyw">
+                            <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        </button>
+                    <span class="mobile-action-label">Zmień motyw</span>
+                </div>
+                <div class="mobile-action-row">
+                    <button class="action-icon-btn" id="langBtnMobile" title="Język">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </button>
+                    <span class="mobile-action-label">Zmień język</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <!-- ── LOKALNY HEADER MB&SP (DEDYKOWANY) ─────────────── -->
     <header class="product-header">
@@ -1696,47 +1668,7 @@ COOKIE BANNER
     </footer>
 
 <script>
-const burgerBtn = document.getElementById('burgerBtn');
-const submenuBtn = document.getElementById('submenuBtn'); // Projekty
-const helpBtn = document.getElementById('helpBtn');       // Pomoc
-const aboutBtn = document.getElementById('aboutBtn');     // Poznaj nas
 const body = document.body;
-
-burgerBtn.addEventListener('click', () => {
-    body.classList.toggle('mobile-menu-open');
-    if(!body.classList.contains('mobile-menu-open')) {
-        body.classList.remove('submenu-open');
-        body.classList.remove('help-menu-open');
-        body.classList.remove('about-menu-open');
-    }
-});
-
-submenuBtn.addEventListener('click', (e) => {
-    if (window.innerWidth <= 991) {
-        e.preventDefault();
-        body.classList.toggle('submenu-open');
-        body.classList.remove('help-menu-open');
-        body.classList.remove('about-menu-open');
-    }
-});
-
-helpBtn.addEventListener('click', (e) => {
-    if (window.innerWidth <= 991) {
-        e.preventDefault();
-        body.classList.toggle('help-menu-open');
-        body.classList.remove('submenu-open');
-        body.classList.remove('about-menu-open');
-    }
-});
-
-aboutBtn.addEventListener('click', (e) => {
-    if (window.innerWidth <= 991) {
-        e.preventDefault();
-        body.classList.toggle('about-menu-open');
-        body.classList.remove('submenu-open');
-        body.classList.remove('help-menu-open');
-    }
-});
 
 // ── DARK / LIGHT THEME ───────────────────────────────────
 (function() {
@@ -1796,5 +1728,41 @@ aboutBtn.addEventListener('click', (e) => {
             <button class="btn btn-accept" onclick="handleCookie(true)">Akceptuję</button>
         </div>
     </div>
+
+<!-- ── LIGHTBOX: ZMIANA JĘZYKA ───────────────────────── -->
+<div class="lang-modal-overlay" id="langModalOverlay" role="dialog" aria-modal="true" aria-label="Wybór języka">
+  <div class="lang-modal">
+    <button class="lang-modal-close" id="langModalClose" aria-label="Zamknij">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="lang-modal-icon">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <h3>Wybór języka</h3>
+    <p>Strona Mily Unlimited jest dostępna w języku polskim i angielskim. Wybierz język poniżej.</p>
+    <div class="lang-modal-langs">
+      <span class="lang-chip active">🇵🇱 Polski</span>
+      <a class="lang-chip" href="en/about-mbsp-pl.html" hreflang="en">🇬🇧 English</a>
+    </div>
+  </div>
+</div>
+<script>
+// ── LIGHTBOX: ZMIANA JĘZYKA ──────────────────────────
+(function() {
+    var overlay = document.getElementById('langModalOverlay');
+    if (!overlay) return;
+    var closeBtn = document.getElementById('langModalClose');
+    function openLang() { overlay.classList.add('open'); }
+    function closeLang() { overlay.classList.remove('open'); }
+    ['langBtnDesktop', 'langBtnMobile'].forEach(function(id) {
+        var b = document.getElementById(id);
+        if (b) b.addEventListener('click', openLang);
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeLang);
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeLang(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLang(); });
+})();
+</script>
+<script src="i/resources/fs-menu.js"></script>
 </body>
 </html>

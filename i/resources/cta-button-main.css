@@ -1,0 +1,179 @@
+/* ==========================================================================
+   CTA "Wypróbuj MB&SP" – split button + dropdown (header, desktop)
+   Wysokość 42px = jak .nav-link, spójnie z paskiem nawigacji.
+   Kolory menu biorą się z motywu (jasny/ciemny) przez zmienne strony.
+   ========================================================================== */
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* --- Przycisk dzielony ------------------------------------------------- */
+.btn-cta-group {
+    display: inline-flex;
+    align-items: stretch;
+    height: 42px;
+    background-color: var(--color-accent);
+    border-radius: 9999px;
+    overflow: hidden;
+    transition: background-color var(--transition-speed), transform 0.1s ease;
+}
+
+.btn-cta-group:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.btn-cta-group:active {
+    transform: scale(0.97);
+}
+
+/* Część z napisem */
+.btn-cta-action {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    padding: 0 14px 0 22px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Część ze strzałką – delikatny separator, nie pełna kreska */
+.btn-cta-toggle {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    width: 42px;
+    padding: 0 4px 0 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-speed);
+}
+
+.btn-cta-toggle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    bottom: 11px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-cta-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Widoczny fokus dla klawiatury */
+.btn-cta-action:focus-visible,
+.btn-cta-toggle:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -4px;
+    border-radius: 9999px;
+}
+
+/* --- Strzałka: lekki chevron zamiast pełnego trójkąta ------------------- */
+.arrow-icon {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    border-radius: 1px;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform var(--transition-speed) ease;
+}
+
+.dropdown-container.active .arrow-icon {
+    transform: translateY(2px) rotate(225deg);
+}
+
+/* --- Menu rozwijane ---------------------------------------------------- */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;                      /* przycisk jest przy prawej krawędzi strony */
+    min-width: 280px;
+    background-color: var(--bg-megamenu, #ffffff);
+    border: 1px solid var(--border-color, #e4e6eb);
+    border-radius: 18px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+    z-index: 1100;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px) scale(0.98);
+    transform-origin: top right;
+    transition: opacity var(--transition-speed) ease,
+                transform var(--transition-speed) ease,
+                visibility var(--transition-speed) ease;
+}
+
+.dropdown-container.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* --- Elementy menu ----------------------------------------------------- */
+.dropdown-item {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-family);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   /* tekst z lewej, ikona z prawej */
+    gap: 16px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+    background-color: var(--bg-item-hover);
+    outline: none;
+}
+
+.dropdown-item:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-accent) inset;
+}
+
+/* Ikona zewnętrznego linku */
+.external-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: var(--text-muted);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke var(--transition-speed), transform var(--transition-speed);
+}
+
+.dropdown-item:hover .external-icon {
+    stroke: var(--color-accent);
+    transform: translate(1px, -1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-cta-group,
+    .arrow-icon,
+    .dropdown-menu,
+    .external-icon {
+        transition: none;
+    }
+}

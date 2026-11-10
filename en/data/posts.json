@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "jak-zaczalem-mily-unlimited",
+    "title": "What Mily Unlimited Is",
+    "excerpt": "It all started with a single project...",
+    "category": "Behind the scenes",
+    "date": "2026-06-27",
+    "image": "../i/images/posts/milyunlimited-color-logo-whitebackground.jpg"
+  },
+  {
+    "slug": "mbsp-early-access-reveal",
+    "title": "MBSP.com.pl 4.0 Early Access – a new chapter",
+    "excerpt": "A few years ago I started working on a project that eventually grew into Miły’s Buy & Sell Parts, with a simple goal...",
+    "category": "Technology",
+    "date": "2026-06-28",
+    "image": "../i/images/posts/architektura-mbsp.jpg"
+  },
+  {
+    "slug": "behind-mbsp-40",
+    "title": "Behind MB&SP 4.0 — how the new version of MB&SP was made",
+    "excerpt": "On September 26, 2026, MB&SP 4.0 enters Early Access. Before I show the new version to users, I want to go back in time and tell you how much work it took to create this project.",
+    "category": "Technology",
+    "date": "2026-08-27",
+    "image": "../i/images/posts/architektura-mbsp.jpg"
+  },
+  {
+    "slug": "wiecej-niz-sklep-z-elektronika",
+    "title": "MB&SP 4.0 — more than an electronics store",
+    "excerpt": "Today MB&SP 4.0 enters Early Access. It’s a moment I have been working toward for a long time. But the launch of the new version is not just a new site, a new look, or more features.",
+    "category": "Technology",
+    "date": "2026-09-26",
+    "image": "../i/images/posts/mbsp-4_0.jpg"
+  }
+]

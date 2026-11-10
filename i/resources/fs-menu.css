@@ -1,0 +1,125 @@
+/* Menu fullscreen (mobile + desktop) – kolory z motywu strony */
+/* ==========================================================================
+   MENU FULLSCREEN (mobile + desktop) – kolory z motywu (jasny/ciemny)
+   ========================================================================== */
+body.fs-menu-open { overflow: hidden; }
+
+.fs-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    background-color: var(--bg-navbar);
+    color: var(--text-primary);
+    font-family: var(--font-family, 'Geist', -apple-system, BlinkMacSystemFont, sans-serif);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .25s ease, transform .3s cubic-bezier(.16,1,.3,1), visibility 0s linear .3s;
+}
+.fs-menu.is-open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+
+.fs-menu a:focus-visible,
+.fs-menu button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 6px; }
+
+/* górny pasek: [pusto] [logo] [X] */
+.fs-menu__top {
+    flex: none;
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    align-items: center;
+    height: calc(var(--nav-height, 68px) + env(safe-area-inset-top, 0px));
+    padding: env(safe-area-inset-top, 0px) max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
+}
+.fs-menu__logo { grid-column: 2; justify-self: center; display: flex; }
+.fs-menu__logo img { height: 94px; width: auto; max-width: 100%; display: block; }
+.fs-menu__close {
+    grid-column: 3;
+    justify-self: end;
+    width: 44px; height: 44px;
+    display: grid; place-items: center;
+    background: none; border: 0; border-radius: 50%;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color var(--transition-speed, .2s);
+}
+.fs-menu__close:hover { background-color: var(--bg-item-hover); }
+.fs-menu__close svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+
+.fs-menu__scroll {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 8px max(24px, env(safe-area-inset-right, 0px)) calc(40px + env(safe-area-inset-bottom, 0px)) max(24px, env(safe-area-inset-left, 0px));
+}
+.fs-menu__inner { max-width: 1120px; margin: 0 auto; display: grid; gap: 36px; }
+@media (min-width: 900px) {
+    .fs-menu__scroll { padding-inline: clamp(24px, 5vw, 64px); }
+    .fs-menu__inner { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px 72px; padding-top: 24px; }
+}
+
+/* główna lista */
+.fs-nav { list-style: none; margin: 0; padding: 0; }
+.fs-nav__link {
+    display: flex; align-items: center; justify-content: flex-start; gap: 14px;
+    width: 100%;
+    padding: 10px 0;
+    font: 700 clamp(1.5rem, 1.15rem + 1.5vw, 2.25rem)/1.2 var(--font-family, 'Geist', -apple-system, BlinkMacSystemFont, sans-serif);
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-decoration: none;
+    text-align: left;
+    background: none; border: 0; cursor: pointer;
+    transition: color var(--transition-speed, .2s);
+}
+.fs-nav__link:hover { color: var(--color-accent); }
+
+/* plus -> minus */
+.fs-plus { position: relative; width: 16px; height: 16px; flex: none; }
+.fs-plus::before, .fs-plus::after {
+    content: ""; position: absolute; left: 0; top: 50%;
+    width: 100%; height: 2px; margin-top: -1px;
+    background: currentColor; border-radius: 2px;
+    transition: transform .25s ease;
+}
+.fs-plus::after { transform: rotate(90deg); }
+.fs-acc.is-open .fs-plus::after { transform: rotate(0); }
+
+/* rozwijane panele */
+.fs-acc__panel {
+    display: grid; grid-template-rows: 0fr; visibility: hidden;
+    transition: grid-template-rows .3s ease, visibility 0s linear .3s;
+}
+.fs-acc.is-open .fs-acc__panel { grid-template-rows: 1fr; visibility: visible; transition-delay: 0s; }
+.fs-acc__inner { overflow: hidden; min-height: 0; }
+.fs-acc__body { display: grid; gap: 18px; margin: 2px 0 14px; padding: 6px 0 6px 16px; border-left: 2px solid var(--border-color); }
+.fs-group h3 { margin: 0 0 2px; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); }
+.fs-sub { display: block; padding: 7px 0; font-size: 1.05rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color var(--transition-speed, .2s); }
+.fs-sub:hover { color: var(--color-accent); }
+
+/* kolumna dodatkowa */
+.fs-aside { display: grid; gap: 28px; align-content: start; }
+.fs-label { margin: 0 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--color-accent); }
+.fs-ext-link { display: flex; align-items: center; gap: 10px; padding: 5px 0; font-size: 1.35rem; font-weight: 400; color: var(--text-primary); text-decoration: none; transition: color var(--transition-speed, .2s); }
+.fs-ext-link:hover { color: var(--color-accent); }
+.fs-ext { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.fs-links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.fs-links a { padding: 4px 0; font-size: .95rem; color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--text-muted); text-underline-offset: 4px; transition: color var(--transition-speed, .2s); }
+.fs-links a:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
+
+/* stare przełączniki motywu i języka */
+.fs-tools { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 14px 32px; padding-top: 24px; border-top: 1px solid var(--border-color); }
+.fs-tools .mobile-action-row { display: flex; align-items: center; gap: 12px; }
+.fs-tools .action-icon-btn { width: 44px; height: 44px; }
+.fs-tools .mobile-action-label { font-size: 1rem; font-weight: 500; color: var(--text-secondary); }
+
+/* delikatne wejście elementów */
+.fs-reveal { opacity: 0; transform: translateY(12px); transition: opacity .3s ease, transform .3s ease; }
+.fs-menu.is-open .fs-reveal { opacity: 1; transform: none; transition: opacity .4s ease, transform .5s cubic-bezier(.16,1,.3,1); transition-delay: calc(var(--i, 0) * 50ms + 80ms); }
+@media (prefers-reduced-motion: reduce) {
+    .fs-menu, .fs-reveal, .fs-acc__panel, .fs-plus::before, .fs-plus::after { transition: none !important; }
+    .fs-reveal { opacity: 1; transform: none; }
+}

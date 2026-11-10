@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://milyunlimited.eu/en/about-czatai-pl.html" rel="canonical"/>
+<link href="https://milyunlimited.eu/about-czatai-pl.html" hreflang="pl" rel="alternate"/>
+<link href="https://milyunlimited.eu/en/about-czatai-pl.html" hreflang="en" rel="alternate"/>
+<link href="https://milyunlimited.eu/about-czatai-pl.html" hreflang="x-default" rel="alternate"/>
+<meta content="Meet CzatAI from Mily Unlimited" property="og:title"/>
+<meta content="CzatAI helps you use the MB&amp;SP platform, find information, and answers frequently asked questions." property="og:description"/>
+<meta content="https://milyunlimited.eu/i/images/mu-meta-image-mid2026.jpg" property="og:image"/>
+<meta content="https://milyunlimited.eu/en/about-czatai-pl.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="CzatAI helps you use the MB&amp;SP platform, find information, and answers frequently asked questions." name="description"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CzatAI",
+  "url": "https://milyunlimited.eu/en/about-czatai-pl.html",
+  "description": "An AI assistant integrated with the MB&SP platform.",
+  "applicationCategory": "UtilityApplication",
+  "author": {
+    "@type": "Organization",
+    "name": "Mily Unlimited",
+    "url": "https://milyunlimited.eu"
+  }
+}
+</script>
+<title>Meet CzatAI from Mily Unlimited</title>
+<!-- Zapobiega mignięciu białego tła przy dark mode -->
+<script>
+  (function(){
+    var s = localStorage.getItem('mu-theme');
+    var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (s === 'dark' || (!s && d)) document.documentElement.classList.add('dark');
+  })();
+</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="../i/images/favicon.ico" rel="icon" type="image/x-icon"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="../i/cookies.css" rel="stylesheet"/>
+<link href="../i/resources/cta-button-main.css" rel="stylesheet"/>
+<style>
+  :root {
+    --blue: #0071F5;
+    --blue-light: #3D8EF8;
+    --blue-dark: #0057C2;
+    --blue-muted: #EBF3FF;
+    --fg: #0A0A0A;
+    --fg-2: #3A3A3A;
+    --fg-3: #717171;
+    --fg-4: #A3A3A3;
+    --border: #E5E5E5;
+    --border-2: #F0F0F0;
+    --bg: #FFFFFF;
+    --bg-2: #FAFAFA;
+    --bg-3: #F5F5F5;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
+    --bg-navbar: #ffffff;
+            --bg-navbar-translucent: rgba(255, 255, 255, 0.92);
+            --bg-megamenu: #ffffff; 
+            --border-color: #e4e6eb;
+            
+            --text-primary: #050505;
+            --text-secondary: #050505;
+            --text-muted: #65676b;
+            
+            --color-accent: #0064e0; 
+            --color-accent-hover: #0052b3;
+            --bg-item-hover: #f0f2f5; 
+            --bg-item-hover-strong: #e4e6eb;
+            
+            --font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+            --nav-height: 68px;
+            --transition-speed: 0.2s;
+
+            /* Stały brand CzatAI - fiolet/niebieski akcent na czarnym hero */
+            --czatai-purple: #6C5CE7;
+            --czatai-blue: #1d63d3;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+        /* ==========================================================================
+           2. GŁÓWNY NAVBAR (WERSJA TRANSPARENTNA NA HERO)
+           ========================================================================== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            background-color: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .site-header.scrolled {
+            background-color: var(--bg-navbar-translucent, rgba(255, 255, 255, 0.92));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            width: 100%;
+            height: var(--nav-height);
+            padding: 0 32px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            padding-right: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1010;
+            transition: color 0.3s ease;
+        }
+
+        .site-header.scrolled .nav-logo {
+            color: var(--text-primary);
+        }
+
+        /* Na transparentnym headerze pokazujemy zawsze jasną wersję logo */
+        .site-header:not(.scrolled) .logo-light { display: block; }
+        .site-header:not(.scrolled) .logo-dark { display: none; }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-item {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0 18px;
+            height: 42px;
+            margin: 0 2px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Geist', sans-serif;
+        }
+
+        .site-header.scrolled .nav-link {
+            color: var(--text-secondary);
+        }
+
+        .nav-link:hover, 
+        .nav-item:hover .nav-link {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .site-header.scrolled .nav-link:hover,
+        .site-header.scrolled .nav-item:hover .nav-link {
+            color: var(--text-primary);
+            background-color: var(--bg-item-hover);
+        }
+
+        .nav-link::after {
+            content: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-left: 24px;
+            z-index: 1010;
+        }
+
+        .action-icon-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            cursor: pointer;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: background-color var(--transition-speed), transform 0.1s ease, color 0.3s ease;
+        }
+
+        .site-header.scrolled .action-icon-btn {
+            background: var(--bg-item-hover);
+            color: var(--text-primary);
+        }
+
+        .action-icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.04);
+        }
+
+        .site-header.scrolled .action-icon-btn:hover {
+            background-color: var(--bg-item-hover-strong);
+        }
+
+        .action-icon-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .btn-cta {
+            background-color: var(--color-accent);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 11px 26px;
+            border-radius: 9999px;
+            transition: background-color var(--transition-speed), transform 0.1s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--color-accent-hover);
+        }
+
+        .btn-cta:active {
+            transform: scale(0.97);
+        }
+
+        .mobile-only-actions {
+            display: none;
+        }
+
+        /* ==========================================================================
+           3. MEGAMENU (DESKTOP)
+           ========================================================================== */
+        .megamenu {
+            position: absolute;
+            top: var(--nav-height);
+            left: 0;
+            position: fixed; 
+            width: 100%; 
+            background-color: var(--bg-megamenu);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4px);
+            transition: opacity var(--transition-speed) ease, 
+                        visibility var(--transition-speed) ease, 
+                        transform var(--transition-speed) ease;
+            z-index: 1001;
+        }
+
+        @media (min-width: 992px) {
+            .nav-item:hover .megamenu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        .megamenu-inner {
+            width: 100%;
+            padding: 40px 32px; 
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .megamenu-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .megamenu-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .megamenu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .megamenu-item-link {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: background-color var(--transition-speed);
+            margin-left: -12px;
+        }
+
+        .megamenu-item-link:hover {
+            background-color: var(--bg-item-hover);
+        }
+
+        .megamenu-item-link:hover .megamenu-link-name {
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .megamenu-text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .megamenu-link-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: font-weight var(--transition-speed);
+        }
+
+        .megamenu-link-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           4. WERSJA RESPONSYWNA (MOBILE) - GŁÓWNY NAVBAR
+           ========================================================================== */
+        .mobile-burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #ffffff;
+            padding: 8px;
+            z-index: 1015;
+            transition: color 0.3s ease;
+        }
+
+        .site-header.scrolled .mobile-burger {
+            color: var(--text-primary);
+        }
+
+        .mobile-burger svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        .mobile-burger .icon-close {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .nav-container { padding: 0 20px; }
+            .nav-container > .nav-actions { display: none; }  /* na mobile: tylko burger */
+            .mobile-burger { display: block; }
+            .nav-menu { display: none; }                      /* zastąpione menu fullscreen (fs-menu.css) */
+        }
+.submenu-open .nav-item:has(#submenuBtn) .megamenu,
+.help-menu-open .nav-item:has(#helpBtn) .megamenu,
+.about-menu-open .nav-item:has(#aboutBtn) .megamenu {
+    display: block;
+}
+.help-menu-open .nav-item:has(#helpBtn) .nav-link::after {
+    content: '−';
+}
+.about-menu-open .nav-item:has(#aboutBtn) .nav-link::after {
+    content: '−';
+}
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Geist', sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; height: auto; }
+
+  .logo-dark  { display: none; }
+  .logo-light { display: block; }
+  html.dark .logo-dark  { display: block; }
+  html.dark .logo-light { display: none; }
+
+  .theme-icon-moon { display: block; }
+  .theme-icon-sun  { display: none;  }
+  html.dark .theme-icon-moon { display: none;  }
+  html.dark .theme-icon-sun  { display: block; }
+
+  /* ══════════════════════════════════════════════════════
+     DARK MODE — zmienne globalne
+  ══════════════════════════════════════════════════════ */
+  html.dark {
+    --fg: #F5F5F5;
+    --fg-2: #D4D4D4;
+    --fg-3: #A3A3A3;
+    --fg-4: #6B6B6B;
+    --border: #2A2A2A;
+    --border-2: #222222;
+    --bg: #0A0A0A;
+    --bg-2: #111111;
+    --bg-3: #1A1A1A;
+    --blue-muted: #0D1F3C;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    --bg-navbar: #0A0A0A;
+    --bg-navbar-translucent: rgba(10, 10, 10, 0.88);
+    --bg-megamenu: #111111;
+    --border-color: #2A2A2A;
+    --text-primary: #F5F5F5;
+    --text-secondary: #D4D4D4;
+    --text-muted: #A3A3A3;
+    --bg-item-hover: #1F1F1F;
+    --bg-item-hover-strong: #2A2A2A;
+    --color-accent: #3D8EF8;
+    --color-accent-hover: #5FA3FA;
+  }
+
+  html.dark .nav-menu { background-color: var(--bg-navbar); }
+
+  .megamenu, .nav-menu {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .megamenu {
+    transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.22s !important;
+  }
+  @media (min-width: 992px) {
+    .nav-item:hover .megamenu { opacity: 1; visibility: visible; transform: translateY(0) !important; }
+    .megamenu { transform: translateY(-8px) !important; }
+  }
+  @media (max-width: 991px) {
+    .megamenu {
+      display: block !important;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 1;
+      visibility: visible;
+      transform: none !important;
+      transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease !important;
+    }
+    .submenu-open .nav-item:has(#submenuBtn) .megamenu,
+    .help-menu-open .nav-item:has(#helpBtn) .megamenu,
+    .about-menu-open .nav-item:has(#aboutBtn) .megamenu { max-height: 600px; }
+  }
+
+  .nav-menu { transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+
+        /* ==========================================================================
+           5. LOKALNY HEADER CZATAI (TRANSPARENTNY, NAD CZARNYM HERO)
+           ========================================================================== */
+        .product-header {
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.3s ease, border-color 0.3s ease, top 0.3s ease;
+        }
+
+        .product-header.scrolled {
+            background-color: var(--bg-2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            padding: 0 40px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-logo {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .product-header.scrolled .product-logo {
+            color: var(--fg);
+        }
+
+        .product-logo .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--czatai-purple);
+            display: inline-block;
+        }
+
+        .product-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-nav-outline {
+            background: none;
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 7px 22px;
+            border-radius: 9999px;
+            transition: all var(--transition-speed);
+            cursor: pointer;
+        }
+
+        .product-header.scrolled .btn-nav-outline {
+            border-color: var(--fg);
+            color: var(--fg);
+        }
+
+        .btn-nav-outline:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #000000;
+        }
+
+        .product-header.scrolled .btn-nav-outline:hover {
+            background-color: var(--fg);
+            color: var(--bg);
+        }
+
+        /* ==========================================================================
+           6. HERO CZATAI (CZARNE TŁO, 100VH)
+           ========================================================================== */
+        .czatai-hero {
+            background-color: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: calc(var(--nav-height) + 64px) 40px 40px;
+            position: relative;
+        }
+
+        .czatai-hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .czatai-hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .czatai-hero-title {
+            font-size: clamp(3rem, 6.5vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .czatai-hero-title .accent {
+            background: linear-gradient(90deg, var(--czatai-blue), var(--czatai-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .czatai-hero-desc {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.45;
+            max-width: 460px;
+        }
+
+        .czatai-hero-content .btn-cta {
+            width: fit-content;
+            padding: 14px 32px;
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+
+        /* ── MOCKUP OKNA CZATU ──────────────────────────────── */
+        .chat-mockup-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .chat-mockup {
+            width: 100%;
+            max-width: 340px;
+            background-color: #111114;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-mockup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .chat-mockup-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-mockup-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--czatai-blue), var(--czatai-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .chat-mockup-title-block {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .chat-mockup-title-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chat-mockup-title-row span:first-child {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .chat-mockup-beta {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--czatai-purple);
+            background: rgba(108, 92, 231, 0.15);
+            padding: 1px 6px;
+            border-radius: 4px;
+        }
+
+        .chat-mockup-status {
+            font-size: 0.7rem;
+            color: #6ee7b7;
+        }
+
+        .chat-mockup-close {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+        }
+
+        .chat-mockup-body {
+            padding: 36px 20px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .chat-mockup-bot-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--czatai-blue), var(--czatai-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .chat-mockup-greeting {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .chat-mockup-subtext {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.5;
+            max-width: 240px;
+        }
+
+        .chat-mockup-privacy {
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 6px;
+        }
+
+        .chat-mockup-quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding: 0 16px 16px;
+        }
+
+        .chat-mockup-quick-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        .chat-mockup-quick-btn .qb-title {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--czatai-purple);
+            margin-bottom: 3px;
+        }
+
+        .chat-mockup-quick-btn .qb-desc {
+            display: block;
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.4);
+            line-height: 1.3;
+        }
+
+        .chat-mockup-input-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .chat-mockup-input-emoji {
+            font-size: 1.1rem;
+        }
+
+        .chat-mockup-input-fake {
+            flex: 1;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .chat-mockup-send-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--czatai-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================================================
+           7. SEKCJA CYTATU (JASNA, PO HERO)
+           ========================================================================== */
+        .czatai-summary {
+            background-color: var(--bg-2);
+            padding: 64px 40px;
+            text-align: center;
+            transition: background-color 0.25s ease;
+        }
+
+        .czatai-summary p {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fg);
+            letter-spacing: -0.01em;
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           8. TREŚĆ - SEKCJE OGÓLNE
+           ========================================================================== */
+        .czatai-section {
+            padding: 72px 40px;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .czatai-section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+
+        .czatai-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--fg);
+            margin-bottom: 20px;
+        }
+
+        .czatai-section > p {
+            font-size: 1.1rem;
+            color: var(--fg-2);
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+
+        /* Co potrafi - lista kart */
+        .capability-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .capability-item {
+            display: flex;
+            gap: 18px;
+            padding: 24px;
+            background-color: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .capability-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--blue-muted);
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        html.dark .capability-icon {
+            background: rgba(61, 142, 248, 0.12);
+        }
+
+        .capability-text h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--fg);
+            margin-bottom: 6px;
+        }
+
+        .capability-text p {
+            font-size: 0.98rem;
+            color: var(--fg-3);
+            line-height: 1.5;
+        }
+
+        /* Aktualny rozwój - dwie kolumny */
+        .dev-status-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .dev-status-card {
+            background-color: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .dev-status-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--fg);
+            margin-bottom: 16px;
+        }
+
+        .dev-status-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .dev-status-card li {
+            font-size: 0.98rem;
+            color: var(--fg-2);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .dev-status-card.available li::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2316a34a' stroke-width='2.5' viewBox='0 0 24 24'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .dev-status-card.upcoming li::before {
+            content: '•';
+            color: var(--fg-4);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Informacja ostrzegawcza */
+        .info-warning-box {
+            display: flex;
+            gap: 16px;
+            padding: 24px 28px;
+            background-color: var(--blue-muted);
+            border: 1px solid rgba(0, 113, 245, 0.2);
+            border-radius: var(--radius);
+            margin-top: 8px;
+        }
+
+        html.dark .info-warning-box {
+            background-color: rgba(61, 142, 248, 0.1);
+            border-color: rgba(61, 142, 248, 0.25);
+        }
+
+        .info-warning-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .info-warning-box p {
+            font-size: 0.98rem;
+            color: var(--fg-2);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* ==========================================================================
+           9. LOKALNY FOOTER CZATAI
+           ========================================================================== */
+        .site-footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 80px 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-brand-column h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-links a:hover { color: #ffffff; }
+
+        /* ==========================================================================
+           10. RESPONSYWNOŚĆ
+           ========================================================================== */
+        @media (max-width: 991px) {
+            .czatai-hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .czatai-hero-content {
+                align-items: center;
+            }
+            .czatai-hero-desc {
+                max-width: 100%;
+            }
+            .dev-status-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-nav-container {
+                padding: 0 20px;
+            }
+            .czatai-hero {
+                padding: calc(var(--nav-height) + 88px) 20px 40px;
+            }
+            .czatai-section {
+                padding: 56px 20px;
+            }
+            .czatai-summary {
+                padding: 48px 20px;
+            }
+            .czatai-summary p {
+                font-size: 1.2rem;
+            }
+            .capability-item {
+                flex-direction: column;
+            }
+        }
+
+        /* ── LIGHTBOX: ZMIANA JĘZYKA ────────────────────────── */
+        .lang-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 9000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; }
+        .lang-modal-overlay.open { opacity: 1; visibility: visible; }
+        .lang-modal { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 36px 40px; max-width: 400px; width: calc(100% - 48px); box-shadow: 0 24px 64px rgba(0,0,0,0.15); position: relative; transform: translateY(8px) scale(0.97); transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); }
+        .lang-modal-overlay.open .lang-modal { transform: translateY(0) scale(1); }
+        .lang-modal-close { position: absolute; top: 16px; right: 16px; background: var(--bg-item-hover); border: none; cursor: pointer; color: var(--fg-3); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.15s, color 0.15s; }
+        .lang-modal-close:hover { background: var(--bg-item-hover-strong, var(--bg-item-hover)); color: var(--fg); }
+        .lang-modal-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--blue-muted); color: var(--color-accent); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        html.dark .lang-modal-icon { background: rgba(61,142,248,0.12); }
+        .lang-modal h3 { font-size: 1.15rem; font-weight: 700; color: var(--fg); margin-bottom: 10px; letter-spacing: -0.01em; }
+        .lang-modal p { font-size: 0.95rem; color: var(--fg-3); line-height: 1.55; margin-bottom: 24px; }
+        .lang-modal-langs { display: flex; gap: 10px; flex-wrap: wrap; }
+        .lang-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 9999px; font-size: 0.88rem; font-weight: 600; border: 1.5px solid var(--border); background: none; cursor: default; }
+        .lang-chip.active { border-color: var(--color-accent); color: var(--color-accent); background: var(--blue-muted); }
+        html.dark .lang-chip.active { background: rgba(61,142,248,0.10); }
+
+        /* Chip jako link (aktywny przełącznik języka) */
+        a.lang-chip { cursor: pointer; color: var(--fg); text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+        a.lang-chip:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    </style>
+<link href="../i/resources/fs-menu.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ── GŁÓWNY NAVBAR (TRANSPARENTNY NA HERO) ─────────────── -->
+<header class="site-header" id="mainHeader">
+<nav class="nav-container">
+<a class="nav-logo" href="index.html">
+<img alt="Mily Unlimited" class="logo-light" src="../i/images/milyunlogo-whiteback.png" width="150px"/>
+<img alt="Mily Unlimited" class="logo-dark" src="../i/images/milyunlimited-logo.png" width="150px"/>
+</a>
+<ul class="nav-menu" id="navMenu">
+<li class="nav-item">
+<button class="nav-link" id="submenuBtn">Projects</button>
+<div class="megamenu">
+<div class="megamenu-inner">
+<div class="megamenu-column">
+<h3 class="megamenu-title">Digital</h3>
+<ul class="megamenu-list">
+<li>
+<a class="megamenu-item-link" href="about-mbsp-pl.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">MB&amp;SP</span>
+<span class="megamenu-link-desc">A platform and store for makers and electronics enthusiasts.</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="about-czatai-pl.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">CzatAI</span>
+<span class="megamenu-link-desc">Experimental chatbot</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="projects.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">Maker Tools</span>
+<span class="megamenu-link-desc">Calculators and tools for makers.</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="projects.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">MB Designer</span>
+<span class="megamenu-link-desc">A lightweight, simple electronic schematic designer.</span></div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-item">
+<button class="nav-link" id="helpBtn">Help</button>
+<div class="megamenu">
+<div class="megamenu-inner">
+<div class="megamenu-column">
+<h3 class="megamenu-title">MB&amp;SP</h3>
+<ul class="megamenu-list">
+<li>
+<a class="megamenu-item-link" href="https://mbsp.com.pl/help.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">MB&amp;SP Help Center</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="https://mbsp.com.pl/help.html">
+<div class="megamenu-text-content">
+<span class="megamenu-link-name">FAQ</span>
+</div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="https://mbsp.com.pl/help-store-rules.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">Store Terms</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="https://mbsp.com.pl/help-returns.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">Returns</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="https://mbsp.com.pl/contact_sales.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">Request a quote</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="https://mbsp.com.pl/contact.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">Contact MB&amp;SP Support</span></div>
+</a>
+</li>
+</ul>
+</div>
+<div class="megamenu-column">
+<h3 class="megamenu-title">Support</h3>
+<ul class="megamenu-list">
+<li>
+<a class="megamenu-item-link" href="help.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">General Help Center</span></div>
+</a>
+</li>
+</ul>
+<ul class="megamenu-list">
+<li>
+<a class="megamenu-item-link" href="status.html">
+<div class="megamenu-text-content">
+<span class="megamenu-link-name">Status</span>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-item"><a class="nav-link" href="blog.html">Journal</a></li>
+<li class="nav-item">
+<button class="nav-link" id="aboutBtn">About Mily Unlimited</button>
+<div class="megamenu">
+<div class="megamenu-inner">
+<div class="megamenu-column">
+<h3 class="megamenu-title">About Mily Unlimited</h3>
+<ul class="megamenu-list">
+<li>
+<a class="megamenu-item-link" href="mission-pl.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">Mission</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="aboutme.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">About me</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="mission-pl.html#roadmap">
+<div class="megamenu-text-content">
+<span class="megamenu-link-name">Roadmap</span>
+</div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="research.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">Research</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="https://business.milyunlimited.eu">
+<div class="megamenu-text-content"><span class="megamenu-link-name">For Business</span></div>
+</a>
+</li>
+<li>
+<a class="megamenu-item-link" href="contact.html">
+<div class="megamenu-text-content"><span class="megamenu-link-name">Contact</span></div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<div class="nav-actions">
+<button aria-label="Change theme" class="action-icon-btn" id="themeToggleDesktop" title="Change theme">
+<svg class="theme-icon-moon" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+<svg class="theme-icon-sun" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+</button>
+<button class="action-icon-btn" id="langBtnDesktop" title="Language">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+</button>
+<div class="dropdown-container" id="ctaDropdown">
+<div class="btn-cta-group">
+<a class="btn-cta-action" href="https://mbsp.com.pl">Try MB&amp;SP</a>
+<button aria-label="Expand menu" class="btn-cta-toggle" id="dropdownToggle">
+<span class="arrow-icon"></span>
+</button>
+</div>
+<div class="dropdown-menu"><a class="dropdown-item" href="https://mbsp.com.pl" rel="noopener" target="_blank">
+                          Try MB&amp;SP
+                          <svg class="external-icon" viewbox="0 0 24 24">
+<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+<polyline points="15 3 21 3 21 9"></polyline>
+<line x1="10" x2="21" y1="14" y2="3"></line>
+</svg>
+</a>
+<a class="dropdown-item" href="https://mbsp.com.pl/ai.html" rel="noopener" target="_blank">
+                          Try CzatAI
+                          <svg class="external-icon" viewbox="0 0 24 24">
+<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+<polyline points="15 3 21 3 21 9"></polyline>
+<line x1="10" x2="21" y1="14" y2="3"></line>
+</svg>
+</a>
+<a class="dropdown-item" href="https://business.milyunlimited.eu" rel="noopener" target="_blank">
+                          Mily Unlimited: For Business
+                          <svg class="external-icon" viewbox="0 0 24 24">
+<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+<polyline points="15 3 21 3 21 9"></polyline>
+<line x1="10" x2="21" y1="14" y2="3"></line>
+</svg>
+</a></div>
+</div>
+<script>
+                  const dropdown = document.getElementById('ctaDropdown');
+                  const toggleBtn = document.getElementById('dropdownToggle');
+
+                  // Przełączanie widoczności menu
+                  toggleBtn.addEventListener('click', (e) => {
+                      e.stopPropagation();
+                      dropdown.classList.toggle('active');
+                  });
+
+                  // Zamykanie menu przy kliknięciu poza komponentem
+                  document.addEventListener('click', (e) => {
+                      if (!dropdown.contains(e.target)) {
+                          dropdown.classList.remove('active');
+                      }
+                  });
+              </script>
+<button aria-controls="fsMenu" aria-expanded="false" aria-haspopup="dialog" aria-label="Open menu" class="action-icon-btn" id="burgerDesktop" title="Menu">
+<svg viewbox="0 0 24 24"><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>
+</button>
+</div>
+<button aria-controls="fsMenu" aria-expanded="false" aria-haspopup="dialog" aria-label="Open menu" class="mobile-burger" id="burgerBtn">
+<svg class="icon-open" viewbox="0 0 24 24"><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>
+<svg class="icon-close" viewbox="0 0 24 24"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+</button>
+</nav>
+</header>
+<!-- ── MENU FULLSCREEN (mobile + desktop) ──────────────────── -->
+<div aria-hidden="true" aria-label="Main menu" aria-modal="true" class="fs-menu" id="fsMenu" inert="" role="dialog">
+<div class="fs-menu__top">
+<a aria-label="Mily Unlimited – homepage" class="fs-menu__logo" href="index.html"><img alt="Mily Unlimited" src="../i/images/milyunlimited-mono-gray-logo.png"/></a>
+<button aria-label="Close menu" class="fs-menu__close" id="fsMenuClose" type="button"><svg viewbox="0 0 24 24"><line x1="4" x2="20" y1="4" y2="20"></line><line x1="20" x2="4" y1="4" y2="20"></line></svg></button>
+</div>
+<div class="fs-menu__scroll">
+<div class="fs-menu__inner">
+<ul class="fs-nav">
+<li class="fs-reveal" style="--i:0"><a class="fs-nav__link" href="index.html">Home</a></li>
+<li class="fs-acc fs-reveal" style="--i:1"><button aria-controls="fsAccProjects" aria-expanded="false" class="fs-nav__link fs-acc__btn" type="button">Projects<span aria-hidden="true" class="fs-plus"></span></button><div class="fs-acc__panel" id="fsAccProjects"><div class="fs-acc__inner"><div class="fs-acc__body"><div class="fs-group"><h3>Digital</h3><a class="fs-sub" href="about-mbsp-pl.html">MB&amp;SP</a><a class="fs-sub" href="about-czatai-pl.html">CzatAI</a><a class="fs-sub" href="projects.html">Maker Tools</a><a class="fs-sub" href="projects.html">MB Designer</a></div><!-- <div class="fs-group"><h3>Hardware</h3><a href="about-core.html" class="fs-sub">Mily Core 1</a></div> --></div></div></div></li>
+<li class="fs-reveal" style="--i:2"><a class="fs-nav__link" href="blog.html">Journal</a></li>
+<li class="fs-acc fs-reveal" style="--i:3"><button aria-controls="fsAccHelp" aria-expanded="false" class="fs-nav__link fs-acc__btn" type="button">Help<span aria-hidden="true" class="fs-plus"></span></button><div class="fs-acc__panel" id="fsAccHelp"><div class="fs-acc__inner"><div class="fs-acc__body"><div class="fs-group"><h3>MB&amp;SP</h3><a class="fs-sub" href="https://mbsp.com.pl/help.html">MB&amp;SP Help Center</a><a class="fs-sub" href="https://mbsp.com.pl/help.html">FAQ</a><a class="fs-sub" href="https://mbsp.com.pl/help-store-rules.html">Store Terms</a><a class="fs-sub" href="https://mbsp.com.pl/help-returns.html">Returns</a><a class="fs-sub" href="https://mbsp.com.pl/contact_sales.html">Request a quote</a><a class="fs-sub" href="https://mbsp.com.pl/contact.html">Contact MB&amp;SP Support</a></div><div class="fs-group"><h3>Support</h3><a class="fs-sub" href="help.html">General Help Center</a><a class="fs-sub" href="status.html">Status</a></div></div></div></div></li>
+<li class="fs-acc fs-reveal" style="--i:4"><button aria-controls="fsAccAbout" aria-expanded="false" class="fs-nav__link fs-acc__btn" type="button">About Mily Unlimited<span aria-hidden="true" class="fs-plus"></span></button><div class="fs-acc__panel" id="fsAccAbout"><div class="fs-acc__inner"><div class="fs-acc__body"><div class="fs-group"><h3>Mily Unlimited</h3><a class="fs-sub" href="mission-pl.html">Mission</a><a class="fs-sub" href="aboutme.html">About me</a><a class="fs-sub" href="mission-pl.html#roadmap">Roadmap</a><a class="fs-sub" href="research.html">Research</a><a class="fs-sub" href="https://business.milyunlimited.eu">For Business</a><a class="fs-sub" href="contact.html">Contact</a></div></div></div></div></li>
+</ul>
+<div class="fs-aside">
+<a class="fs-ext-link fs-reveal" href="https://business.milyunlimited.eu" rel="noopener" style="--i:5" target="_blank">For Business <svg class="fs-ext" viewbox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" x2="21" y1="14" y2="3"></line></svg></a>
+<div class="fs-reveal" style="--i:6">
+<p class="fs-label">Projects</p>
+<a class="fs-ext-link" href="https://mbsp.com.pl" rel="noopener" target="_blank">MB&amp;SP <svg class="fs-ext" viewbox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" x2="21" y1="14" y2="3"></line></svg></a>
+<a class="fs-ext-link" href="https://mbsp.com.pl/ai.html" rel="noopener" target="_blank">CzatAI <svg class="fs-ext" viewbox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" x2="21" y1="14" y2="3"></line></svg></a>
+</div>
+<div class="fs-reveal" style="--i:7">
+<p class="fs-label">Useful links</p>
+<div class="fs-links"><a href="press.html">Press</a><a href="contact.html">Contact</a><a href="letters.html">Founder’s Letters</a><a href="changelog.html">Changelog</a><a href="status.html">Service status</a></div>
+</div>
+</div>
+<div class="fs-tools fs-reveal" style="--i:8">
+<div class="mobile-action-row">
+<button aria-label="Change theme" class="action-icon-btn" id="themeToggleMobile" title="Theme">
+<svg class="theme-icon-moon" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+<svg class="theme-icon-sun" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+</button>
+<span class="mobile-action-label">Change theme</span>
+</div>
+<div class="mobile-action-row">
+<button class="action-icon-btn" id="langBtnMobile" title="Language">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+</button>
+<span class="mobile-action-label">Change language</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── LOKALNY HEADER CZATAI (TRANSPARENTNY) ─────────── -->
+<header class="product-header" id="productHeader">
+<nav class="product-nav-container">
+<a class="product-logo" href="about-czatai-pl.html">
+<span class="badge-dot"></span>
+                CzatAI
+            </a>
+<div class="product-nav-actions"><a class="btn-nav-outline" href="help.html">Help</a></div>
+</nav>
+</header>
+<!-- HERO 100VH -->
+<section class="czatai-hero">
+<div class="czatai-hero-container">
+<div class="czatai-hero-content">
+<h1 class="czatai-hero-title">Czat<span class="accent">AI</span></h1>
+<p class="czatai-hero-desc">A faster way to find information on MBSP.com.pl</p>
+<a class="btn-cta" href="https://mbsp.com.pl/">Try CzatAI</a>
+</div>
+<div class="chat-mockup-wrapper">
+<div class="chat-mockup">
+<div class="chat-mockup-header">
+<div class="chat-mockup-header-left">
+<div class="chat-mockup-title-block">
+<div class="chat-mockup-title-row">
+<span>ChatAI</span>
+<span class="chat-mockup-beta">BETA</span>
+</div>
+<span class="chat-mockup-status">● Assistant active</span>
+</div>
+</div>
+<span class="chat-mockup-close">↻</span>
+</div>
+<div class="chat-mockup-body">
+<p class="chat-mockup-greeting">How can I help you today?</p>
+<p class="chat-mockup-subtext">I can search the product database, explain the returns policy, or help you get around the MBSP.com.pl platform</p>
+<p class="chat-mockup-privacy">Chat history is not saved</p>
+</div>
+<div class="chat-mockup-quick-actions">
+<div class="chat-mockup-quick-btn"><span class="qb-title"><svg fill="none" height="13" stroke="currentColor" stroke-width="2.5" style="display:inline-block;vertical-align:middle;margin-right:5px" viewbox="0 0 24 24" width="13"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg> PRODUCTS</span>
+<span class="qb-desc">Looking for a 10k resistor</span></div>
+<div class="chat-mockup-quick-btn"><span class="qb-title"><svg fill="none" height="13" stroke="currentColor" stroke-width="2.5" style="display:inline-block;vertical-align:middle;margin-right:5px" viewbox="0 0 24 24" width="13"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> HELP &amp; DOCUMENTATION</span>
+<span class="qb-desc">How does it work in...</span></div>
+</div>
+<div class="chat-mockup-input-row">
+<span class="chat-mockup-input-fake">Ask a question...</span>
+<div class="chat-mockup-send-btn"><svg fill="none" height="16" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="16"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CYTAT-PODSUMOWANIE -->
+<section class="czatai-summary">
+<p>CzatAI helps you use the MB&amp;SP platform, find information, and answers frequently asked questions.</p>
+</section>
+<!-- O PROJEKCIE -->
+<section class="czatai-section">
+<span class="czatai-section-label">About the project</span>
+<h2>Simple support while using MB&amp;SP</h2>
+<p>CzatAI was created as an experimental tool to support users of the MB&amp;SP platform.</p>
+<p>Its goal is to make the service easier to use by helping you find information faster and reach help more easily.</p>
+</section>
+<!-- CO POTRAFI -->
+<section class="czatai-section">
+<h2>What can it do?</h2>
+<div class="capability-list">
+<div class="capability-item">
+<div class="capability-icon"><svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+<div class="capability-text">
+<h3>Answers questions</h3>
+<p>Helps you find information available on the platform.</p>
+</div>
+</div>
+<div class="capability-item">
+<div class="capability-icon"><svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></div>
+<div class="capability-text">
+<h3>Helps you use MB&amp;SP</h3>
+<p>Explains basic features and guides users through selected parts of the service.</p>
+</div>
+</div>
+<div class="capability-item">
+<div class="capability-icon"><svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div>
+<div class="capability-text">
+<h3>Supports the Help Center</h3>
+<p>Can point you to relevant articles or documentation.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- DLACZEGO POWSTAŁ -->
+<section class="czatai-section">
+<h2>Why was it built?</h2>
+<p>MB&amp;SP grows with every new version.</p>
+<p>CzatAI is one of the experiments testing whether artificial intelligence can make the MB&amp;SP platform simpler and more practical to use.</p>
+</section>
+<!-- AKTUALNY ROZWÓJ -->
+<section class="czatai-section">
+<h2>Current development</h2>
+<div class="dev-status-grid">
+<div class="dev-status-card available">
+<h3>Available</h3>
+<ul>
+<li>Basic conversations</li>
+<li>Platform help</li>
+<li>Help Center integration</li>
+</ul>
+</div>
+<div class="dev-status-card upcoming">
+<h3>In progress</h3>
+<ul>
+<li>Better answers</li>
+<li>Deeper knowledge of the platform</li>
+<li>Integration with more MB&amp;SP features</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- INFORMACJA -->
+<section class="czatai-section">
+<h2>Notice</h2>
+<div class="info-warning-box">
+<span class="info-warning-icon"><svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></span>
+<p>CzatAI is an experimental project. Answers may be incomplete or contain errors, so for important information it is always worth verifying them against the documentation or the platform’s support team.</p>
+</div>
+</section>
+<!-- LOKALNY FOOTER CZATAI -->
+<footer class="site-footer">
+<div class="footer-container">
+<div class="footer-brand-column">
+<h2>Useful links</h2>
+</div>
+<div class="footer-column">
+<h4>CzatAI</h4>
+<ul class="footer-links">
+<li><a href="changelog.html">Changelog</a></li>
+<li><a href="help.html">Help Center</a></li>
+<li><a href="https://mbsp.com.pl/help-feedback.html">Report a bug</a></li>
+<li><a href="https://mbsp.com.pl/help-feedback.html">Share feedback</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Information</h4>
+<ul class="footer-links">
+<li><a href="help.html#polityka-prywatnosci">Privacy</a></li>
+<li><a href="help.html#polityka-prywatnosci">Cookies</a></li>
+<li><a href="help.html#rodo">GDPR</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>
+const body = document.body;
+
+// ── DARK / LIGHT THEME ───────────────────────────────────
+(function() {
+  const html = document.documentElement;
+  const STORAGE_KEY = 'mu-theme';
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) html.classList.add('dark');
+
+  function toggleTheme() {
+    const isDark = html.classList.toggle('dark');
+    localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light');
+  }
+  document.getElementById('themeToggleDesktop').addEventListener('click', toggleTheme);
+  document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
+})();
+
+// ── NAVBARY: TRANSPARENT -> SOLID PRZY SCROLLU ────────────
+(function() {
+  const mainHeader = document.getElementById('mainHeader');
+  const productHeader = document.getElementById('productHeader');
+  const navHeight = 68; // musi odpowiadać --nav-height
+
+  function updateHeaders() {
+    const scrolled = window.scrollY > 12;
+    mainHeader.classList.toggle('scrolled', scrolled);
+    productHeader.classList.toggle('scrolled', scrolled);
+    // Po przewinięciu lokalny header "dokleja się" pod głównym, zamiast nakładać na hero
+    productHeader.style.top = scrolled ? navHeight + 'px' : navHeight + 'px';
+  }
+
+  window.addEventListener('scroll', updateHeaders, { passive: true });
+  updateHeaders();
+})();
+</script>
+<!-- KOD COOKIE BANNERA - komponent przenośny, gotowy do wklejenia na każdą platformę MU -->
+<div class="cookie-banner" id="cookieBanner">
+<!-- Treść -->
+<div class="cookie-content">
+<h2>Our users’ privacy matters most to us</h2>
+<p>To provide the highest quality of service, ensure our platforms run optimally, and analyze traffic,
+                we use cookies and similar technologies. You can find detailed information about the purposes of processing, managing consents, and
+                withdrawing them at any time in our
+                <a class="cookie-policy-link" href="help.html#polityka-prywatnosci">Privacy Policy</a> and <a class="cookie-policy-link" href="help.html#rodo">GDPR</a> information. Other useful links: <a class="cookie-policy-link" href="https://milyunlimited.eu/en/projects.html">Mily Unlimited platforms and services</a>.</p>
+</div>
+<!-- Przyciski -->
+<div class="cookie-actions">
+<button class="btn btn-reject" onclick="handleCookie(false)">Decline</button>
+<button class="btn btn-accept" onclick="handleCookie(true)">Accept</button>
+</div>
+</div>
+<script src="../i/cookies.js"></script>
+<!-- ── LIGHTBOX: ZMIANA JĘZYKA ───────────────────────── -->
+<div aria-label="Language selection" aria-modal="true" class="lang-modal-overlay" id="langModalOverlay" role="dialog">
+<div class="lang-modal">
+<button aria-label="Close" class="lang-modal-close" id="langModalClose">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+</button>
+<div class="lang-modal-icon">
+<svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+</div>
+<h3>Language selection</h3>
+<p>The Mily Unlimited website is available in Polish and English. Journal articles and founder’s letters are available in Polish only.</p>
+<div class="lang-modal-langs"><a class="lang-chip" href="../about-czatai-pl.html" hreflang="pl">🇵🇱 Polski</a>
+<span class="lang-chip active">🇬🇧 English</span></div>
+</div>
+</div>
+<script>
+// ── LIGHTBOX: ZMIANA JĘZYKA ──────────────────────────
+(function() {
+    var overlay = document.getElementById('langModalOverlay');
+    if (!overlay) return;
+    var closeBtn = document.getElementById('langModalClose');
+    function openLang() { overlay.classList.add('open'); }
+    function closeLang() { overlay.classList.remove('open'); }
+    ['langBtnDesktop', 'langBtnMobile'].forEach(function(id) {
+        var b = document.getElementById(id);
+        if (b) b.addEventListener('click', openLang);
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeLang);
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeLang(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLang(); });
+})();
+</script>
+<script src="../i/resources/fs-menu.js"></script>
+</body>
+</html>
